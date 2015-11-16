@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blijblijblij.github.io</title>
+    <description>blablabla, pentaho, linux, docker, mesos...</description>
+    <link>https://blijblijblij.github.io/</link>
+    <atom:link href="https://blijblijblij.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 16 Nov 2015 22:58:47 +0100</pubDate>
+    <lastBuildDate>Mon, 16 Nov 2015 22:58:47 +0100</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>From blogspot to github.io</title>
+        <description>&lt;p&gt;My &lt;a href=&quot;https://rogierwessel.blogspot.nl&quot;&gt;blogspot blog&lt;/a&gt; has been dead for years, not good! There wasn&#39;t much to `blah` about, also writing something technical on blogspot with nice formating like... &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/pentaho/biserver/biserver.1.2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;cpus&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;mem&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1024.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;instances&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;DOCKER&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;docker&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;image&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;pentaho/biserver:1.2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;network&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;BRIDGE&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;portMappings&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;containerPort&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;hostPort&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;servicePort&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;protocol&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;tcp&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;healthChecks&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;quot;protocol&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;HTTP&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;quot;path&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/_status&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;quot;portIndex&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;quot;gracePeriodSeconds&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;quot;intervalSeconds&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;quot;timeoutSeconds&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;quot;maxConsecutiveFailures&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;... makes you wanna shoot yourself and burry that blog far far away.&lt;/p&gt;
+
+&lt;h2 class=&quot;section-heading&quot;&gt;Enter git, github pages, jekkyl, markdown and some pretty theme ... &lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Git_(software)&quot;&gt;git&lt;/a&gt;, &lt;a href=&quot;https://pages.github.com/&quot;&gt;github pages&lt;/a&gt;, &lt;a href=&quot;https://help.github.com/articles/github-flavored-markdown/&quot;&gt;markdown&lt;/a&gt; and &lt;a href=&quot;http://ironsummitmedia.github.io/startbootstrap-clean-blog/&quot;&gt;some pretty theme&lt;/a&gt; ... life is good again, so some bloggy stuff ahead ...&lt;/p&gt;
+</description>
+        <pubDate>Mon, 16 Nov 2015 22:00:00 +0100</pubDate>
+        <link>https://blijblijblij.github.io/2015/11/16/newblog/</link>
+        <guid isPermaLink="true">https://blijblijblij.github.io/2015/11/16/newblog/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Pentaho NL Usergroup!</title>
+        <description>&lt;p&gt;Last weekend the European Pentaho User meetup (&lt;a href=&quot;https://github.com/PentahoCommunityMeetup2015/info/blob/master/README.md&quot;&gt;#pcm15&lt;/a&gt;) was held in London. Two days of hacking, technical talks and beer was the perfect recipe to make a great meeting.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;
+    &lt;img src=&quot;/img/2015-11-16_pcm-2015-logo.jpg&quot; alt=&quot;Pcm 2015&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;
+    &lt;img src=&quot;/img/2015-11-16_pcm15_presentatie.jpg&quot; alt=&quot;Julien and me&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We had great talks, and I caught up with some Dutch colleagues and we concluded there should be some local NL followup to this community initiative!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;
+    &lt;img src=&quot;/img/2015-11-16_pentahonl_logo-ish_thingy.png&quot; alt=&quot;Ugly logo goes here ...&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So here it is, a Pentaho NL Usergroup: &lt;a href=&quot;http://www.meetup.com/Pentaho-NL-Meetup/&quot;&gt;http://www.meetup.com/Pentaho-NL-Meetup/&lt;/a&gt;, and it
+would not be a meetup if there wasn’t any &lt;a href=&quot;https://twitter.com/PentahoNl&quot;&gt;tweettweet&lt;/a&gt;…&lt;/p&gt;
+
+&lt;p&gt;Soon we’ll set out a first date, but please register on meetup!&lt;/p&gt;
+
+&lt;p&gt;Regards, Rogier&lt;/p&gt;
+</description>
+        <pubDate>Tue, 10 Nov 2015 22:00:00 +0100</pubDate>
+        <link>https://blijblijblij.github.io/2015/11/10/pentaho-nl/</link>
+        <guid isPermaLink="true">https://blijblijblij.github.io/2015/11/10/pentaho-nl/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

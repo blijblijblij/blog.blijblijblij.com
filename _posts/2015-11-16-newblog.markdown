@@ -1,0 +1,50 @@
+---
+layout:     post
+title:      "From blogspot to github.io"
+subtitle:   "better functionality, and i want my markdown down downnnn."
+date:       2015-11-16 21:00:00
+author:     "Rogier Wessel"
+header-img: "img/post-bg-01.jpg"
+---
+
+<p>My <a href="https://rogierwessel.blogspot.nl">blogspot blog</a> has been dead for years, not good! There wasn't much to `blah` about, also writing something technical on blogspot with nice formating like... </p>
+
+{% highlight json %}
+{
+  "id": "/pentaho/biserver/biserver.1.2",
+  "cpus": 0.25,
+  "mem": 1024.0,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "pentaho/biserver:1.2",
+      "network": "BRIDGE",
+      "portMappings": [{
+        "containerPort": 8080,
+        "hostPort": 0,
+        "servicePort": 0,
+        "protocol": "tcp"
+      }]
+    }
+  },
+  "healthChecks": [
+   {
+     "protocol": "HTTP",
+     "path": "/_status",
+     "portIndex": 0,
+     "gracePeriodSeconds": 200,
+     "intervalSeconds": 10,
+     "timeoutSeconds": 5,
+     "maxConsecutiveFailures": 3
+   }
+ ]
+}
+
+{% endhighlight %}
+
+<p>... makes you wanna shoot yourself and burry that blog far far away.</p>
+
+<h2 class="section-heading">Enter git, github pages, jekkyl, markdown and some pretty theme ... </h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Git_(software)">git</a>, <a href="https://pages.github.com/">github pages</a>, <a href="https://help.github.com/articles/github-flavored-markdown/">markdown</a> and <a href="http://ironsummitmedia.github.io/startbootstrap-clean-blog/">some pretty theme</a> ... life is good again, so some bloggy stuff ahead ...</p>
