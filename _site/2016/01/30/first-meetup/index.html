@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="blablabla, pentaho, linux, docker, mesos...">
+
+    <title>First pentaho nl meetup! - blijblijblij.github.io</title>
+
+    <link rel="canonical" href="https://blijblijblij.github.io/2016/01/30/first-meetup/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">blijblijblij.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-05.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>First pentaho nl meetup!</h1>
+                    
+                    <h2 class="subheading">beer, pizza, a lot of people!</h2>
+                    
+                    <span class="meta">Posted by Rogier Wessel on January 30, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Busy times, so with a slight delay a recap of our very first <a href="http://www.meetup.com/Pentaho-NL-Meetup/">pentaho NL meetup</a>.
+</p>
+<p>ReelMetrics supplied a nice venue for this first meetup, took care off
+much appreciated beers and pizza's. After these refreshments we had some nice talks
+covering a wide range of functionalities within the Pentaho ecosphere.</p>
+
+<h1 id="intro">Intro</h1>
+<p>From a yearly gathering somewhere in Europe, why not do a dutch equivalent every
+couple of months?! As open-source is thriving, community initiatives become even
+more important, and more than enough people doing Pentaho stuff in The Netherlands,
+so we gave it a try!</p>
+
+<p>Some general "goals" to our meetup:</p>
+
+<ul>
+  <li>to have FUN!</li>
+  <li>to learn!</li>
+  <li>to share!</li>
+  <li>for noobs, super-dupper-master-hackers and everything in between!</li>
+  <li>every couple of months-ish</li>
+</ul>
+
+<p><strong>Note</strong>, if a traveling pentaho rockstars comes along, we should do a adhoc meetup
+and seize that opportunity!</p>
+
+<h1 id="pentaho-and-docker-docker-docker">Pentaho and Docker Docker Docker!</h1>
+<p><em>Rogier Wessel</em> Ok, I must admit, I am a big fan of both Pentaho and Docker. During this talk I explained
+first the basic building blocks that make up docker. Then talked about glueing
+services together into a docker composition. Finally once you start growing that
+infrastructure other problems arise, orchestration of docker instances running
+on multiple hosts gets complicated, and running a couple compositions doesn’t cut
+it anymore.</p>
+
+<p>I gathered a lot of direction on orchestration based on the sound analyses
+by <a href="https://twitter.com/adrianmouat">Adrian Mouat's</a> article on O'reilly radar <a href="http://radar.oreilly.com/2015/10/swarm-v-fleet-v-kubernetes-v-mesos.html">Swarm v. Fleet v. Kubernetes v. Mesos</a>.</p>
+
+<p>Based on that article I continued my quest in orchestration and investigated <a href="http://mesos.apache.org/">Apache mesos</a>
+extensively. The second half of my talk was demo time. When you do Docker with Pentaho software
+on Apache mesos, what are the components that make up the infrastructure, how is
+everything interconnected, and why does this complicated infrastructure make sense
+once your infrastructure grows beyond a certain size.</p>
+
+<iframe src="https://docs.google.com/presentation/d/1qcNw-m7f7XHjGA6KfEjd3mqR03gsqM2N6kNDCTgP5pA/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="700" height="422" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<p>All code about creating and running a Mesos cluster is on my github page
+https://github.com/blijblijblij/docker-mesos: </p>
+
+<ul>
+  <li><a href="https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-virtualbox-cluster.sh">building a local virtualbox cluster</a></li>
+  <li><a href="https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-generic-ssh-cluster.sh">building a cluster via ssh</a></li>
+  <li><a href="https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-aws-cluster.sh">or directly via the aws api</a></li>
+  <li><a href="https://github.com/blijblijblij/docker-mesos/tree/develop/run">and running that cluster</a></li>
+</ul>
+
+<h1 id="ctools-dashboards-are-awesome">CTools Dashboards are Awesome!</h1>
+<p><em>Julien Hofstede</em> This presentation showed some techniques to make development of the dashboards easier like reusable components and global settings. And even to create your own component! Take the step beyond CDE and leverage the full power of CDF! No knowledge or experience with CDF? No worries! It will for sure help you to understand the concept of CDF better.</p>
+
+<p>Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout!</p>
+
+<h1 id="the-community-contributed-jdbc-metadata-step-for-pentaho-data-integration">The Community Contributed JDBC Metadata Step for Pentaho Data integration</h1>
+<p><em>Roland Bouman</em> <a href="https://github.com/rpbouman/pentaho-pdi-plugin-jdbc-metadata">The Community Contributed JDBC Metadata Step for Pentaho Data integration</a> enables you to use database metadata to drive transformations. You can use it to track database schema changes, to generate DDL, and even to implement datawarehouse automation. His presentation demonstrated the features of the plugin and illustrated how you can use it in your kettle transformations.</p>
+
+<p>Roland never seems to stop coming up with new functionalities giving new insights, his code is all up on <a href="https://github.com/rpbouman">github</a>. He could do with some extra eyes on the code, or some extra code to further extent his current work. So feel free to join and <a href="https://twitter.com/rolandbouman">give him a nudge</a>!</p>
+
+<h1 id="whats-up-next">What’s up next?!</h1>
+<p>Well, a lot of people turned up, some even took a hotel because of their long travels, big up for that!</p>
+
+<p>Next to ReelMetrics some other sponsors came forward, for a location, pitch in for some beers :-). Also several people already offered to give a talk about some subject. <a href="https://twitter.com/dennisintgroen">Dennis</a> wouldn't mind diving into CDE widgets, and offering another view to reusable components along the lines of Juliens talk. <a href="https://twitter.com/edwin_weber">Edwin</a> had something up his sleeve. Even <a href="https://twitter.com/codek1">Dan Keeley</a> offered to come over and give a talk, we would love to accept his offer, and learn from his extensive experience.</p>
+
+<p>So, enough momentum, looking forward to our next meetup!!!</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2015/11/16/newblog/" data-toggle="tooltip" data-placement="top" title="From blogspot to github.io">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://twitter.com/blijblijblij">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/blijblijblij">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; blijblijblij.github.io 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>
