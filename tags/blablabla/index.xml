@@ -16,7 +16,9 @@
       <pubDate>Mon, 16 Nov 2015 23:02:34 +0200</pubDate>
       
       <guid>https://blijblijblij.github.io/post/2015-11-16-newblog/</guid>
-      <description>&lt;p&gt;My &lt;a href=&#34;https://rogierwessel.blogspot.nl&#34;&gt;blogspot blog&lt;/a&gt; has been dead for years, not good! There wasn&amp;rsquo;t much to &lt;code&gt;blah&lt;/code&gt; about, also writing something technical on blogspot with nice formating like&amp;hellip;&lt;/p&gt;
+      <description>
+
+&lt;p&gt;My &lt;a href=&#34;https://rogierwessel.blogspot.nl&#34;&gt;blogspot blog&lt;/a&gt; has been dead for years, not good! There wasn&amp;rsquo;t much to &lt;code&gt;blah&lt;/code&gt; about, also writing something technical on blogspot with nice formating like&amp;hellip;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-type=json&#34;&gt;{
   &amp;quot;id&amp;quot;: &amp;quot;/pentaho/biserver/biserver.1.2&amp;quot;,
@@ -50,11 +52,11 @@
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;... makes you wanna shoot yourself and burry that blog far far away.&lt;/p&gt;
+&lt;p&gt;&amp;hellip; makes you wanna shoot yourself and burry that blog far far away.&lt;/p&gt;
 
-&lt;h2 class=&#34;section-heading&#34;&gt;Enter git, github pages, jekkyl, markdown and some pretty theme ... &lt;/h2&gt;
+&lt;h1 id=&#34;enter-git-github-pages-jekkyl-markdown-and-some-pretty-theme:3b1bb06d8e22c8d1e48408a1e8e932ee&#34;&gt;Enter git, github pages, jekkyl, markdown and some pretty theme &amp;hellip;&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Git_(software)&#34;&gt;git&lt;/a&gt;, &lt;a href=&#34;https://pages.github.com/&#34;&gt;github pages&lt;/a&gt;, &lt;a href=&#34;https://help.github.com/articles/github-flavored-markdown/&#34;&gt;markdown&lt;/a&gt; and &lt;a href=&#34;http://ironsummitmedia.github.io/startbootstrap-clean-blog/&#34;&gt;some pretty theme&lt;/a&gt; ... life is good again, so some bloggy stuff ahead ...&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Git_(software&#34;&gt;git&lt;/a&gt;, &lt;a href=&#34;https://pages.github.com/&#34;&gt;github pages&lt;/a&gt;, &lt;a href=&#34;https://help.github.com/articles/github-flavored-markdown/&#34;&gt;markdown&lt;/a&gt; and &lt;a href=&#34;http://ironsummitmedia.github.io/startbootstrap-clean-blog/&#34;&gt;some pretty theme&lt;/a&gt; &amp;hellip; life is good again, so some bloggy stuff ahead &amp;hellip;&lt;/p&gt;
 </description>
     </item>
     

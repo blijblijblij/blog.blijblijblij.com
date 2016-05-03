@@ -36,20 +36,15 @@
       <guid>https://blijblijblij.github.io/post/2016-01-30-first-meetup/</guid>
       <description>
 
-&lt;p&gt;Busy times, so with a slight delay a recap of our very first &lt;a href=&#34;http://www.meetup.com/Pentaho-NL-Meetup/&#34;&gt;pentaho NL meetup&lt;/a&gt;.
-&lt;/p&gt;
-&lt;p&gt;ReelMetrics supplied a nice venue for this first meetup, took care off
-much appreciated beers and pizza&#39;s. After these refreshments we had some nice talks
-covering a wide range of functionalities within the Pentaho ecosphere.&lt;/p&gt;
+&lt;p&gt;Busy times, so with a slight delay a recap of our very first &lt;a href=&#34;http://www.meetup.com/Pentaho-NL-Meetup/&#34;&gt;pentaho NL meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;ReelMetrics supplied a nice venue for this first meetup, took care off much appreciated beers and pizza&amp;rsquo;s. After these refreshments we had some nice talks covering a wide range of functionalities within the Pentaho ecosphere.&lt;/p&gt;
 
 &lt;h1 id=&#34;intro:eeaa397aca5e1bb7cca39c6e05f576ee&#34;&gt;Intro&lt;/h1&gt;
 
-&lt;p&gt;From a yearly gathering somewhere in Europe, why not do a dutch equivalent every
-couple of months?! As open-source is thriving, community initiatives become even
-more important, and more than enough people doing Pentaho stuff in The Netherlands,
-so we gave it a try!&lt;/p&gt;
+&lt;p&gt;From a yearly gathering somewhere in Europe, why not do a dutch equivalent every couple of months?! As open-source is thriving, community initiatives become even more important, and more than enough people doing Pentaho stuff in The Netherlands, so we gave it a try!&lt;/p&gt;
 
-&lt;p&gt;Some general &#34;goals&#34; to our meetup:&lt;/p&gt;
+&lt;p&gt;Some general &amp;ldquo;goals&amp;rdquo; to our meetup:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;to have FUN!&lt;/li&gt;
@@ -72,13 +67,10 @@ on multiple hosts gets complicated, and running a couple compositions doesn&amp;
 it anymore.&lt;/p&gt;
 
 &lt;p&gt;I gathered a lot of direction on orchestration based on the sound analyses
-by &lt;a href=&#34;https://twitter.com/adrianmouat&#34;&gt;Adrian Mouat&#39;s&lt;/a&gt; article on O&#39;reilly radar &lt;a href=&#34;http://radar.oreilly.com/2015/10/swarm-v-fleet-v-kubernetes-v-mesos.html&#34;&gt;Swarm v. Fleet v. Kubernetes v. Mesos&lt;/a&gt;.&lt;/p&gt;
+by [Adrian Mouat&#39;s](https://twitter.com/adrianmouat) article on O&#39;reilly radar [Swarm v. Fleet v. Kubernetes v. Mesos](http://radar.oreilly.com/2015/10/swarm-v-fleet-v-kubernetes-v-mesos.html).
 
-&lt;p&gt;Based on that article I continued my quest in orchestration and investigated &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;Apache mesos&lt;/a&gt;
-extensively. The second half of my talk was demo time. When you do Docker with Pentaho software
-on Apache mesos, what are the components that make up the infrastructure, how is
-everything interconnected, and why does this complicated infrastructure make sense
-once your infrastructure grows beyond a certain size.&lt;/p&gt;
+Based on that article I continued my quest in orchestration and investigated [Apache Mesos](http://mesos.apache.org/)
+extensively. The second half of my talk was demo time. When you do Docker with Pentaho software on Apache mesos, what are the components that make up the infrastructure, how is everything interconnected, and why does this complicated infrastructure make sense once your infrastructure grows beyond a certain size.
 
 &lt;iframe src=&#34;https://docs.google.com/presentation/d/1qcNw-m7f7XHjGA6KfEjd3mqR03gsqM2N6kNDCTgP5pA/embed?start=false&amp;loop=false&amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;700&#34; height=&#34;422&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 
