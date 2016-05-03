@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meetup on blijblijblij.github.io</title>
-    <link>https://blijblijblij.github.io/tags/meetup/</link>
+    <link>http://blijblijblij.github.io/tags/meetup/</link>
     <description>Recent content in Meetup on blijblijblij.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
     <lastBuildDate>Tue, 26 Apr 2016 23:03:34 +0200</lastBuildDate>
-    <atom:link href="https://blijblijblij.github.io/tags/meetup/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blijblijblij.github.io/tags/meetup/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Update: First pentaho nl meetup!</title>
-      <link>https://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</link>
+      <link>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</link>
       <pubDate>Tue, 26 Apr 2016 23:03:34 +0200</pubDate>
       
-      <guid>https://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</guid>
+      <guid>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</guid>
       <description>
 
 &lt;h1 id=&#34;tools-dashboards-are-awesome:c9a0adf7a1a73d196ca2608ce478d205&#34;&gt;Tools Dashboards are Awesome!&lt;/h1&gt;
@@ -24,16 +24,16 @@
 
 &lt;p&gt;Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout!&lt;/p&gt;
 
-&lt;p&gt;Here: &lt;a href=&#34;https://blijblijblij.github.io/static/pdf/20160131_CDF_beyond_CDE.pdf&#34;&gt;Juliens talk &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here: &lt;a href=&#34;http://blijblijblij.github.io/static/pdf/20160131_CDF_beyond_CDE.pdf&#34;&gt;Juliens talk &lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>First pentaho nl meetup!</title>
-      <link>https://blijblijblij.github.io/post/2016-01-30-first-meetup/</link>
+      <link>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</link>
       <pubDate>Sat, 30 Jan 2016 23:02:54 +0200</pubDate>
       
-      <guid>https://blijblijblij.github.io/post/2016-01-30-first-meetup/</guid>
+      <guid>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</guid>
       <description>
 
 &lt;p&gt;Busy times, so with a slight delay a recap of our very first &lt;a href=&#34;http://www.meetup.com/Pentaho-NL-Meetup/&#34;&gt;pentaho NL meetup&lt;/a&gt;.&lt;/p&gt;

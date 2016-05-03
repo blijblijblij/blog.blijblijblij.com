@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pentaho on blijblijblij.github.io</title>
-    <link>https://blijblijblij.github.io/tags/pentaho/</link>
+    <link>http://blijblijblij.github.io/tags/pentaho/</link>
     <description>Recent content in Pentaho on blijblijblij.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
     <lastBuildDate>Tue, 26 Apr 2016 23:03:34 +0200</lastBuildDate>
-    <atom:link href="https://blijblijblij.github.io/tags/pentaho/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blijblijblij.github.io/tags/pentaho/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Update: First pentaho nl meetup!</title>
-      <link>https://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</link>
+      <link>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</link>
       <pubDate>Tue, 26 Apr 2016 23:03:34 +0200</pubDate>
       
-      <guid>https://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</guid>
+      <guid>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</guid>
       <description>
 
 &lt;h1 id=&#34;tools-dashboards-are-awesome:c9a0adf7a1a73d196ca2608ce478d205&#34;&gt;Tools Dashboards are Awesome!&lt;/h1&gt;
@@ -24,16 +24,16 @@
 
 &lt;p&gt;Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout!&lt;/p&gt;
 
-&lt;p&gt;Here: &lt;a href=&#34;https://blijblijblij.github.io/static/pdf/20160131_CDF_beyond_CDE.pdf&#34;&gt;Juliens talk &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here: &lt;a href=&#34;http://blijblijblij.github.io/static/pdf/20160131_CDF_beyond_CDE.pdf&#34;&gt;Juliens talk &lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>First pentaho nl meetup!</title>
-      <link>https://blijblijblij.github.io/post/2016-01-30-first-meetup/</link>
+      <link>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</link>
       <pubDate>Sat, 30 Jan 2016 23:02:54 +0200</pubDate>
       
-      <guid>https://blijblijblij.github.io/post/2016-01-30-first-meetup/</guid>
+      <guid>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</guid>
       <description>
 
 &lt;p&gt;Busy times, so with a slight delay a recap of our very first &lt;a href=&#34;http://www.meetup.com/Pentaho-NL-Meetup/&#34;&gt;pentaho NL meetup&lt;/a&gt;.&lt;/p&gt;
@@ -106,10 +106,10 @@ extensively. The second half of my talk was demo time. When you do Docker with P
     
     <item>
       <title>Pentaho NL Usergroup!</title>
-      <link>https://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</link>
+      <link>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</link>
       <pubDate>Tue, 10 Nov 2015 23:02:04 +0200</pubDate>
       
-      <guid>https://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</guid>
+      <guid>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</guid>
       <description>&lt;p&gt;Last weekend the European Pentaho User meetup &lt;a href=&#34;https://github.com/PentahoCommunityMeetup2015/info/blob/master/README.md&#34;&gt;#pcm15&lt;/a&gt; was held in London. Two days of hacking, technical talks and beer was the perfect recipe to make a great meeting.
   &lt;img src=&#34;http://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/ce7f4ced5f62234f4cf35cb695c86189e587a09e/_site/img/2015-11-16_pcm-2015-logo.jpg&#34; alt=&#34;#pcm15 logo&#34; title=&#34;#pcm15 logo&#34; /&gt;&lt;/p&gt;
 

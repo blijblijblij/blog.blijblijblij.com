@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blablabla on blijblijblij.github.io</title>
-    <link>https://blijblijblij.github.io/tags/blablabla/</link>
+    <link>http://blijblijblij.github.io/tags/blablabla/</link>
     <description>Recent content in Blablabla on blijblijblij.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
     <lastBuildDate>Mon, 16 Nov 2015 23:02:34 +0200</lastBuildDate>
-    <atom:link href="https://blijblijblij.github.io/tags/blablabla/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blijblijblij.github.io/tags/blablabla/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>From blogspot to github.io</title>
-      <link>https://blijblijblij.github.io/post/2015-11-16-newblog/</link>
+      <link>http://blijblijblij.github.io/post/2015-11-16-newblog/</link>
       <pubDate>Mon, 16 Nov 2015 23:02:34 +0200</pubDate>
       
-      <guid>https://blijblijblij.github.io/post/2015-11-16-newblog/</guid>
+      <guid>http://blijblijblij.github.io/post/2015-11-16-newblog/</guid>
       <description>
 
 &lt;p&gt;My &lt;a href=&#34;https://rogierwessel.blogspot.nl&#34;&gt;blogspot blog&lt;/a&gt; has been dead for years, not good! There wasn&amp;rsquo;t much to &lt;code&gt;blah&lt;/code&gt; about, also writing something technical on blogspot with nice formating like&amp;hellip;&lt;/p&gt;
