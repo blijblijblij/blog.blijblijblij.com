@@ -7,8 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Tue, 03 May 2016 16:13:59 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 11 May 2016 07:00:32 +0200</lastBuildDate>
     <atom:link href="http://blijblijblij.github.io/tags/pentaho/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Pentaho NL spring meetup</title>
+      <link>http://blijblijblij.github.io/post/pentahanl-spring-meetup/</link>
+      <pubDate>Wed, 11 May 2016 07:00:32 +0200</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/pentahanl-spring-meetup/</guid>
+      <description>
+
+&lt;p&gt;Last month we gathered for the second Pentaho NL meetup. &lt;a href=&#34;https://www.twitter.com/incentro&#34;&gt;@Incentro&lt;/a&gt; were sponsoring the location (their office at former Airport Ypenburg) as well as some excellent food and drinks, much appreciated guys!&lt;/p&gt;
+
+&lt;p&gt;Again we had an impressive turn up, some new faces, some more familiar, a good mix for sharing and discussing life, the universe, and well, &lt;a href=&#34;https://www.twitter.com/pentaho&#34;&gt;Pentaho&lt;/a&gt; stuff&amp;hellip;&lt;/p&gt;
+
+&lt;h1 id=&#34;data-virtualization-with-pdi-community-edition:798285d4784124b9be5049549e519cbb&#34;&gt;Data Virtualization with PDI Community Edition&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Edwin Weber&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/c38182b984a7481a01c0b0e84eb3b2e4a926eff7/images/2016-04-19-edwin.jpg&#34; alt=&#34;alt text&#34; title=&#34;Edwin on fire!&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Edwin challenged the demo-gods, they got the better off him. But Edwin is a master (karate wise, as well as pentaho wise). He reclaimed his mastery and demo-ed Data Virtualization using the thin jdbc driver running sql queries on top of data transformations. Apparently this functionality still needs some hammering to get it to work. But from what I have heared Edwins work has already been relayed to another master, a new &lt;a href=&#34;https://twitter.com/diethardsteiner&#34;&gt;Diethard Steiner&lt;/a&gt; post should be in the makings.&lt;/p&gt;
+
+&lt;p&gt;As for &lt;a href=&#34;https://twitter.com/edwin_weber&#34;&gt;Edwins&lt;/a&gt; talk, here is the &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/0edeaeef6e7778ebac04579505e3418470d3eb91/pdf/20160503_data_virtualization_demo.pdf&#34;&gt;transscript&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;datastax-cassandra-plugin:798285d4784124b9be5049549e519cbb&#34;&gt;Datastax Cassandra plugin&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Rudmer van Dijk&lt;/em&gt;
+&lt;em&gt;The current Cassandra plugin from Pentaho uses an old driver which is unable to support secure SSL connections to the cluster. At Incentro we created a new plugin that utilises the Datastax driver so we can use the secure connection. I&amp;rsquo;ll give a walkthrough and demonstration of the three steps in this plugin.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Rudmer gave a demo about their newly developed Data Cassandra driver taking us through all functionalities.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/master/images/2016-04-13-cassandra-driver.png&#34; alt=&#34;alt text&#34; title=&#34;In the marketplace&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It has been released from the marketplace, hooray on that!&lt;/p&gt;
+
+&lt;h1 id=&#34;tips-and-tricks-of-using-javascript-in-pdi:798285d4784124b9be5049549e519cbb&#34;&gt;Tips and Tricks of using JavaScript in PDI&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Julien Hofstede&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;ldquo;We all agree: Kettle is awesome. But sometimes seemingly easy things are hard to accomplish, or just not possible with Kettle. I&amp;rsquo;ll show some easy and advanced uses of the JavaScript Step in PDI such as prompts, dynamic accessing of rows, calculations and filtering of rows.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Julien talk was very interesting, stressing the balance between doing it the Etl / pentaho way versus fixing it in one go in a javascript step. The javascript step is a very powerfull step (dating back to that very beginning of PDI) enabling you to dive deep inside the Pentaho data-integration application and exposing api&amp;rsquo;s unknown to most!&lt;/p&gt;
+
+&lt;p&gt;His talk can be found &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/master/pdf/20160513_JavaScript%20in%20PDI.pdf&#34;&gt;here&lt;/a&gt;, but make sure you dive into the &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/master/pdf/JavaScript%20in%20PDI.zip&#34;&gt;demo samples&lt;/a&gt; as well!!!&lt;/p&gt;
+
+&lt;p&gt;To conclude, another inspriring Pentaho NL meetup!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Jekyll boooh, hugo yeah!</title>
