@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" First pentaho nl meetup! &middot;  blijblijblij.github.io" />
+  	<meta property="og:site_name" content="blijblijblij.github.io" />
+  	<meta property="og:url" content="http://blijblijblij.github.io/post/2016-01-30-first-meetup/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-01-30T23:02:54&#43;02:00" />
+
+    
+    <meta property="og:article:tag" content="pentaho" />
+    
+    <meta property="og:article:tag" content="meetup" />
+    
+    
+
+  <title>
+     First pentaho nl meetup! &middot;  blijblijblij.github.io
+  </title>
+
+    <meta name="description" content="... blablabla, linux, pentaho, docker, mesos ..." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://blijblijblij.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://blijblijblij.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://blijblijblij.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://blijblijblij.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://blijblijblij.github.io/index.xml" rel="alternate" type="application/rss+xml" title="blijblijblij.github.io" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.16" />
+
+    <link rel="canonical" href="http://blijblijblij.github.io/post/2016-01-30-first-meetup/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77257717-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="http://blijblijblij.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head" style="background-image: url(http://blijblijblij.github.io/images/cover.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="http://blijblijblij.github.io/"><img src="http://blijblijblij.github.io/images/logo.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button icon-feed" href="http://blijblijblij.github.io/index.xml">&nbsp;&nbsp;Subscribe</a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">First pentaho nl meetup!</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-01-30T23:02:54&#43;02:00">
+            Jan 30, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="http://blijblijblij.github.io/tags/pentaho/">#pentaho</a></span>
+         
+          <span class="post-tag small"><a href="http://blijblijblij.github.io/tags/meetup/">#meetup</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>Busy times, so with a slight delay a recap of our very first <a href="http://www.meetup.com/Pentaho-NL-Meetup/">pentaho NL meetup</a>.</p>
+
+<p>ReelMetrics supplied a nice venue for this first meetup, took care off much appreciated beers and pizza&rsquo;s. After these refreshments we had some nice talks covering a wide range of functionalities within the Pentaho ecosphere.</p>
+
+<h1 id="intro">Intro</h1>
+
+<p>From a yearly gathering somewhere in Europe, why not do a dutch equivalent every couple of months?! As open-source is thriving, community initiatives become even more important, and more than enough people doing Pentaho stuff in The Netherlands, so we gave it a try!</p>
+
+<p>Some general &ldquo;goals&rdquo; to our meetup:</p>
+
+<ul>
+<li>to have FUN!</li>
+<li>to learn!</li>
+<li>to share!</li>
+<li>for noobs, super-dupper-master-hackers and everything in between!</li>
+<li>every couple of months-ish</li>
+</ul>
+
+<p><strong>Note</strong>, if a traveling pentaho rockstars comes along, we should do a adhoc meetup
+and seize that opportunity!</p>
+
+<h1 id="pentaho-and-docker-docker-docker">Pentaho and Docker Docker Docker!</h1>
+
+<p><em>Rogier Wessel</em> Ok, I must admit, I am a big fan of both Pentaho and Docker. During this talk I explained
+first the basic building blocks that make up docker. Then talked about glueing
+services together into a docker composition. Finally once you start growing that
+infrastructure other problems arise, orchestration of docker instances running
+on multiple hosts gets complicated, and running a couple compositions doesn&rsquo;t cut
+it anymore.</p>
+
+<p>I gathered a lot of direction on orchestration based on the sound analyses by <a href="https://twitter.com/adrianmouat">Adrian Mouat&rsquo;s</a> article on O&rsquo;reilly radar <a href="http://radar.oreilly.com/2015/10/swarm-v-fleet-v-kubernetes-v-mesos.html">Swarm v. Fleet v. Kubernetes v. Mesos</a>.</p>
+
+<p>Based on that article I continued my quest in orchestration and investigated <a href="http://mesos.apache.org/">Apache Mesos</a>
+extensively. The second half of my talk was demo time. When you do Docker with Pentaho software on Apache mesos, what are the components that make up the infrastructure, how is everything interconnected, and why does this complicated infrastructure make sense once your infrastructure grows beyond a certain size.</p>
+
+<iframe src="https://docs.google.com/presentation/d/1qcNw-m7f7XHjGA6KfEjd3mqR03gsqM2N6kNDCTgP5pA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="700" height="422" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<p>All code about creating and running a Mesos cluster is on <a href="https://github.com/blijblijblij/docker-mesos">my github page</a>:</p>
+
+<ul>
+<li><a href="https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-virtualbox-cluster.sh">building a local virtualbox cluster</a></li>
+<li><a href="https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-generic-ssh-cluster.sh">building a cluster via ssh</a></li>
+<li><a href="https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-aws-cluster.sh">or directly via the aws api</a></li>
+<li><a href="https://github.com/blijblijblij/docker-mesos/tree/develop/run">and running that cluster</a></li>
+</ul>
+
+<h1 id="ctools-dashboards-are-awesome">CTools Dashboards are Awesome!</h1>
+
+<p><em>Julien Hofstede</em> This presentation showed some techniques to make development of the dashboards easier like reusable components and global settings. And even to create your own component! Take the step beyond CDE and leverage the full power of CDF! No knowledge or experience with CDF? No worries! It will for sure help you to understand the concept of CDF better.</p>
+
+<p>Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout!</p>
+
+<h1 id="the-community-contributed-jdbc-metadata-step-for-pentaho-data-integration">The Community Contributed JDBC Metadata Step for Pentaho Data integration</h1>
+
+<p><em>Roland Bouman</em> <a href="https://github.com/rpbouman/pentaho-pdi-plugin-jdbc-metadata">The Community Contributed JDBC Metadata Step for Pentaho Data integration</a> enables you to use database metadata to drive transformations. You can use it to track database schema changes, to generate DDL, and even to implement datawarehouse automation. His presentation demonstrated the features of the plugin and illustrated how you can use it in your kettle transformations.</p>
+
+<p>Roland never seems to stop coming up with new functionalities giving new insights, his code is all up on <a href="https://github.com/rpbouman">github</a>. He could do with some extra eyes on the code, or some extra code to further extent his current work. So feel free to join and <a href="https://twitter.com/rolandbouman">give him a nudge</a>!</p>
+
+<h1 id="what-s-up-next">What&rsquo;s up next?!</h1>
+
+<p>Well, a lot of people turned up, some even took a hotel because of their long travels, big up for that!</p>
+
+<p>Next to ReelMetrics some other sponsors came forward, for a location, pitch in for some beers :-). Also several people already offered to give a talk about some subject. <a href="https://twitter.com/dennisintgroen">Dennis</a> wouldn&rsquo;t mind diving into CDE widgets, and offering another view to reusable components along the lines of Juliens talk. <a href="https://twitter.com/edwin_weber">Edwin</a> had something up his sleeve. Even [Dan Keeley]<a href="https://twitter.com/codek1">https://twitter.com/codek1</a> offered to come over and give a talk, we would love to accept his offer, and learn from his extensive experience.</p>
+
+<p>So, enough momentum, looking forward to our next meetup!!!</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://blijblijblij.github.io/" style="background-image: url(http://blijblijblij.github.io/images/logo.png)"><span class="hidden">Rogier Wessel's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="http://blijblijblij.github.io/">Rogier Wessel</a></h4>
+  
+  <p>Opensource Data dude, from linux to docker into the magical world of data and Pentaho. Might have eaten all red pills when it came to docker...</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Amersfoort, The Netherlands</span>
+    <span class="author-link icon-link"><a href="http://blijblijblij.github.io">http://blijblijblij.github.io</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=First%20pentaho%20nl%20meetup%21&amp;url=http%3a%2f%2fblijblijblij.github.io%2fpost%2f2016-01-30-first-meetup%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblijblijblij.github.io%2fpost%2f2016-01-30-first-meetup%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fblijblijblij.github.io%2fpost%2f2016-01-30-first-meetup%2f&amp;description=First%20pentaho%20nl%20meetup%21"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fblijblijblij.github.io%2fpost%2f2016-01-30-first-meetup%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">blijblijblij.github.io</a> All rights reserved - 2016</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://blijblijblij.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://blijblijblij.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://blijblijblij.github.io/js/index.js"></script>
+    
+</body>
+</html>
+
