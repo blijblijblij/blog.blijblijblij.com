@@ -22,7 +22,7 @@
 
 &lt;p&gt;Again we had an impressive turn up, some new faces, some more familiar, a good mix for sharing and discussing life, the universe, and well, &lt;a href=&#34;https://www.twitter.com/pentaho&#34;&gt;Pentaho&lt;/a&gt; stuff&amp;hellip;&lt;/p&gt;
 
-&lt;h1 id=&#34;data-virtualization-with-pdi-community-edition:798285d4784124b9be5049549e519cbb&#34;&gt;Data Virtualization with PDI Community Edition&lt;/h1&gt;
+&lt;h1 id=&#34;data-virtualization-with-pdi-community-edition&#34;&gt;Data Virtualization with PDI Community Edition&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;Edwin Weber&lt;/em&gt;&lt;/p&gt;
 
@@ -32,7 +32,7 @@
 
 &lt;p&gt;As for &lt;a href=&#34;https://twitter.com/edwin_weber&#34;&gt;Edwins&lt;/a&gt; talk, here is the &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/0edeaeef6e7778ebac04579505e3418470d3eb91/pdf/20160503_data_virtualization_demo.pdf&#34;&gt;transscript&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h1 id=&#34;datastax-cassandra-plugin:798285d4784124b9be5049549e519cbb&#34;&gt;Datastax Cassandra plugin&lt;/h1&gt;
+&lt;h1 id=&#34;datastax-cassandra-plugin&#34;&gt;Datastax Cassandra plugin&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;Rudmer van Dijk&lt;/em&gt;
 &lt;em&gt;The current Cassandra plugin from Pentaho uses an old driver which is unable to support secure SSL connections to the cluster. At Incentro we created a new plugin that utilises the Datastax driver so we can use the secure connection. I&amp;rsquo;ll give a walkthrough and demonstration of the three steps in this plugin.&lt;/em&gt;&lt;/p&gt;
@@ -43,7 +43,7 @@
 
 &lt;p&gt;It has been released from the marketplace, hooray on that!&lt;/p&gt;
 
-&lt;h1 id=&#34;tips-and-tricks-of-using-javascript-in-pdi:798285d4784124b9be5049549e519cbb&#34;&gt;Tips and Tricks of using JavaScript in PDI&lt;/h1&gt;
+&lt;h1 id=&#34;tips-and-tricks-of-using-javascript-in-pdi&#34;&gt;Tips and Tricks of using JavaScript in PDI&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;Julien Hofstede&lt;/em&gt;&lt;/p&gt;
 
@@ -81,7 +81,7 @@
 &amp;lt;/html&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;enter-hugo:812557afe512b3a4b59c1e5d15e88a2c&#34;&gt;Enter hugo&lt;/h1&gt;
+&lt;h1 id=&#34;enter-hugo&#34;&gt;Enter hugo&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;Hugo is great for content-driven websites, because it is completely dependency-free and is easy to get going. What it lacks for in extensibility, it largely makes up for with a good content model and super-fast build times.
 &lt;/code&gt;&lt;/pre&gt;
@@ -113,7 +113,7 @@
       <guid>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</guid>
       <description>
 
-&lt;h1 id=&#34;tools-dashboards-are-awesome:c9a0adf7a1a73d196ca2608ce478d205&#34;&gt;Tools Dashboards are Awesome!&lt;/h1&gt;
+&lt;h1 id=&#34;tools-dashboards-are-awesome&#34;&gt;Tools Dashboards are Awesome!&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;Julien Hofstede&lt;/em&gt; This presentation showed some techniques to make development of the dashboards easier like reusable components and global settings. And even to create your own component! Take the step beyond CDE and leverage the full power of CDF! No knowledge or experience with CDF? No worries! It will for sure help you to understand the concept of CDF better.&lt;/p&gt;
 
@@ -135,7 +135,7 @@
 
 &lt;p&gt;ReelMetrics supplied a nice venue for this first meetup, took care off much appreciated beers and pizza&amp;rsquo;s. After these refreshments we had some nice talks covering a wide range of functionalities within the Pentaho ecosphere.&lt;/p&gt;
 
-&lt;h1 id=&#34;intro:eeaa397aca5e1bb7cca39c6e05f576ee&#34;&gt;Intro&lt;/h1&gt;
+&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
 
 &lt;p&gt;From a yearly gathering somewhere in Europe, why not do a dutch equivalent every couple of months?! As open-source is thriving, community initiatives become even more important, and more than enough people doing Pentaho stuff in The Netherlands, so we gave it a try!&lt;/p&gt;
 
@@ -152,7 +152,7 @@
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;, if a traveling pentaho rockstars comes along, we should do a adhoc meetup
 and seize that opportunity!&lt;/p&gt;
 
-&lt;h1 id=&#34;pentaho-and-docker-docker-docker:eeaa397aca5e1bb7cca39c6e05f576ee&#34;&gt;Pentaho and Docker Docker Docker!&lt;/h1&gt;
+&lt;h1 id=&#34;pentaho-and-docker-docker-docker&#34;&gt;Pentaho and Docker Docker Docker!&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;Rogier Wessel&lt;/em&gt; Ok, I must admit, I am a big fan of both Pentaho and Docker. During this talk I explained
 first the basic building blocks that make up docker. Then talked about glueing
@@ -177,19 +177,19 @@ extensively. The second half of my talk was demo time. When you do Docker with P
 &lt;li&gt;&lt;a href=&#34;https://github.com/blijblijblij/docker-mesos/tree/develop/run&#34;&gt;and running that cluster&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;ctools-dashboards-are-awesome:eeaa397aca5e1bb7cca39c6e05f576ee&#34;&gt;CTools Dashboards are Awesome!&lt;/h1&gt;
+&lt;h1 id=&#34;ctools-dashboards-are-awesome&#34;&gt;CTools Dashboards are Awesome!&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;Julien Hofstede&lt;/em&gt; This presentation showed some techniques to make development of the dashboards easier like reusable components and global settings. And even to create your own component! Take the step beyond CDE and leverage the full power of CDF! No knowledge or experience with CDF? No worries! It will for sure help you to understand the concept of CDF better.&lt;/p&gt;
 
 &lt;p&gt;Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout!&lt;/p&gt;
 
-&lt;h1 id=&#34;the-community-contributed-jdbc-metadata-step-for-pentaho-data-integration:eeaa397aca5e1bb7cca39c6e05f576ee&#34;&gt;The Community Contributed JDBC Metadata Step for Pentaho Data integration&lt;/h1&gt;
+&lt;h1 id=&#34;the-community-contributed-jdbc-metadata-step-for-pentaho-data-integration&#34;&gt;The Community Contributed JDBC Metadata Step for Pentaho Data integration&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;Roland Bouman&lt;/em&gt; &lt;a href=&#34;https://github.com/rpbouman/pentaho-pdi-plugin-jdbc-metadata&#34;&gt;The Community Contributed JDBC Metadata Step for Pentaho Data integration&lt;/a&gt; enables you to use database metadata to drive transformations. You can use it to track database schema changes, to generate DDL, and even to implement datawarehouse automation. His presentation demonstrated the features of the plugin and illustrated how you can use it in your kettle transformations.&lt;/p&gt;
 
 &lt;p&gt;Roland never seems to stop coming up with new functionalities giving new insights, his code is all up on &lt;a href=&#34;https://github.com/rpbouman&#34;&gt;github&lt;/a&gt;. He could do with some extra eyes on the code, or some extra code to further extent his current work. So feel free to join and &lt;a href=&#34;https://twitter.com/rolandbouman&#34;&gt;give him a nudge&lt;/a&gt;!&lt;/p&gt;
 
-&lt;h1 id=&#34;what-s-up-next:eeaa397aca5e1bb7cca39c6e05f576ee&#34;&gt;What&amp;rsquo;s up next?!&lt;/h1&gt;
+&lt;h1 id=&#34;what-s-up-next&#34;&gt;What&amp;rsquo;s up next?!&lt;/h1&gt;
 
 &lt;p&gt;Well, a lot of people turned up, some even took a hotel because of their long travels, big up for that!&lt;/p&gt;
 
