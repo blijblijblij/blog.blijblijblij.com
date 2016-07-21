@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pentaho on blijblijblij.github.io</title>
+    <link>http://blijblijblij.github.io/tags/pentaho/</link>
+    <description>Recent content in Pentaho on blijblijblij.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>All rights reserved - 2016</copyright>
+    <lastBuildDate>Sat, 21 May 2016 11:06:05 +0200</lastBuildDate>
+    <atom:link href="http://blijblijblij.github.io/tags/pentaho/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Running pentaho on mesos - part 1</title>
+      <link>http://blijblijblij.github.io/post/pentaho-and-mesos/</link>
+      <pubDate>Sat, 21 May 2016 11:06:05 +0200</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/pentaho-and-mesos/</guid>
+      <description>
+
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;I have been amazed by the ease of getting software through the software development cycle once you start doing it the &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; way. I picked it up soon after &lt;a href=&#34;http://www.wired.com/2013/09/docker/&#34;&gt;it came to light&lt;/a&gt;, and hammered it hard. At that point I got all developers aligned to use Docker as well.&lt;/p&gt;
+
+&lt;p&gt;As we started using Docker more extensively, combining different Frontends services and Backends services through Docker compositions, running multiple hosts, intranet, things started to get a bit more complicated.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/adrianmouat&#34;&gt;Adrian Mouat&lt;/a&gt; acknowledged my next step in a piece he wrote for Oreilly &lt;a href=&#34;https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos&#34;&gt;Swarm v. Fleet v. Kubernetes v. Mesos Comparing different orchestration tools&lt;/a&gt; my prefered orchestration framework for our containers would be Mesos.&lt;/p&gt;
+
+&lt;h1 id=&#34;define&#34;&gt;Define&lt;/h1&gt;
+
+&lt;p&gt;This is an overview of a mesos cluster in its simplest form.
+&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io-hugo/9dafdf22f19d04c63eb47e2c9681884694887156/static/images/mesos-arch.png&#34; alt=&#34;Mesos architectural overview&#34; /&gt;
+&lt;a href=&#34;https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The mesos-master&lt;/strong&gt; is the central part of the cluster, it controls all jobs on the cluster. Usually multiple masters are running on a cluster, thereby given it HA capabilities, especially when running the masters in different &lt;a href=&#34;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones&#34;&gt;availability zones&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The marathon scheduler&lt;/strong&gt; is the scheduler for long running processes, a webserver, a carte server, a baserver, &amp;hellip; The functionality of Marathon on the cluster is often compared to what &lt;code&gt;init.d&lt;/code&gt; leverages on a linux system. To run services, keep them running, scale them etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The chronos scheduler&lt;/strong&gt; is a scheduler batch task, and as such often compared to &lt;code&gt;cron&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The mesos slaves aka agents&lt;/strong&gt; run the actual jobs as directed by the mesos master(s)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zookeeper&lt;/strong&gt; is used for master elections, coordination and to persist configuration throughout the cluster.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is so much more to be told about mesos, but I suggest you just &lt;code&gt;Run, Forrest, Run!&lt;/code&gt; to &lt;a href=&#34;http://ssearch.oreilly.com/?q=mesos&amp;amp;x=0&amp;amp;y=0&#34;&gt;Oreilly&lt;/a&gt;, &lt;a href=&#34;https://www.manning.com/books/mesos-in-action&#34;&gt;Manning&lt;/a&gt; or some other it-drug delivery service and read up on this topic.&lt;/p&gt;
+
+&lt;h1 id=&#34;create&#34;&gt;Create&lt;/h1&gt;
+
+&lt;p&gt;I am going to assume a working &lt;a href=&#34;https://docs.docker.com/engine/installation/&#34;&gt;docker&lt;/a&gt; / &lt;a href=&#34;https://docs.docker.com/compose/install/&#34;&gt;docker-compose&lt;/a&gt; / &lt;a href=&#34;https://docs.docker.com/machine/install-machine/&#34;&gt;docker-machine&lt;/a&gt; setup, some recent hardware.&lt;/p&gt;
+
+&lt;p&gt;For now I will focus on a virtualbox based cluster running locally. I have created a crude but usefull bash-script to get you up and running, it cleans, creates masters, slave and a loadbalancer by utilising docker-machine. I have 4cpu, 16G of RAM at my disposal, just tinker with &lt;code&gt;virtualbox-cpu-count&lt;/code&gt;, &lt;code&gt;virtualbox-memory&lt;/code&gt; and &lt;code&gt;virtualbox-disk-size&lt;/code&gt; to make this baby fit your needs.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/sh
+clear
+
+echo &amp;quot;creating my epic local cluster&amp;quot;
+
+clean() {
+  echo &amp;quot;---&amp;gt; rm old machines, no mercy baby!&amp;quot;
+  docker-machine rm -f mesos-lb1 mesos-m1 mesos-m2 mesos-m3 mesos-s1 mesos-s2 &amp;gt; /dev/null
+}
+
+create_masters() {
+  echo &amp;quot;---&amp;gt; create masters&amp;quot;
+  echo &amp;quot;---&amp;gt; create mesos-m1&amp;quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &amp;quot;1&amp;quot; \
+    --virtualbox-memory &amp;quot;1024&amp;quot; \
+    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
+    mesos-m1
+
+  echo &amp;quot;---&amp;gt; create mesos-m2&amp;quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &amp;quot;1&amp;quot; \
+    --virtualbox-memory &amp;quot;1024&amp;quot; \
+    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
+    mesos-m2
+
+  echo &amp;quot;---&amp;gt; create mesos-m3&amp;quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &amp;quot;1&amp;quot; \
+    --virtualbox-memory &amp;quot;1024&amp;quot; \
+    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
+    mesos-m3
+}
+
+create_slaves() {
+  echo &amp;quot;---&amp;gt; create slaves&amp;quot;
+  echo &amp;quot;---&amp;gt; create mesos-s1&amp;quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &amp;quot;2&amp;quot; \
+    --virtualbox-memory &amp;quot;4092&amp;quot; \
+    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
+    mesos-s1
+
+  echo &amp;quot;---&amp;gt; create mesos-s2&amp;quot;
+  docker-machine create -d virtualbox \
+      --virtualbox-cpu-count &amp;quot;2&amp;quot; \
+      --virtualbox-memory &amp;quot;4092&amp;quot; \
+      --virtualbox-disk-size &amp;quot;50000&amp;quot; \
+      mesos-s2
+}
+
+create_loadbalancer() {
+  echo &amp;quot;---&amp;gt; create loadbalancer&amp;quot;
+  echo &amp;quot;---&amp;gt; create mesos-lb1&amp;quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &amp;quot;1&amp;quot; \
+    --virtualbox-memory &amp;quot;1024&amp;quot; \
+    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
+    mesos-lb1
+}
+main() {
+  clean
+  create_masters
+  create_slaves
+  create_loadbalancer
+  echo &amp;quot;done&amp;quot;
+}
+
+main
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After running this script, check the results:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-machine ls | grep virtualbox
+mesos-lb1                    -        virtualbox   Running   tcp://192.168.99.105:2376           v1.11.1   
+mesos-m1                     -        virtualbox   Running   tcp://192.168.99.100:2376           v1.11.1   
+mesos-m2                     -        virtualbox   Running   tcp://192.168.99.101:2376           v1.11.1   
+mesos-m3                     -        virtualbox   Running   tcp://192.168.99.102:2376           v1.11.1   
+mesos-s1                     -        virtualbox   Running   tcp://192.168.99.103:2376           v1.11.1   
+mesos-s2                     -        virtualbox   Running   tcp://192.168.99.104:2376           v1.11.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That was easy!&lt;/p&gt;
+
+&lt;h1 id=&#34;run&#34;&gt;Run&lt;/h1&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pentaho NL spring meetup</title>
+      <link>http://blijblijblij.github.io/post/pentahanl-spring-meetup/</link>
+      <pubDate>Wed, 11 May 2016 07:00:32 +0200</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/pentahanl-spring-meetup/</guid>
+      <description>
+
+&lt;p&gt;Last month we gathered for the second Pentaho NL meetup. &lt;a href=&#34;https://www.twitter.com/incentro&#34;&gt;@Incentro&lt;/a&gt; were sponsoring the location (their office at former Airport Ypenburg) as well as some excellent food and drinks, much appreciated guys!&lt;/p&gt;
+
+&lt;p&gt;Again we had an impressive turn up, some new faces, some more familiar, a good mix for sharing and discussing life, the universe, and well, &lt;a href=&#34;https://www.twitter.com/pentaho&#34;&gt;Pentaho&lt;/a&gt; stuff&amp;hellip;&lt;/p&gt;
+
+&lt;h1 id=&#34;data-virtualization-with-pdi-community-edition&#34;&gt;Data Virtualization with PDI Community Edition&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Edwin Weber&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/c38182b984a7481a01c0b0e84eb3b2e4a926eff7/images/2016-04-19-edwin.jpg&#34; alt=&#34;alt text&#34; title=&#34;Edwin on fire!&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Edwin challenged the demo-gods, they got the better off him. But Edwin is a master (karate wise, as well as pentaho wise). He reclaimed his mastery and demo-ed Data Virtualization using the thin jdbc driver running sql queries on top of data transformations. Apparently this functionality still needs some hammering to get it to work. But from what I have heared Edwins work has already been relayed to another master, a new &lt;a href=&#34;https://twitter.com/diethardsteiner&#34;&gt;Diethard Steiner&lt;/a&gt; post should be in the makings.&lt;/p&gt;
+
+&lt;p&gt;As for &lt;a href=&#34;https://twitter.com/edwin_weber&#34;&gt;Edwins&lt;/a&gt; talk, here is the &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/0edeaeef6e7778ebac04579505e3418470d3eb91/pdf/20160503_data_virtualization_demo.pdf&#34;&gt;transscript&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;datastax-cassandra-plugin&#34;&gt;Datastax Cassandra plugin&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Rudmer van Dijk&lt;/em&gt;
+&lt;em&gt;The current Cassandra plugin from Pentaho uses an old driver which is unable to support secure SSL connections to the cluster. At Incentro we created a new plugin that utilises the Datastax driver so we can use the secure connection. I&amp;rsquo;ll give a walkthrough and demonstration of the three steps in this plugin.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Rudmer gave a demo about their newly developed Data Cassandra driver taking us through all functionalities.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/master/images/2016-04-13-cassandra-driver.png&#34; alt=&#34;alt text&#34; title=&#34;In the marketplace&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It has been released from the marketplace, hooray on that!&lt;/p&gt;
+
+&lt;h1 id=&#34;tips-and-tricks-of-using-javascript-in-pdi&#34;&gt;Tips and Tricks of using JavaScript in PDI&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Julien Hofstede&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;ldquo;We all agree: Kettle is awesome. But sometimes seemingly easy things are hard to accomplish, or just not possible with Kettle. I&amp;rsquo;ll show some easy and advanced uses of the JavaScript Step in PDI such as prompts, dynamic accessing of rows, calculations and filtering of rows.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Julien talk was very interesting, stressing the balance between doing it the Etl / pentaho way versus fixing it in one go in a javascript step. The javascript step is a very powerfull step (dating back to that very beginning of PDI) enabling you to dive deep inside the Pentaho data-integration application and exposing api&amp;rsquo;s unknown to most!&lt;/p&gt;
+
+&lt;p&gt;His talk can be found &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/master/pdf/20160513_JavaScript%20in%20PDI.pdf&#34;&gt;here&lt;/a&gt;, but make sure you dive into the &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/master/pdf/JavaScript%20in%20PDI.zip&#34;&gt;demo samples&lt;/a&gt; as well!!!&lt;/p&gt;
+
+&lt;p&gt;To conclude, another inspriring Pentaho NL meetup!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Jekyll boooh, hugo yeah!</title>
+      <link>http://blijblijblij.github.io/post/jekyll-to-hugo/</link>
+      <pubDate>Tue, 03 May 2016 16:13:59 +0200</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/jekyll-to-hugo/</guid>
+      <description>
+
+&lt;p&gt;Not that long ago I &lt;a href=&#34;http://blijblijblij.github.io/post/2015-11-16-newblog&#34;&gt;migrated my blog to github pages&lt;/a&gt; using  &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;. Jekyll is a &lt;a href=&#34;https://www.staticgen.com/&#34;&gt;static website generator&lt;/a&gt;. You write some intermediate &lt;a href=&#34;https://en.wikipedia.org/wiki/Markdown&#34;&gt;markdown&lt;/a&gt; pages, &lt;a href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34;&gt;cheat some markup&lt;/a&gt; and the generator will build the static website for you, rss feeds, navigation and the whole shebang included.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; the sm-meister that wrote Jekyll went through some hard, breaking and annoying changes. Probably very sound changes, but I want something that works, takes little effort to maintain, yet slightly more appealing than&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-type=html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;body&amp;gt;
+
+&amp;lt;h1&amp;gt;My First Post&amp;lt;/h1&amp;gt;
+
+&amp;lt;p&amp;gt;Epic story goes here...&amp;lt;/p&amp;gt;
+
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;enter-hugo&#34;&gt;Enter hugo&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;Hugo is great for content-driven websites, because it is completely dependency-free and is easy to get going. What it lacks for in extensibility, it largely makes up for with a good content model and super-fast build times.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another quote I agree on&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hugo is quite possibly the easiest to install software you’ve ever used, simply download and run. Hugo doesn’t depend on administrative privileges, databases, runtimes, interpreters or external libraries. Sites built with Hugo can be deployed on S3, GitHub Pages, Dropbox or any web host.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;ll take it, after some hurdles migrated this blog into a Hugo-i-fied one, and yet again ready for blogging incontinence&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Some links:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.smashingmagazine.com/2015/11/static-website-generators-jekyll-middleman-roots-hugo-review/&#34;&gt;article on the battle of the static site generators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;download hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;getting started&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Just my 2 cents, regards, Rogier&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Update: First pentaho nl meetup!</title>
+      <link>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</link>
+      <pubDate>Tue, 26 Apr 2016 23:03:34 +0200</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</guid>
+      <description>
+
+&lt;h1 id=&#34;tools-dashboards-are-awesome&#34;&gt;Tools Dashboards are Awesome!&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Julien Hofstede&lt;/em&gt; This presentation showed some techniques to make development of the dashboards easier like reusable components and global settings. And even to create your own component! Take the step beyond CDE and leverage the full power of CDF! No knowledge or experience with CDF? No worries! It will for sure help you to understand the concept of CDF better.&lt;/p&gt;
+
+&lt;p&gt;Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout!&lt;/p&gt;
+
+&lt;p&gt;Here: &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/blob/master/pdf/20160131_CDF_beyond_CDE.pdf&#34;&gt;Juliens talk&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>First pentaho nl meetup!</title>
+      <link>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</link>
+      <pubDate>Sat, 30 Jan 2016 23:02:54 +0200</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</guid>
+      <description>
+
+&lt;p&gt;Busy times, so with a slight delay a recap of our very first &lt;a href=&#34;http://www.meetup.com/Pentaho-NL-Meetup/&#34;&gt;pentaho NL meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;ReelMetrics supplied a nice venue for this first meetup, took care off much appreciated beers and pizza&amp;rsquo;s. After these refreshments we had some nice talks covering a wide range of functionalities within the Pentaho ecosphere.&lt;/p&gt;
+
+&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
+
+&lt;p&gt;From a yearly gathering somewhere in Europe, why not do a dutch equivalent every couple of months?! As open-source is thriving, community initiatives become even more important, and more than enough people doing Pentaho stuff in The Netherlands, so we gave it a try!&lt;/p&gt;
+
+&lt;p&gt;Some general &amp;ldquo;goals&amp;rdquo; to our meetup:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to have FUN!&lt;/li&gt;
+&lt;li&gt;to learn!&lt;/li&gt;
+&lt;li&gt;to share!&lt;/li&gt;
+&lt;li&gt;for noobs, super-dupper-master-hackers and everything in between!&lt;/li&gt;
+&lt;li&gt;every couple of months-ish&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;, if a traveling pentaho rockstars comes along, we should do a adhoc meetup
+and seize that opportunity!&lt;/p&gt;
+
+&lt;h1 id=&#34;pentaho-and-docker-docker-docker&#34;&gt;Pentaho and Docker Docker Docker!&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Rogier Wessel&lt;/em&gt; Ok, I must admit, I am a big fan of both Pentaho and Docker. During this talk I explained
+first the basic building blocks that make up docker. Then talked about glueing
+services together into a docker composition. Finally once you start growing that
+infrastructure other problems arise, orchestration of docker instances running
+on multiple hosts gets complicated, and running a couple compositions doesn&amp;rsquo;t cut
+it anymore.&lt;/p&gt;
+
+&lt;p&gt;I gathered a lot of direction on orchestration based on the sound analyses by &lt;a href=&#34;https://twitter.com/adrianmouat&#34;&gt;Adrian Mouat&amp;rsquo;s&lt;/a&gt; article on O&amp;rsquo;reilly radar &lt;a href=&#34;http://radar.oreilly.com/2015/10/swarm-v-fleet-v-kubernetes-v-mesos.html&#34;&gt;Swarm v. Fleet v. Kubernetes v. Mesos&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Based on that article I continued my quest in orchestration and investigated &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;Apache Mesos&lt;/a&gt;
+extensively. The second half of my talk was demo time. When you do Docker with Pentaho software on Apache mesos, what are the components that make up the infrastructure, how is everything interconnected, and why does this complicated infrastructure make sense once your infrastructure grows beyond a certain size.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://docs.google.com/presentation/d/1qcNw-m7f7XHjGA6KfEjd3mqR03gsqM2N6kNDCTgP5pA/embed?start=false&amp;loop=false&amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;700&#34; height=&#34;422&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;All code about creating and running a Mesos cluster is on &lt;a href=&#34;https://github.com/blijblijblij/docker-mesos&#34;&gt;my github page&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-virtualbox-cluster.sh&#34;&gt;building a local virtualbox cluster&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-generic-ssh-cluster.sh&#34;&gt;building a cluster via ssh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/blijblijblij/docker-mesos/blob/develop/create/create-aws-cluster.sh&#34;&gt;or directly via the aws api&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/blijblijblij/docker-mesos/tree/develop/run&#34;&gt;and running that cluster&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ctools-dashboards-are-awesome&#34;&gt;CTools Dashboards are Awesome!&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Julien Hofstede&lt;/em&gt; This presentation showed some techniques to make development of the dashboards easier like reusable components and global settings. And even to create your own component! Take the step beyond CDE and leverage the full power of CDF! No knowledge or experience with CDF? No worries! It will for sure help you to understand the concept of CDF better.&lt;/p&gt;
+
+&lt;p&gt;Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout!&lt;/p&gt;
+
+&lt;h1 id=&#34;the-community-contributed-jdbc-metadata-step-for-pentaho-data-integration&#34;&gt;The Community Contributed JDBC Metadata Step for Pentaho Data integration&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Roland Bouman&lt;/em&gt; &lt;a href=&#34;https://github.com/rpbouman/pentaho-pdi-plugin-jdbc-metadata&#34;&gt;The Community Contributed JDBC Metadata Step for Pentaho Data integration&lt;/a&gt; enables you to use database metadata to drive transformations. You can use it to track database schema changes, to generate DDL, and even to implement datawarehouse automation. His presentation demonstrated the features of the plugin and illustrated how you can use it in your kettle transformations.&lt;/p&gt;
+
+&lt;p&gt;Roland never seems to stop coming up with new functionalities giving new insights, his code is all up on &lt;a href=&#34;https://github.com/rpbouman&#34;&gt;github&lt;/a&gt;. He could do with some extra eyes on the code, or some extra code to further extent his current work. So feel free to join and &lt;a href=&#34;https://twitter.com/rolandbouman&#34;&gt;give him a nudge&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h1 id=&#34;what-s-up-next&#34;&gt;What&amp;rsquo;s up next?!&lt;/h1&gt;
+
+&lt;p&gt;Well, a lot of people turned up, some even took a hotel because of their long travels, big up for that!&lt;/p&gt;
+
+&lt;p&gt;Next to ReelMetrics some other sponsors came forward, for a location, pitch in for some beers :-). Also several people already offered to give a talk about some subject. &lt;a href=&#34;https://twitter.com/dennisintgroen&#34;&gt;Dennis&lt;/a&gt; wouldn&amp;rsquo;t mind diving into CDE widgets, and offering another view to reusable components along the lines of Juliens talk. &lt;a href=&#34;https://twitter.com/edwin_weber&#34;&gt;Edwin&lt;/a&gt; had something up his sleeve. Even [Dan Keeley]&lt;a href=&#34;https://twitter.com/codek1&#34;&gt;https://twitter.com/codek1&lt;/a&gt; offered to come over and give a talk, we would love to accept his offer, and learn from his extensive experience.&lt;/p&gt;
+
+&lt;p&gt;So, enough momentum, looking forward to our next meetup!!!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pentaho NL Usergroup!</title>
+      <link>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</link>
+      <pubDate>Tue, 10 Nov 2015 23:02:04 +0200</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</guid>
+      <description>&lt;p&gt;Last weekend the European Pentaho User meetup &lt;a href=&#34;https://github.com/PentahoCommunityMeetup2015/info/blob/master/README.md&#34;&gt;#pcm15&lt;/a&gt; was held in London. Two days of hacking, technical talks and beer was the perfect recipe to make a great meeting.
+  &lt;img src=&#34;http://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/ce7f4ced5f62234f4cf35cb695c86189e587a09e/_site/img/2015-11-16_pcm-2015-logo.jpg&#34; alt=&#34;#pcm15 logo&#34; title=&#34;#pcm15 logo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We had great talks, and I caught up with some Dutch colleagues and we concluded there should be some local NL followup to this community initiative!&lt;/p&gt;
+
+&lt;p&gt;So here it is, a &lt;a href=&#34;http://www.meetup.com/Pentaho-NL-Meetup/&#34;&gt;Pentaho NL Usergroup&lt;/a&gt;, and it
+would not be a meetup if there wasn&amp;rsquo;t any &lt;a href=&#34;https://twitter.com/PentahoNl&#34;&gt;tweettweet&lt;/a&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Soon we&amp;rsquo;ll set out a first date, but please register on meetup!&lt;/p&gt;
+
+&lt;p&gt;Regards, Rogier&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
