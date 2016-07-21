@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Running pentaho on mesos - part 1 &middot;  blijblijblij.github.io" />
+  	<meta property="og:site_name" content="blijblijblij.github.io" />
+  	<meta property="og:url" content="http://blijblijblij.github.io/post/pentaho-and-mesos/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-05-21T11:06:05&#43;02:00" />
+
+    
+    <meta property="og:article:tag" content="mesos" />
+    
+    <meta property="og:article:tag" content="pentaho" />
+    
+    
+
+  <title>
+     Running pentaho on mesos - part 1 &middot;  blijblijblij.github.io
+  </title>
+
+    <meta name="description" content="... blablabla, linux, pentaho, docker, mesos ..." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://blijblijblij.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://blijblijblij.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://blijblijblij.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://blijblijblij.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://blijblijblij.github.io/index.xml" rel="alternate" type="application/rss+xml" title="blijblijblij.github.io" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.16" />
+
+    <link rel="canonical" href="http://blijblijblij.github.io/post/pentaho-and-mesos/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77257717-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="http://blijblijblij.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head" style="background-image: url(http://blijblijblij.github.io/images/cover.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="http://blijblijblij.github.io/"><img src="http://blijblijblij.github.io/images/logo.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button icon-feed" href="http://blijblijblij.github.io/index.xml">&nbsp;&nbsp;Subscribe</a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Running pentaho on mesos - part 1</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-05-21T11:06:05&#43;02:00">
+            May 21, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="http://blijblijblij.github.io/tags/mesos/">#mesos</a></span>
+         
+          <span class="post-tag small"><a href="http://blijblijblij.github.io/tags/pentaho/">#pentaho</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<h1 id="introduction">Introduction</h1>
+
+<p>I have been amazed by the ease of getting software through the software development cycle once you start doing it the <a href="https://www.docker.com/">Docker</a> way. I picked it up soon after <a href="http://www.wired.com/2013/09/docker/">it came to light</a>, and hammered it hard. At that point I got all developers aligned to use Docker as well.</p>
+
+<p>As we started using Docker more extensively, combining different Frontends services and Backends services through Docker compositions, running multiple hosts, intranet, things started to get a bit more complicated.</p>
+
+<p><a href="https://twitter.com/adrianmouat">Adrian Mouat</a> acknowledged my next step in a piece he wrote for Oreilly <a href="https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos">Swarm v. Fleet v. Kubernetes v. Mesos Comparing different orchestration tools</a> my prefered orchestration framework for our containers would be Mesos.</p>
+
+<h1 id="define">Define</h1>
+
+<p>This is an overview of a mesos cluster in its simplest form.
+<img src="https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io-hugo/9dafdf22f19d04c63eb47e2c9681884694887156/static/images/mesos-arch.png" alt="Mesos architectural overview" />
+<a href="https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos">Source</a></p>
+
+<ul>
+<li><strong>The mesos-master</strong> is the central part of the cluster, it controls all jobs on the cluster. Usually multiple masters are running on a cluster, thereby given it HA capabilities, especially when running the masters in different <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones">availability zones</a>.</li>
+<li><strong>The marathon scheduler</strong> is the scheduler for long running processes, a webserver, a carte server, a baserver, &hellip; The functionality of Marathon on the cluster is often compared to what <code>init.d</code> leverages on a linux system. To run services, keep them running, scale them etc.</li>
+<li><strong>The chronos scheduler</strong> is a scheduler batch task, and as such often compared to <code>cron</code></li>
+<li><strong>The mesos slaves aka agents</strong> run the actual jobs as directed by the mesos master(s)</li>
+<li><strong>Zookeeper</strong> is used for master elections, coordination and to persist configuration throughout the cluster.</li>
+</ul>
+
+<p>There is so much more to be told about mesos, but I suggest you just <code>Run, Forrest, Run!</code> to <a href="http://ssearch.oreilly.com/?q=mesos&amp;x=0&amp;y=0">Oreilly</a>, <a href="https://www.manning.com/books/mesos-in-action">Manning</a> or some other it-drug delivery service and read up on this topic.</p>
+
+<h1 id="create">Create</h1>
+
+<p>I am going to assume a working <a href="https://docs.docker.com/engine/installation/">docker</a> / <a href="https://docs.docker.com/compose/install/">docker-compose</a> / <a href="https://docs.docker.com/machine/install-machine/">docker-machine</a> setup, some recent hardware.</p>
+
+<p>For now I will focus on a virtualbox based cluster running locally. I have created a crude but usefull bash-script to get you up and running, it cleans, creates masters, slave and a loadbalancer by utilising docker-machine. I have 4cpu, 16G of RAM at my disposal, just tinker with <code>virtualbox-cpu-count</code>, <code>virtualbox-memory</code> and <code>virtualbox-disk-size</code> to make this baby fit your needs.</p>
+
+<pre><code>#!/bin/sh
+clear
+
+echo &quot;creating my epic local cluster&quot;
+
+clean() {
+  echo &quot;---&gt; rm old machines, no mercy baby!&quot;
+  docker-machine rm -f mesos-lb1 mesos-m1 mesos-m2 mesos-m3 mesos-s1 mesos-s2 &gt; /dev/null
+}
+
+create_masters() {
+  echo &quot;---&gt; create masters&quot;
+  echo &quot;---&gt; create mesos-m1&quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &quot;1&quot; \
+    --virtualbox-memory &quot;1024&quot; \
+    --virtualbox-disk-size &quot;50000&quot; \
+    mesos-m1
+
+  echo &quot;---&gt; create mesos-m2&quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &quot;1&quot; \
+    --virtualbox-memory &quot;1024&quot; \
+    --virtualbox-disk-size &quot;50000&quot; \
+    mesos-m2
+
+  echo &quot;---&gt; create mesos-m3&quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &quot;1&quot; \
+    --virtualbox-memory &quot;1024&quot; \
+    --virtualbox-disk-size &quot;50000&quot; \
+    mesos-m3
+}
+
+create_slaves() {
+  echo &quot;---&gt; create slaves&quot;
+  echo &quot;---&gt; create mesos-s1&quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &quot;2&quot; \
+    --virtualbox-memory &quot;4092&quot; \
+    --virtualbox-disk-size &quot;50000&quot; \
+    mesos-s1
+
+  echo &quot;---&gt; create mesos-s2&quot;
+  docker-machine create -d virtualbox \
+      --virtualbox-cpu-count &quot;2&quot; \
+      --virtualbox-memory &quot;4092&quot; \
+      --virtualbox-disk-size &quot;50000&quot; \
+      mesos-s2
+}
+
+create_loadbalancer() {
+  echo &quot;---&gt; create loadbalancer&quot;
+  echo &quot;---&gt; create mesos-lb1&quot;
+  docker-machine create -d virtualbox \
+    --virtualbox-cpu-count &quot;1&quot; \
+    --virtualbox-memory &quot;1024&quot; \
+    --virtualbox-disk-size &quot;50000&quot; \
+    mesos-lb1
+}
+main() {
+  clean
+  create_masters
+  create_slaves
+  create_loadbalancer
+  echo &quot;done&quot;
+}
+
+main
+
+</code></pre>
+
+<p>After running this script, check the results:</p>
+
+<pre><code>docker-machine ls | grep virtualbox
+mesos-lb1                    -        virtualbox   Running   tcp://192.168.99.105:2376           v1.11.1   
+mesos-m1                     -        virtualbox   Running   tcp://192.168.99.100:2376           v1.11.1   
+mesos-m2                     -        virtualbox   Running   tcp://192.168.99.101:2376           v1.11.1   
+mesos-m3                     -        virtualbox   Running   tcp://192.168.99.102:2376           v1.11.1   
+mesos-s1                     -        virtualbox   Running   tcp://192.168.99.103:2376           v1.11.1   
+mesos-s2                     -        virtualbox   Running   tcp://192.168.99.104:2376           v1.11.1
+</code></pre>
+
+<p>That was easy!</p>
+
+<h1 id="run">Run</h1>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://blijblijblij.github.io/" style="background-image: url(http://blijblijblij.github.io/images/logo.png)"><span class="hidden">Rogier Wessel's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="http://blijblijblij.github.io/">Rogier Wessel</a></h4>
+  
+  <p>Opensource Data dude, from linux to docker into the magical world of data and Pentaho. Might have eaten all red pills when it came to docker...</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Amersfoort, The Netherlands</span>
+    <span class="author-link icon-link"><a href="http://blijblijblij.github.io">http://blijblijblij.github.io</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Running%20pentaho%20on%20mesos%20-%20part%201&amp;url=http%3a%2f%2fblijblijblij.github.io%2fpost%2fpentaho-and-mesos%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblijblijblij.github.io%2fpost%2fpentaho-and-mesos%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fblijblijblij.github.io%2fpost%2fpentaho-and-mesos%2f&amp;description=Running%20pentaho%20on%20mesos%20-%20part%201"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fblijblijblij.github.io%2fpost%2fpentaho-and-mesos%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">blijblijblij.github.io</a> All rights reserved - 2016</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://blijblijblij.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://blijblijblij.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://blijblijblij.github.io/js/index.js"></script>
+    
+</body>
+</html>
+
