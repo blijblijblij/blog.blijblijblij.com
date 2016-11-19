@@ -38,7 +38,7 @@
         <link href="http://blijblijblij.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="Posts &middot; blijblijblij.github.io" />
       
     
-    <meta name="generator" content="Hugo 0.16" />
+    <meta name="generator" content="Hugo 0.17" />
 
     <link rel="canonical" href="http://blijblijblij.github.io/post/" />
 
@@ -122,10 +122,12 @@
 	   
 <article class="post post">
     <header class="post-header">
-        <h2 class="post-title"><a href="http://blijblijblij.github.io/post/biserver-anal-probe/">Add psi probe to a pentaho biserver making it easier to manage and monitor</a></h2>
+        <h2 class="post-title"><a href="http://blijblijblij.github.io/post/slack-update-from-pdi/">Slack update from pdi</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Problem You have a pentaho biserver, might be integrated into a bigger architecture serving out data to other webapps. BUT, somehow its misbehaving. There is a suspect: functionality Y, but before you bring out your BOFH skills, better make sure who is to blame (functionality wise that is of course&hellip;) Solution (via docker), add psi probe From their community site: PSI Probe is a community-driven fork of Lambda Probe distributed under the same open-source license (GPLv2). <a class="read-more" href="http://blijblijblij.github.io/post/biserver-anal-probe/">&raquo;</a></p>
+        <p>Data-transform your slack channels In my humble opinion Slack is a fantastic tool for keeping development teams aligned and informed. It has (irc supported) chat, voice calls, proper code snippet sharing but it really shines in its ability to integrate all that is important to a team.
+For example we integrate:
+ updates on github, Pull requests, comments, &hellip; updates on tickets, new, open, closed tickets updates from ci, builds, tests, the occasional #FAIL updates from deploys instantiated from ci onto the mesos cluster updates on failing services and network components from nagios bash scripts synchronising in the background or via cron  One thing was missing Updates from pesky long running etl-jobs, while being away from the vpn-ed carte status page. <a class="read-more" href="http://blijblijblij.github.io/post/slack-update-from-pdi/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -139,9 +141,13 @@
             
                 <a href="http://blijblijblij.github.io/tags/pentaho/">#pentaho</a>,
             
+                <a href="http://blijblijblij.github.io/tags/pdi/">#pdi</a>,
+            
+                <a href="http://blijblijblij.github.io/tags/slack/">#slack</a>,
+            
         
-        <time class="post-date" datetime="2016-08-30T00:00:00&#43;02:00">
-            30 Aug 2016
+        <time class="post-date" datetime="2016-11-19T10:00:04&#43;01:00">
+            19 Nov 2016
         </time>
     </footer>
 </article>
@@ -153,7 +159,8 @@
         <h2 class="post-title"><a href="http://blijblijblij.github.io/post/pentaho-and-mesos/">Running pentaho on mesos - part 1</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Introduction I have been amazed by the ease of getting software through the software development cycle once you start doing it the Docker way. I picked it up soon after it came to light, and hammered it hard. At that point I got all developers aligned to use Docker as well. As we started using Docker more extensively, combining different Frontends services and Backends services through Docker compositions, running multiple hosts, intranet, things started to get a bit more complicated. <a class="read-more" href="http://blijblijblij.github.io/post/pentaho-and-mesos/">&raquo;</a></p>
+        <p>Introduction I have been amazed by the ease of getting software through the software development cycle once you start doing it the Docker way. I picked it up soon after it came to light, and hammered it hard. At that point I got all developers aligned to use Docker as well.
+As we started using Docker more extensively, combining different Frontends services and Backends services through Docker compositions, running multiple hosts, intranet, things started to get a bit more complicated. <a class="read-more" href="http://blijblijblij.github.io/post/pentaho-and-mesos/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -183,7 +190,10 @@
         <h2 class="post-title"><a href="http://blijblijblij.github.io/post/pentahanl-spring-meetup/">Pentaho NL spring meetup</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Last month we gathered for the second Pentaho NL meetup. @Incentro were sponsoring the location (their office at former Airport Ypenburg) as well as some excellent food and drinks, much appreciated guys! Again we had an impressive turn up, some new faces, some more familiar, a good mix for sharing and discussing life, the universe, and well, Pentaho stuff&hellip; Data Virtualization with PDI Community Edition Edwin Weber Edwin challenged the demo-gods, they got the better off him. <a class="read-more" href="http://blijblijblij.github.io/post/pentahanl-spring-meetup/">&raquo;</a></p>
+        <p>Last month we gathered for the second Pentaho NL meetup. @Incentro were sponsoring the location (their office at former Airport Ypenburg) as well as some excellent food and drinks, much appreciated guys!
+Again we had an impressive turn up, some new faces, some more familiar, a good mix for sharing and discussing life, the universe, and well, Pentaho stuff&hellip;
+Data Virtualization with PDI Community Edition Edwin Weber
+Edwin challenged the demo-gods, they got the better off him. <a class="read-more" href="http://blijblijblij.github.io/post/pentahanl-spring-meetup/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -213,7 +223,8 @@
         <h2 class="post-title"><a href="http://blijblijblij.github.io/post/jekyll-to-hugo/">Jekyll boooh, hugo yeah!</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Not that long ago I migrated my blog to github pages using Jekyll. Jekyll is a static website generator. You write some intermediate markdown pages, cheat some markup and the generator will build the static website for you, rss feeds, navigation and the whole shebang included. BUT the sm-meister that wrote Jekyll went through some hard, breaking and annoying changes. Probably very sound changes, but I want something that works, takes little effort to maintain, yet slightly more appealing than &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;body&gt; &lt;h1&gt;My First Post&lt;/h1&gt; &lt;p&gt;Epic story goes here...&lt;/p&gt; &lt;/body&gt; &lt;/html&gt; Enter hugo Hugo is great for content-driven websites, because it is completely dependency-free and is easy to get going. <a class="read-more" href="http://blijblijblij.github.io/post/jekyll-to-hugo/">&raquo;</a></p>
+        <p>Not that long ago I migrated my blog to github pages using Jekyll. Jekyll is a static website generator. You write some intermediate markdown pages, cheat some markup and the generator will build the static website for you, rss feeds, navigation and the whole shebang included.
+BUT the sm-meister that wrote Jekyll went through some hard, breaking and annoying changes. Probably very sound changes, but I want something that works, takes little effort to maintain, yet slightly more appealing than <a class="read-more" href="http://blijblijblij.github.io/post/jekyll-to-hugo/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -243,7 +254,8 @@
         <h2 class="post-title"><a href="http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/">Update: First pentaho nl meetup!</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Tools Dashboards are Awesome! Julien Hofstede This presentation showed some techniques to make development of the dashboards easier like reusable components and global settings. And even to create your own component! Take the step beyond CDE and leverage the full power of CDF! No knowledge or experience with CDF? No worries! It will for sure help you to understand the concept of CDF better. Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout! <a class="read-more" href="http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/">&raquo;</a></p>
+        <p>Tools Dashboards are Awesome! Julien Hofstede This presentation showed some techniques to make development of the dashboards easier like reusable components and global settings. And even to create your own component! Take the step beyond CDE and leverage the full power of CDF! No knowledge or experience with CDF? No worries! It will for sure help you to understand the concept of CDF better.
+Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout! <a class="read-more" href="http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         

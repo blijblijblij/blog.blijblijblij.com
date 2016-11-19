@@ -1,156 +1,96 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pentaho on blijblijblij.github.io</title>
-    <link>http://blijblijblij.github.io/tags/pentaho/</link>
-    <description>Recent content in Pentaho on blijblijblij.github.io</description>
+    <title>blijblijblij.github.io</title>
+    <link>http://blijblijblij.github.io/tags/pentaho/index.xml</link>
+    <description>Recent content on blijblijblij.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Tue, 30 Aug 2016 00:00:00 +0200</lastBuildDate>
     <atom:link href="http://blijblijblij.github.io/tags/pentaho/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Add psi probe to a pentaho biserver making it easier to manage and monitor</title>
-      <link>http://blijblijblij.github.io/post/biserver-anal-probe/</link>
-      <pubDate>Tue, 30 Aug 2016 00:00:00 +0200</pubDate>
+      <title>Slack update from pdi</title>
+      <link>http://blijblijblij.github.io/post/slack-update-from-pdi/</link>
+      <pubDate>Sat, 19 Nov 2016 10:00:04 +0100</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/biserver-anal-probe/</guid>
+      <guid>http://blijblijblij.github.io/post/slack-update-from-pdi/</guid>
       <description>
 
-&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+&lt;h1 id=&#34;data-transform-your-slack-channels&#34;&gt;Data-transform your slack channels&lt;/h1&gt;
 
-&lt;p&gt;You have a pentaho biserver, might be integrated into a bigger architecture serving out data to other webapps. &lt;strong&gt;BUT&lt;/strong&gt;, somehow its misbehaving.&lt;/p&gt;
+&lt;p&gt;In my humble opinion &lt;a href=&#34;https://slack.com/&#34;&gt;Slack&lt;/a&gt; is a fantastic tool for keeping development teams aligned and informed. It has (irc supported) chat, &lt;a href=&#34;https://get.slack.help/hc/en-us/articles/216771908-Start-a-voice-call-in-Slack&#34;&gt;voice calls&lt;/a&gt;, proper code snippet sharing but it really shines in its ability to &lt;a href=&#34;https://api.slack.com/custom-integrations&#34;&gt;integrate all that is important to a team&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;There is a suspect: &lt;code&gt;functionality Y&lt;/code&gt;, but before you bring out your &lt;a href=&#34;https://en.wikipedia.org/wiki/Bastard_Operator_From_Hell&#34;&gt;&lt;code&gt;BOFH&lt;/code&gt; skills&lt;/a&gt;, better make sure who is to blame (functionality wise that is of course&amp;hellip;)&lt;/p&gt;
+&lt;p&gt;For example we integrate:&lt;/p&gt;
 
-&lt;h1 id=&#34;solution-via-docker-add-psi-probe&#34;&gt;Solution (via docker), add psi probe&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;updates on github, Pull requests, comments, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;updates on tickets, new, open, closed tickets&lt;/li&gt;
+&lt;li&gt;updates from ci, builds, tests, the occasional &lt;code&gt;#FAIL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;updates from deploys instantiated from ci onto the mesos cluster&lt;/li&gt;
+&lt;li&gt;updates on failing services and network components from nagios&lt;/li&gt;
+&lt;li&gt;bash scripts synchronising in the background or via cron&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;From their community site:&lt;/p&gt;
+&lt;h2 id=&#34;one-thing-was-missing&#34;&gt;One thing was missing&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;PSI Probe is a community-driven fork of Lambda Probe distributed under the same open-source license (GPLv2). It is intended to replace and extend Tomcat Manager, making it easier to manage and monitor an instance of Apache Tomcat.
+&lt;p&gt;Updates from pesky long running etl-jobs, while being away from the vpn-ed carte status page. And a convenient way of updating fellow &lt;code&gt;are-we-there-yet-are-we-there-yet-are-we-there-yet-are-we-there-yet-&lt;/code&gt; colleagues ;-).&lt;/p&gt;
 
-Unlike many other server monitoring tools, PSI Probe does not require any changes to your existing apps. It provides all of its features through a web-accessible interface that becomes available simply by deploying it to your server. These features include:
+&lt;h2 id=&#34;enter-the-slack-incoming-webhook&#34;&gt;Enter the slack incoming webhook&lt;/h2&gt;
 
-Requests: Monitor traffic in real-time, even on a per-application basis.
-Sessions: Browse/search attributes, view last IP, expire, estimate size.
-JSP: Browse, view source, compile.
-Data Sources: View pool usage, execute queries.
-Logs: View contents, download, change levels at runtime.
-Threads: View execution stack, kill.
-Connectors: Status, usage charts.
-Cluster: Status, usage charts.
-JVM: Memory usage charts, advise GC
-Java Service Wrapper: Restart JVM.
-System: CPU usage, memory usage, swap file usage.
+&lt;p&gt;Slacks &lt;a href=&#34;https://api.slack.com/incoming-webhooks&#34;&gt;incoming-webhook&lt;/a&gt; is simple, easy to understand and can be extended to support a lot of feedback:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl -X POST \
+--data-urlencode &#39;payload={&amp;quot;text&amp;quot;:&amp;quot;This is a line of text.\nAnd this is another one.&amp;quot;}&#39; \
+https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Download &lt;a href=&#34;https://github.com/psi-probe/psi-probe&#34;&gt;psi probe.war&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pdi can do this nicely, and posting it to a slack endpoint seems a no brainer. So for something to be usefull it has to:&lt;/p&gt;
 
-&lt;p&gt;Create a &lt;code&gt;tomcat-users.xml&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update on starting a job&lt;/li&gt;
+&lt;li&gt;update on sub jobs / transformations&lt;/li&gt;
+&lt;li&gt;escalate on &lt;code&gt;#FAIL&lt;/code&gt;-ed data transformations&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&amp;gt;
-&amp;lt;!--
-  Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the &amp;quot;License&amp;quot;); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
+&lt;h2 id=&#34;do-it&#34;&gt;Do it&lt;/h2&gt;
 
-      http://www.apache.org/licenses/LICENSE-2.0
+&lt;p&gt;A reporting transformation that delivers the very same json, but with some additions:&lt;/p&gt;
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
---&amp;gt;
-&amp;lt;tomcat-users xmlns=&amp;quot;http://tomcat.apache.org/xml&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://tomcat.apache.org/xml tomcat-users.xsd&amp;quot; version=&amp;quot;1.0&amp;quot;&amp;gt;
-    &amp;lt;!--
-  NOTE:  By default, no user is included in the &amp;quot;manager-gui&amp;quot; role required
-  to operate the &amp;quot;/manager/html&amp;quot; web application.  If you wish to use this app,
-  you must define such a user - the username and password are arbitrary.
---&amp;gt;
-    &amp;lt;!--
-  NOTE:  The sample user and role entries below are wrapped in a comment
-  and thus are ignored when reading this file. Do not forget to remove
-  &amp;lt;!.. ..&amp;gt; that surrounds them.
---&amp;gt;
-    &amp;lt;!--
-  &amp;lt;role rolename=&amp;quot;tomcat&amp;quot;/&amp;gt;
-  &amp;lt;role rolename=&amp;quot;role1&amp;quot;/&amp;gt;
-  &amp;lt;user username=&amp;quot;tomcat&amp;quot; password=&amp;quot;tomcat&amp;quot; roles=&amp;quot;tomcat&amp;quot;/&amp;gt;
-  &amp;lt;user username=&amp;quot;both&amp;quot; password=&amp;quot;tomcat&amp;quot; roles=&amp;quot;tomcat,role1&amp;quot;/&amp;gt;
-  &amp;lt;user username=&amp;quot;role1&amp;quot; password=&amp;quot;tomcat&amp;quot; roles=&amp;quot;role1&amp;quot;/&amp;gt;
---&amp;gt;
-    &amp;lt;role rolename=&amp;quot;probeuser&amp;quot;/&amp;gt;
-    &amp;lt;role rolename=&amp;quot;poweruser&amp;quot;/&amp;gt;
-    &amp;lt;role rolename=&amp;quot;poweruserplus&amp;quot;/&amp;gt;
-    &amp;lt;role rolename=&amp;quot;manager-gui&amp;quot;/&amp;gt;
-    &amp;lt;user username=&amp;quot;admin&amp;quot; password=&amp;quot;@@PROBE_PASSWORD@@&amp;quot; roles=&amp;quot;manager-gui&amp;quot;/&amp;gt;
-&amp;lt;/tomcat-users&amp;gt;
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_tr_report.png&#34; alt=&#34;report to slack&#34; title=&#34;report to slack&#34; /&gt;&lt;/p&gt;
 
+&lt;p&gt;Script the json with javascript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var payload= &#39;{&#39; +
+	&#39;&amp;quot;channel&amp;quot;: &amp;quot;&#39; + channel + &#39;&amp;quot;,&#39; +
+    &#39;&amp;quot;username&amp;quot;: &amp;quot;&#39; + username + &#39;&amp;quot;,&#39; +
+	&#39;&amp;quot;text&amp;quot;: &amp;quot;&#39; + env + &#39;&amp;quot;,&#39; +
+    &#39;&amp;quot;attachments&amp;quot;: [&#39; +
+        &#39;{&#39; +
+            &#39;&amp;quot;title&amp;quot;: &amp;quot;&#39; + title + &#39;&amp;quot;,&#39; +
+            &#39;&amp;quot;text&amp;quot;: &amp;quot;&#39; + text + &#39;&amp;quot;,&#39; +
+			&#39;&amp;quot;fallback&amp;quot;: &amp;quot;&#39; + text + &#39;&amp;quot;,&#39; +
+            &#39;&amp;quot;color&amp;quot;: &amp;quot;&#39; + color + &#39;&amp;quot;&#39; +
+        &#39;}&#39; +
+    &#39;]&#39; +
+&#39;};&#39;;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Drop it in your tomcat instance next to the &lt;code&gt;pentaho webapp&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Incorperate the slack reporting into a bigger picture:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;FROM blijblijblij/java:8
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_jb_main.png&#34; alt=&#34;main job&#34; title=&#34;main job&#34; /&gt;&lt;/p&gt;
 
-MAINTAINER Rogier Wessel
+&lt;p&gt;Et voila, some slack updates:&lt;/p&gt;
 
-....
-# Add script
-ADD v6/tomcat/start-pentaho.sh ${PENTAHO_HOME}/start-pentaho.sh
-ADD docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x ${PENTAHO_HOME}/start-pentaho.sh &amp;amp;&amp;amp; \
-  chmod +x /docker-entrypoint.sh
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_slack_updated.png&#34; alt=&#34;on slack&#34; title=&#34;on slack&#34; /&gt;&lt;/p&gt;
 
-# psi probing!
-ADD v6/tomcat/conf/tomcat-users.xml /opt/pentaho/biserver-ee/tomcat/conf/tomcat-users.xml
-ADD probe.war /opt/pentaho/biserver-ee/tomcat/webapps/
-...
+&lt;h2 id=&#34;thin-foil-hat&#34;&gt;Thin foil hat&lt;/h2&gt;
 
-# Expose Pentaho port
-EXPOSE 8080
+&lt;p&gt;This thing is updating from internal sources onto semi-public services, save to say to not stick any comprising data in those shiny new status updates&amp;hellip;&lt;/p&gt;
 
-# Expose logdir
-VOLUME [&amp;quot;/opt/pentaho/biserver-ee/tomcat/logs/&amp;quot;]
+&lt;h2 id=&#34;source-kjb-ktr&#34;&gt;Source kjb / ktr&lt;/h2&gt;
 
-# User
-USER pentaho
-
-CMD [&amp;quot;/docker-entrypoint.sh&amp;quot;]
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Make sure &lt;code&gt;docker-entrypoint.sh&lt;/code&gt; gets the externalized &lt;code&gt;@@PROBE_PASSWORD@@&lt;/code&gt; :&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
-
-applyconfig(){
-	echo &amp;quot;****** Applying Pentaho Config ******&amp;quot;
-	cd /opt/pentaho/biserver-ee
-
-...
-
-	echo &amp;quot;--&amp;gt; Change probe password&amp;quot;
-	sed -i &#39;s/@@PROBE_PASSWORD@@/&#39;${PROBE_PASSWORD}&#39;/g&#39; `find ./tomcat/conf -name *.xml`
-
-...
-
-	echo &amp;quot;****** Finished applying Pentaho config ******&amp;quot;
-}
-
-...
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Start your biserver and open &lt;code&gt;http://ip:port/probe/&lt;/code&gt; with your tomcat-users credentials and you have yourself an excellent insight into the jvm&amp;rsquo;s inner workings, datasources, sessions, and what not.&lt;/p&gt;
-
-&lt;p&gt;And there it is, &lt;code&gt;functionality Y&lt;/code&gt; creating sessions like mad &amp;gt; &lt;code&gt;BOFH&lt;/code&gt; quality time!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/7f16169d34a5ed72a7c4ddadba07da71564792a8/images/2016-08-30_psi_probe.png&#34; alt=&#34;psi inteface&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/blijblijblij/pdi-slack-reporting/archive/version-Release-1.zip&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blijblijblij.github.io</title>
+    <link>http://blijblijblij.github.io/tags/pdi/index.xml</link>
+    <description>Recent content on blijblijblij.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>All rights reserved - 2016</copyright>
+    <atom:link href="http://blijblijblij.github.io/tags/pdi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Slack update from pdi</title>
+      <link>http://blijblijblij.github.io/post/slack-update-from-pdi/</link>
+      <pubDate>Sat, 19 Nov 2016 10:00:04 +0100</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/slack-update-from-pdi/</guid>
+      <description>
+
+&lt;h1 id=&#34;data-transform-your-slack-channels&#34;&gt;Data-transform your slack channels&lt;/h1&gt;
+
+&lt;p&gt;In my humble opinion &lt;a href=&#34;https://slack.com/&#34;&gt;Slack&lt;/a&gt; is a fantastic tool for keeping development teams aligned and informed. It has (irc supported) chat, &lt;a href=&#34;https://get.slack.help/hc/en-us/articles/216771908-Start-a-voice-call-in-Slack&#34;&gt;voice calls&lt;/a&gt;, proper code snippet sharing but it really shines in its ability to &lt;a href=&#34;https://api.slack.com/custom-integrations&#34;&gt;integrate all that is important to a team&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example we integrate:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;updates on github, Pull requests, comments, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;updates on tickets, new, open, closed tickets&lt;/li&gt;
+&lt;li&gt;updates from ci, builds, tests, the occasional &lt;code&gt;#FAIL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;updates from deploys instantiated from ci onto the mesos cluster&lt;/li&gt;
+&lt;li&gt;updates on failing services and network components from nagios&lt;/li&gt;
+&lt;li&gt;bash scripts synchronising in the background or via cron&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;one-thing-was-missing&#34;&gt;One thing was missing&lt;/h2&gt;
+
+&lt;p&gt;Updates from pesky long running etl-jobs, while being away from the vpn-ed carte status page. And a convenient way of updating fellow &lt;code&gt;are-we-there-yet-are-we-there-yet-are-we-there-yet-are-we-there-yet-&lt;/code&gt; colleagues ;-).&lt;/p&gt;
+
+&lt;h2 id=&#34;enter-the-slack-incoming-webhook&#34;&gt;Enter the slack incoming webhook&lt;/h2&gt;
+
+&lt;p&gt;Slacks &lt;a href=&#34;https://api.slack.com/incoming-webhooks&#34;&gt;incoming-webhook&lt;/a&gt; is simple, easy to understand and can be extended to support a lot of feedback:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl -X POST \
+--data-urlencode &#39;payload={&amp;quot;text&amp;quot;:&amp;quot;This is a line of text.\nAnd this is another one.&amp;quot;}&#39; \
+https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pdi can do this nicely, and posting it to a slack endpoint seems a no brainer. So for something to be usefull it has to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;update on starting a job&lt;/li&gt;
+&lt;li&gt;update on sub jobs / transformations&lt;/li&gt;
+&lt;li&gt;escalate on &lt;code&gt;#FAIL&lt;/code&gt;-ed data transformations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;do-it&#34;&gt;Do it&lt;/h2&gt;
+
+&lt;p&gt;A reporting transformation that delivers the very same json, but with some additions:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_tr_report.png&#34; alt=&#34;report to slack&#34; title=&#34;report to slack&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Script the json with javascript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var payload= &#39;{&#39; +
+	&#39;&amp;quot;channel&amp;quot;: &amp;quot;&#39; + channel + &#39;&amp;quot;,&#39; +
+    &#39;&amp;quot;username&amp;quot;: &amp;quot;&#39; + username + &#39;&amp;quot;,&#39; +
+	&#39;&amp;quot;text&amp;quot;: &amp;quot;&#39; + env + &#39;&amp;quot;,&#39; +
+    &#39;&amp;quot;attachments&amp;quot;: [&#39; +
+        &#39;{&#39; +
+            &#39;&amp;quot;title&amp;quot;: &amp;quot;&#39; + title + &#39;&amp;quot;,&#39; +
+            &#39;&amp;quot;text&amp;quot;: &amp;quot;&#39; + text + &#39;&amp;quot;,&#39; +
+			&#39;&amp;quot;fallback&amp;quot;: &amp;quot;&#39; + text + &#39;&amp;quot;,&#39; +
+            &#39;&amp;quot;color&amp;quot;: &amp;quot;&#39; + color + &#39;&amp;quot;&#39; +
+        &#39;}&#39; +
+    &#39;]&#39; +
+&#39;};&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Incorperate the slack reporting into a bigger picture:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_jb_main.png&#34; alt=&#34;main job&#34; title=&#34;main job&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Et voila, some slack updates:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_slack_updated.png&#34; alt=&#34;on slack&#34; title=&#34;on slack&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;thin-foil-hat&#34;&gt;Thin foil hat&lt;/h2&gt;
+
+&lt;p&gt;This thing is updating from internal sources onto semi-public services, save to say to not stick any comprising data in those shiny new status updates&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;source-kjb-ktr&#34;&gt;Source kjb / ktr&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/blijblijblij/pdi-slack-reporting/archive/version-Release-1.zip&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

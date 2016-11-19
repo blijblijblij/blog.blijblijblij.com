@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blablabla on blijblijblij.github.io</title>
-    <link>http://blijblijblij.github.io/tags/blablabla/</link>
-    <description>Recent content in Blablabla on blijblijblij.github.io</description>
+    <title>blijblijblij.github.io</title>
+    <link>http://blijblijblij.github.io/tags/blablabla/index.xml</link>
+    <description>Recent content on blijblijblij.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Mon, 16 Nov 2015 23:02:34 +0200</lastBuildDate>
     <atom:link href="http://blijblijblij.github.io/tags/blablabla/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
