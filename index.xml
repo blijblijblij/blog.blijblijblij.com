@@ -7,8 +7,165 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Sat, 19 Nov 2016 10:00:04 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 10 Dec 2016 13:00:00 +0100</lastBuildDate>
     <atom:link href="http://blijblijblij.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Setup an easy reverse proxy to the biserver</title>
+      <link>http://blijblijblij.github.io/post/easy-proxy-for-biserver/</link>
+      <pubDate>Sat, 10 Dec 2016 13:00:00 +0100</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/easy-proxy-for-biserver/</guid>
+      <description>
+
+&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+
+&lt;p&gt;You have a biserver serving up information either directly or embedded into
+some website. You need to open up the biserver to the rest of the world but want
+to prevent access to certain endpoints. These endpoints might serve only internal
+consumers, or have security implications.&lt;/p&gt;
+
+&lt;p&gt;We need to limit the attack service of a biserver!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/mayday.png&#34; alt=&#34;proxy it&#34; title=&#34;proxy it&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Traditionally one would spin up a new server, add an apache config to proxy forward
+some requests to the backend. This adds complexity, moving parts, and lowers
+agility.&lt;/p&gt;
+
+&lt;p&gt;In this post I&amp;rsquo;ll suggest a simplification of the same approach, just in a
+slightly more flexible way, obviously we&amp;rsquo;ll containerize it.&lt;/p&gt;
+
+&lt;h1 id=&#34;solution&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;h2 id=&#34;ingredients&#34;&gt;Ingredients&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a &lt;a href=&#34;https://github.com/docker/dockercloud-haproxy&#34;&gt;haproxy container&lt;/a&gt; with a pretty impressive featureset&lt;/li&gt;
+&lt;li&gt;a biserver 6.1 container with a wildly impressive &lt;code&gt;HelloWorld&lt;/code&gt; cde dashboard &lt;code&gt;/pentaho/api/repos/%3Apublic%3AHelloWorld.wcdf/generatedContent&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;a canary container that will informs us about missing resources&lt;/li&gt;
+&lt;li&gt;a docker-composition to glue these together:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;version: &#39;2&#39;
+services:
+  biserver:
+    image: pentaho/biserver:6.1
+    ports:
+      - 8080:8080
+    environment:
+      - VIRTUAL_HOST=...
+      - VIRTUAL_HOST_WEIGHT=2
+  canary:
+    image: httpd:latest
+    environment:
+      - VIRTUAL_HOST=http://*
+      - VIRTUAL_HOST_WEIGHT=1
+  proxy:
+    image: dockercloud/haproxy
+    links:
+      - biserver
+      - canary
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;round-1&#34;&gt;Round 1&lt;/h2&gt;
+
+&lt;p&gt;We utilise the &lt;code&gt;VIRTUAL_HOST&lt;/code&gt; &lt;a href=&#34;https://github.com/docker/dockercloud-haproxy#global-and-default-settings-of-haproxy&#34;&gt;options&lt;/a&gt; of the proxy to whitelist our epic HelloWorld dashboard. By giving the proxy a higher &lt;code&gt;VIRTUAL_HOST_WEIGHT&lt;/code&gt; we force traffic to first route via this &lt;code&gt;VIRTUAL_HOST&lt;/code&gt; everything else falls through onto the canary container.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;VIRTUAL_HOST=http://*/pentaho/api/repos/%3Apublic%3AHelloWorld.wcdf/generatedContent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Looking at the dashboard directly.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_biserver direct.png&#34; alt=&#34;unproxied&#34; title=&#34;unproxied&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, lets view it via the proxy
+&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_biserverproxied.png&#34; alt=&#34;proxied&#34; title=&#34;proxied&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But oh, the horror of my carefully crafted indenting, it has gone all haywire. And when we inspect the page we see what&amp;rsquo;s going wrong:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_styling_horrors.png&#34; alt=&#34;styling horrors&#34; title=&#34;styling horrors&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And funny enough, now the &lt;code&gt;canary&lt;/code&gt; container comes to offer the same insight as well:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:49 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf/js/cdf-bootstrap-script-includes.js?v=decdbcb3b01341682f2ef9799798313c HTTP/1.1&amp;quot; 404 263
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:49 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf/css/cdf-bootstrap-style-includes.css?v=7bc42bb099ded22348e9c9b992045d67 HTTP/1.1&amp;quot; 404 264
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:49 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf-dd/js/CDF.js?v=7591bba3804971aeae31ca943022aba2 HTTP/1.1&amp;quot; 404 240
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:49 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf-dd/css/CDF-CSS.css?v=9dd48fd0265f0d8bcc30ac6afec3f0ff HTTP/1.1&amp;quot; 404 246
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:52 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf/js/cdf-bootstrap-script-includes.js?v=decdbcb3b01341682f2ef9799798313c HTTP/1.1&amp;quot; 404 263
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:52 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf/css/cdf-bootstrap-style-includes.css?v=7bc42bb099ded22348e9c9b992045d67 HTTP/1.1&amp;quot; 404 264
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:52 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf-dd/js/CDF.js?v=7591bba3804971aeae31ca943022aba2 HTTP/1.1&amp;quot; 404 240
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:52 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf-dd/css/CDF-CSS.css?v=9dd48fd0265f0d8bcc30ac6afec3f0ff HTTP/1.1&amp;quot; 404 246
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:11:09 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf/js/cdf-bootstrap-script-includes.js?v=decdbcb3b01341682f2ef9799798313c HTTP/1.1&amp;quot; 404 263
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:11:09 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf/css/cdf-bootstrap-style-includes.css?v=7bc42bb099ded22348e9c9b992045d67 HTTP/1.1&amp;quot; 404 264
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:11:09 +0000] &amp;quot;GET /pentaho/api/repos/pentaho-cdf-dd/js/CDF.js?v=7591bba3804971aeae31ca943022aba2 HTTP/1.1&amp;quot; 404 240
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;round-2&#34;&gt;Round 2&lt;/h2&gt;
+
+&lt;p&gt;So we whitelist two more paths:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/pentaho/api/repos/pentaho-cdf/js/*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/pentaho/api/repos/pentaho-cdf/css/*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;VIRTUAL_HOST=http://*/pentaho/api/repos/%3Apublic%3AHelloWorld.wcdf/generatedContent,http://*/pentaho/api/repos/pentaho-cdf/css/*,http://*/pentaho/api/repos/pentaho-cdf/js/*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Et voila, indenting back from the death, but carefully proxied for only that particular resource we wanted to expose to the world &lt;code&gt;:-)&lt;/code&gt;
+&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_epic_dashboard.png&#34; alt=&#34;epic&#34; title=&#34;epic&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So the final composition looks like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;version: &#39;2&#39;
+services:
+  biserver:
+    image: pentaho/biserver:6.1
+    ports:
+      - 8080
+    environment:
+      - VIRTUAL_HOST=http://*/pentaho/api/repos/%3Apublic%3AHelloWorld.wcdf/generatedContent,http://*/pentaho/api/repos/pentaho-cdf/css/*,http://*/pentaho/api/repos/pentaho-cdf/js/*
+      - VIRTUAL_HOST_WEIGHT=2
+      - GZIP_COMPRESSION_TYPE=text/html text/plain text/css text/javascript application/json
+  canary:
+    image: httpd:latest
+    environment:
+      - VIRTUAL_HOST=http://*
+      - VIRTUAL_HOST_WEIGHT=1
+      - GZIP_COMPRESSION_TYPE=text/html text/plain text/css text/javascript application/json
+  proxy:
+    image: dockercloud/haproxy
+    links:
+      - biserver
+      - canary
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We have locked up the biserver completely, and we can dive deeper into the &lt;a href=&#34;https://github.com/docker/dockercloud-haproxy#global-and-default-settings-of-haproxy&#34;&gt;magic of the haproxy container&lt;/a&gt;,
+as it can do easy ssl termination as well, just change the proxy to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;proxy:
+  image: dockercloud/haproxy
+  environment:
+    - DEFAULT_SSL_CERT=-----&amp;gt; my cert goes here
+  links:
+    - biserver
+    - canary
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  ports:
+    - 443:443
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Slack update from pdi</title>
