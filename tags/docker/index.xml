@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blijblijblij.github.io</title>
+    <title>Docker on blijblijblij.github.io</title>
     <link>http://blijblijblij.github.io/tags/docker/index.xml</link>
-    <description>Recent content on blijblijblij.github.io</description>
+    <description>Recent content in Docker on blijblijblij.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>

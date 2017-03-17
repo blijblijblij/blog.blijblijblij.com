@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blijblijblij.github.io</title>
+    <title>Meetup on blijblijblij.github.io</title>
     <link>http://blijblijblij.github.io/tags/meetup/index.xml</link>
-    <description>Recent content on blijblijblij.github.io</description>
+    <description>Recent content in Meetup on blijblijblij.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
     <atom:link href="http://blijblijblij.github.io/tags/meetup/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PentahoNL meetup March 2017 recap</title>
+      <link>http://blijblijblij.github.io/post/2017-03-17-pentahonl-recap/</link>
+      <pubDate>Fri, 17 Mar 2017 11:29:17 +0100</pubDate>
+      
+      <guid>http://blijblijblij.github.io/post/2017-03-17-pentahonl-recap/</guid>
+      <description>
+
+&lt;h1 id=&#34;great-vibe-interesting-talks&#34;&gt;Great vibe, interesting talks&lt;/h1&gt;
+
+&lt;p&gt;We had another great &lt;a href=&#34;https://www.meetup.com/Pentaho-NL-Meetup/events/236959320/&#34;&gt;PentahoNL&lt;/a&gt; meetup last week.&lt;/p&gt;
+
+&lt;p&gt;This session was hosted by &lt;a href=&#34;https://twitter.com/maskerade1&#34;&gt;Rob Smienk&lt;/a&gt; at the offices of  &lt;a href=&#34;https://twitter.com/_mrdm_&#34;&gt;@&lt;em&gt;MRDM&lt;/em&gt;&lt;/a&gt; in Deventer. &lt;a href=&#34;https://twitter.com/_mrdm_&#34;&gt;@&lt;em&gt;MRDM&lt;/em&gt;&lt;/a&gt; is a company specialized in aggregating Medical data and registration data to gather better insights in Medical processes and treatment outcomes.&lt;/p&gt;
+
+&lt;p&gt;Hospitals and University Medical Centers increasingly need to report and clarify on Costs and Quality of medical treatments. They gather data from connected Hospitals, aggregate and benchmark the results. They are growing fast, moving into other European markets as we speak, and are actively &lt;a href=&#34;https://www.mrdm.nl/page/vacatures&#34;&gt;seeking new keyboard cowboys&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;mrdm-pdi-by-components&#34;&gt;MRDM: PDI by components&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Rob Smienk&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Metadata driven highly componentized etl as developed at MRDM. By building small components and glueing them together with a homemade orchestration framework these guys are able to quickly onboard new datasets by mix and matching suitable components. Highly agile, I was impressed and inspired by their approach.&lt;/p&gt;
+
+&lt;iframe id=&#34;iframe_container&#34; frameborder=&#34;0&#34; webkitallowfullscreen=&#34;&#34; mozallowfullscreen=&#34;&#34; allowfullscreen=&#34;&#34; width=&#34;700&#34; height=&#34;510&#34; src=&#34;https://prezi.com/embed/5kov4ml6fyre/?bgcolor=ffffff&amp;amp;lock_to_path=0&amp;amp;autoplay=0&amp;amp;autohide_ctrls=0&amp;amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE1iOUU4aWJ6aDNMU2VEWHN4MlNURGwvc3BCa1poUnZWSDJKcWxmNzhxcz0&amp;amp;landing_sign=mNxxS6ytyAfMBJ75uob9akE2xSQpZi0EzJVI0sPYrvY&#34;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&#34;mrdm-etl-testing&#34;&gt;MRDM: ETL testing&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Rutger Deterd Oude Weme&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The small components suite perfectly for TDD &lt;a href=&#34;https://en.wikipedia.org/wiki/Test-driven_development&#34;&gt;(Test Driven Development)&lt;/a&gt;, it was the first group I have seen following up so strongly on TDD in the Pentaho &amp;ldquo;ecosphere&amp;rdquo;, should be applied much more (at least I&amp;rsquo;ll try to follow up on their guidelines more seriously).&lt;/p&gt;
+
+&lt;iframe id=&#34;iframe_container&#34; frameborder=&#34;0&#34; webkitallowfullscreen=&#34;&#34; mozallowfullscreen=&#34;&#34; allowfullscreen=&#34;&#34; width=&#34;700&#34; height=&#34;510&#34; src=&#34;https://prezi.com/embed/wcpw8wjmrfad/?bgcolor=ffffff&amp;amp;lock_to_path=0&amp;amp;autoplay=0&amp;amp;autohide_ctrls=0&amp;amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE1iOUU4aWJ6aDNMU2VEWHN4M0R5NE1adDArMHBKZFZ5eUhsWm5GT0RXcz0&amp;amp;landing_sign=kkGb--EbKdlhnoHws1pXgwd6GVWYTg-N5CcVs3aUb4I&#34;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&#34;continuous-delivery-of-etl-from-git-to-carte-in-a-couple-off-sec-s&#34;&gt;Continuous Delivery of Etl, from git to carte in a (couple off) sec(s)&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Rogier Wessel&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/blijblijblij/presentations/blob/develop/201703%20-%20pentaho%20nl%20meetup/Continuous%20Delivery%20of%20Etl%2C%20from%20git%20to%20carte%20in%20a%20(couple%20off)%20sec(s).pdf&#34;&gt;I talked but mostly demo-ed&lt;/a&gt; our Continuous Delivery setup. We utilize the power of Docker, Apache Mesos with some help of a CI (Teamcity) to quickly build and deploy new ETL as it gets committed to git(hub).&lt;/p&gt;
+
+&lt;h1 id=&#34;to-conclude&#34;&gt;To conclude&lt;/h1&gt;
+
+&lt;p&gt;I think the combination of talks was very complementary, from different points of the challenge of building solid ETL we showed how to make finely grained, highly testable and quickly releasable code.&lt;/p&gt;
+
+&lt;p&gt;Really wonder what will be next time, hope to see you guys soon!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Pentaho NL spring meetup</title>
