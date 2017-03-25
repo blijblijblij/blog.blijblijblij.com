@@ -7,8 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Fri, 17 Mar 2017 11:29:17 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 25 Mar 2017 13:45:08 +0100</lastBuildDate>
     <atom:link href="http://blijblijblij.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About me</title>
+      <link>http://blijblijblij.github.io/about/</link>
+      <pubDate>Sat, 25 Mar 2017 13:45:08 +0100</pubDate>
+      
+      <guid>http://blijblijblij.github.io/about/</guid>
+      <description>&lt;p&gt;Opensource data dude, pentaho, linux, docker, mesos, lately with some Ruby magic.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Anybody who tells me I can&amp;rsquo;t use a program because it&amp;rsquo;s not open source, go suck on rms. I&amp;rsquo;m not interested. 99% of that I run tends to be open source, but that&amp;rsquo;s &lt;em&gt;my&lt;/em&gt; choice, dammit.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;-Linus Torvalds&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As we live in the golden age of Opensource software we shall not only take, but also give back if we can. Kicked off the &lt;a href=&#34;https://www.meetup.com/Pentaho-NL-Meetup&#34;&gt;Pentaho NL meetup&lt;/a&gt;, try to &lt;a href=&#34;http://blijblijblij.github.io&#34;&gt;blog&lt;/a&gt; &lt;a href=&#34;https://github.com/blijblijblij/presentations&#34;&gt;talk&lt;/a&gt; &lt;a href=&#34;https://www.twitter.com/blijblijblij&#34;&gt;tweet&lt;/a&gt; about usefull new stuff as I continue my quest through DataLand&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Currently employed by Data centric startup &lt;a href=&#34;https://www.reelmetrics.com&#34;&gt;ReelMetrics&lt;/a&gt;, doing the DataDance, also build a Docker based, Mesos orchestrated, AWS supported infra to accelarate Pentaho based data products and Ruby on Rails frontends.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>PentahoNL meetup March 2017 recap</title>
