@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mesos on blijblijblij.github.io</title>
-    <link>http://blijblijblij.github.io/tags/mesos/index.xml</link>
-    <description>Recent content in Mesos on blijblijblij.github.io</description>
+    <title>Mesos on blog.blijblijblij.com</title>
+    <link>https://blog.blijblijblij.com/tags/mesos/index.xml</link>
+    <description>Recent content in Mesos on blog.blijblijblij.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <atom:link href="http://blijblijblij.github.io/tags/mesos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.blijblijblij.com/tags/mesos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Running pentaho on mesos - part 1</title>
-      <link>http://blijblijblij.github.io/post/pentaho-and-mesos/</link>
+      <link>https://blog.blijblijblij.com/post/pentaho-and-mesos/</link>
       <pubDate>Sat, 21 May 2016 11:06:05 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/pentaho-and-mesos/</guid>
+      <guid>https://blog.blijblijblij.com/post/pentaho-and-mesos/</guid>
       <description>
 
 &lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
@@ -28,7 +28,7 @@
 &lt;h1 id=&#34;define&#34;&gt;Define&lt;/h1&gt;
 
 &lt;p&gt;This is an overview of a mesos cluster in its simplest form.
-&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io-hugo/9dafdf22f19d04c63eb47e2c9681884694887156/static/images/mesos-arch.png&#34; alt=&#34;Mesos architectural overview&#34; /&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blog.blijblijblij.com-hugo/9dafdf22f19d04c63eb47e2c9681884694887156/static/images/mesos-arch.png&#34; alt=&#34;Mesos architectural overview&#34; /&gt;
 &lt;a href=&#34;https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;

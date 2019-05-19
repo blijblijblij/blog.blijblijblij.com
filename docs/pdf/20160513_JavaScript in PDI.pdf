@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=1020">
     
     
-    <title>blijblijblij.github.io/20160513_JavaScript in PDI.pdf at master · blijblijblij/blijblijblij.github.io</title>
+    <title>blog.blijblijblij.com/20160513_JavaScript in PDI.pdf at master · blijblijblij/blog.blijblijblij.com</title>
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
     <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -38,8 +38,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
     <meta property="fb:app_id" content="1401488693436528">
 
-      <meta content="https://avatars0.githubusercontent.com/u/1648248?v=3&amp;s=400" name="twitter:image:src" /><meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="blijblijblij/blijblijblij.github.io" name="twitter:title" /><meta content="Contribute to blijblijblij.github.io development by creating an account on GitHub." name="twitter:description" />
-      <meta content="https://avatars0.githubusercontent.com/u/1648248?v=3&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="blijblijblij/blijblijblij.github.io" property="og:title" /><meta content="https://github.com/blijblijblij/blijblijblij.github.io" property="og:url" /><meta content="Contribute to blijblijblij.github.io development by creating an account on GitHub." property="og:description" />
+      <meta content="https://avatars0.githubusercontent.com/u/1648248?v=3&amp;s=400" name="twitter:image:src" /><meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="blijblijblij/blog.blijblijblij.com" name="twitter:title" /><meta content="Contribute to blog.blijblijblij.com development by creating an account on GitHub." name="twitter:description" />
+      <meta content="https://avatars0.githubusercontent.com/u/1648248?v=3&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="blijblijblij/blog.blijblijblij.com" property="og:title" /><meta content="https://github.com/blijblijblij/blog.blijblijblij.com" property="og:url" /><meta content="Contribute to blog.blijblijblij.com development by creating an account on GitHub." property="og:description" />
       <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
     <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
     <link rel="assets" href="https://assets-cdn.github.com/">
@@ -80,14 +80,14 @@
     
 
       
-  <meta name="description" content="Contribute to blijblijblij.github.io development by creating an account on GitHub.">
-  <meta name="go-import" content="github.com/blijblijblij/blijblijblij.github.io git https://github.com/blijblijblij/blijblijblij.github.io.git">
+  <meta name="description" content="Contribute to blog.blijblijblij.com development by creating an account on GitHub.">
+  <meta name="go-import" content="github.com/blijblijblij/blog.blijblijblij.com git https://github.com/blijblijblij/blog.blijblijblij.com.git">
 
-  <meta content="1648248" name="octolytics-dimension-user_id" /><meta content="blijblijblij" name="octolytics-dimension-user_login" /><meta content="46254278" name="octolytics-dimension-repository_id" /><meta content="blijblijblij/blijblijblij.github.io" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="46254278" name="octolytics-dimension-repository_network_root_id" /><meta content="blijblijblij/blijblijblij.github.io" name="octolytics-dimension-repository_network_root_nwo" />
-  <link href="https://github.com/blijblijblij/blijblijblij.github.io/commits/master.atom" rel="alternate" title="Recent Commits to blijblijblij.github.io:master" type="application/atom+xml">
+  <meta content="1648248" name="octolytics-dimension-user_id" /><meta content="blijblijblij" name="octolytics-dimension-user_login" /><meta content="46254278" name="octolytics-dimension-repository_id" /><meta content="blijblijblij/blog.blijblijblij.com" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="46254278" name="octolytics-dimension-repository_network_root_id" /><meta content="blijblijblij/blog.blijblijblij.com" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/blijblijblij/blog.blijblijblij.com/commits/master.atom" rel="alternate" title="Recent Commits to blog.blijblijblij.com:master" type="application/atom+xml">
 
 
-      <link rel="canonical" href="https://github.com/blijblijblij/blijblijblij.github.io/blob/master/pdf/20160513_JavaScript%20in%20PDI.pdf" data-pjax-transient>
+      <link rel="canonical" href="https://github.com/blijblijblij/blog.blijblijblij.com/blob/master/pdf/20160513_JavaScript%20in%20PDI.pdf" data-pjax-transient>
   </head>
 
 
@@ -110,7 +110,7 @@
 
 
         <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
-  <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blijblijblij.github.io/search" class="js-site-search-form" data-scoped-search-url="/blijblijblij/blijblijblij.github.io/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blog.blijblijblij.com/search" class="js-site-search-form" data-scoped-search-url="/blijblijblij/blog.blijblijblij.com/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
     <label class="form-control header-search-wrapper js-chromeless-input-container">
       <div class="header-search-scope">This repository</div>
       <input type="text"
@@ -179,12 +179,12 @@
 
   <div class="dropdown-divider"></div>
   <div class="dropdown-header">
-    <span title="blijblijblij/blijblijblij.github.io">This repository</span>
+    <span title="blijblijblij/blog.blijblijblij.com">This repository</span>
   </div>
-    <a class="dropdown-item" href="/blijblijblij/blijblijblij.github.io/issues/new" data-ga-click="Header, create new issue">
+    <a class="dropdown-item" href="/blijblijblij/blog.blijblijblij.com/issues/new" data-ga-click="Header, create new issue">
       New issue
     </a>
-    <a class="dropdown-item" href="/blijblijblij/blijblijblij.github.io/settings/collaboration" data-ga-click="Header, create new collaborator">
+    <a class="dropdown-item" href="/blijblijblij/blog.blijblijblij.com/settings/collaboration" data-ga-click="Header, create new collaborator">
       New collaborator
     </a>
 
@@ -273,7 +273,7 @@
         <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="dcyz1qQKMNOucGIGkJmT8yvBO5VTl9G95IAPcri/1I9P000I2SPBgrYtauGdDg8rJ5StvaaJ03rjLSBQmHRW7A==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="46254278" />
 
         <div class="select-menu js-menu-container js-select-menu">
-          <a href="/blijblijblij/blijblijblij.github.io/subscription"
+          <a href="/blijblijblij/blog.blijblijblij.com/subscription"
             class="btn btn-sm btn-with-count select-menu-button js-menu-target" role="button" tabindex="0" aria-haspopup="true"
             data-ga-click="Repository, click Watch settings, action:blob#show">
             <span class="js-select-button">
@@ -281,7 +281,7 @@
               Unwatch
             </span>
           </a>
-          <a class="social-count js-social-count" href="/blijblijblij/blijblijblij.github.io/watchers">
+          <a class="social-count js-social-count" href="/blijblijblij/blog.blijblijblij.com/watchers">
             1
           </a>
 
@@ -345,27 +345,27 @@
     
   <div class="js-toggler-container js-social-container starring-container ">
 
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blijblijblij.github.io/unstar" class="starred" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="G1LVolPv9P2ffAqlx8OpII1OV2gp7yRcbqNVt9GlhvrWK2CvpsB9iFQQdinapqcK98mn0kk29pSYDMpZ+njopw==" /></div>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blog.blijblijblij.com/unstar" class="starred" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="G1LVolPv9P2ffAqlx8OpII1OV2gp7yRcbqNVt9GlhvrWK2CvpsB9iFQQdinapqcK98mn0kk29pSYDMpZ+njopw==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
-        aria-label="Unstar this repository" title="Unstar blijblijblij/blijblijblij.github.io"
+        aria-label="Unstar this repository" title="Unstar blijblijblij/blog.blijblijblij.com"
         data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">
         <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 6l-4.9-0.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14l4.33-2.33 4.33 2.33L10.4 9.26 14 6z"></path></svg>
         Unstar
       </button>
-        <a class="social-count js-social-count" href="/blijblijblij/blijblijblij.github.io/stargazers">
+        <a class="social-count js-social-count" href="/blijblijblij/blog.blijblijblij.com/stargazers">
           0
         </a>
 </form>
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blijblijblij.github.io/star" class="unstarred" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Z4IPm2KKTyKNbPBoepUAmo+FyWz3EQApskBlHG43Ds6PMKp7EYSBqVHroGchvxPVEz3expG5Xk6j5DmaHfnNew==" /></div>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blog.blijblijblij.com/star" class="unstarred" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Z4IPm2KKTyKNbPBoepUAmo+FyWz3EQApskBlHG43Ds6PMKp7EYSBqVHroGchvxPVEz3expG5Xk6j5DmaHfnNew==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
-        aria-label="Star this repository" title="Star blijblijblij/blijblijblij.github.io"
+        aria-label="Star this repository" title="Star blijblijblij/blog.blijblijblij.com"
         data-ga-click="Repository, click star button, action:blob#show; text:Star">
         <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 6l-4.9-0.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14l4.33-2.33 4.33 2.33L10.4 9.26 14 6z"></path></svg>
         Star
       </button>
-        <a class="social-count js-social-count" href="/blijblijblij/blijblijblij.github.io/stargazers">
+        <a class="social-count js-social-count" href="/blijblijblij/blog.blijblijblij.com/stargazers">
           0
         </a>
 </form>  </div>
@@ -374,8 +374,8 @@
 
   <li>
           <a href="#fork-destination-box" class="btn btn-sm btn-with-count"
-              title="Fork your own copy of blijblijblij/blijblijblij.github.io to your account"
-              aria-label="Fork your own copy of blijblijblij/blijblijblij.github.io to your account"
+              title="Fork your own copy of blijblijblij/blog.blijblijblij.com to your account"
+              aria-label="Fork your own copy of blijblijblij/blog.blijblijblij.com to your account"
               rel="facebox"
               data-ga-click="Repository, show fork modal, action:blob#show; text:Fork">
               <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M8 1c-1.11 0-2 0.89-2 2 0 0.73 0.41 1.38 1 1.72v1.28L5 8 3 6v-1.28c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72v1.78l3 3v1.78c-0.59 0.34-1 0.98-1 1.72 0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.73-0.41-1.38-1-1.72V9.5l3-3V4.72c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2zM2 4.2c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m3 10c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m3-10c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
@@ -386,12 +386,12 @@
             <h2 class="facebox-header" data-facebox-id="facebox-header">Where should we fork this repository?</h2>
             <include-fragment src=""
                 class="js-fork-select-fragment fork-select-fragment"
-                data-url="/blijblijblij/blijblijblij.github.io/fork?fragment=1">
+                data-url="/blijblijblij/blog.blijblijblij.com/fork?fragment=1">
               <img alt="Loading" height="64" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" width="64" />
             </include-fragment>
           </div>
 
-    <a href="/blijblijblij/blijblijblij.github.io/network" class="social-count">
+    <a href="/blijblijblij/blog.blijblijblij.com/network" class="social-count">
       0
     </a>
   </li>
@@ -401,7 +401,7 @@
   <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9h-1v-1h1v1z m0-3h-1v1h1v-1z m0-2h-1v1h1v-1z m0-2h-1v1h1v-1z m8-1v12c0 0.55-0.45 1-1 1H6v2l-1.5-1.5-1.5 1.5V14H1c-0.55 0-1-0.45-1-1V1C0 0.45 0.45 0 1 0h10c0.55 0 1 0.45 1 1z m-1 10H1v2h2v-1h3v1h5V11z m0-10H2v9h9V1z"></path></svg>
   <span class="author" itemprop="author"><a href="/blijblijblij" class="url fn" rel="author">blijblijblij</a></span><!--
 --><span class="path-divider">/</span><!--
---><strong itemprop="name"><a href="/blijblijblij/blijblijblij.github.io" data-pjax="#js-repo-pjax-container">blijblijblij.github.io</a></strong>
+--><strong itemprop="name"><a href="/blijblijblij/blog.blijblijblij.com" data-pjax="#js-repo-pjax-container">blog.blijblijblij.com</a></strong>
 
 </h1>
 
@@ -415,14 +415,14 @@
      data-pjax="#js-repo-pjax-container">
 
   <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a href="/blijblijblij/blijblijblij.github.io" aria-selected="true" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /blijblijblij/blijblijblij.github.io" itemprop="url">
+    <a href="/blijblijblij/blog.blijblijblij.com" aria-selected="true" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /blijblijblij/blog.blijblijblij.com" itemprop="url">
       <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M9.5 3l-1.5 1.5 3.5 3.5L8 11.5l1.5 1.5 4.5-5L9.5 3zM4.5 3L0 8l4.5 5 1.5-1.5L2.5 8l3.5-3.5L4.5 3z"></path></svg>
       <span itemprop="name">Code</span>
       <meta itemprop="position" content="1">
 </a>  </span>
 
     <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-      <a href="/blijblijblij/blijblijblij.github.io/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /blijblijblij/blijblijblij.github.io/issues" itemprop="url">
+      <a href="/blijblijblij/blog.blijblijblij.com/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /blijblijblij/blog.blijblijblij.com/issues" itemprop="url">
         <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7S10.14 13.7 7 13.7 1.3 11.14 1.3 8s2.56-5.7 5.7-5.7m0-1.3C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7S10.86 1 7 1z m1 3H6v5h2V4z m0 6H6v2h2V10z"></path></svg>
         <span itemprop="name">Issues</span>
         <span class="counter">0</span>
@@ -430,27 +430,27 @@
 </a>    </span>
 
   <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a href="/blijblijblij/blijblijblij.github.io/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /blijblijblij/blijblijblij.github.io/pulls" itemprop="url">
+    <a href="/blijblijblij/blog.blijblijblij.com/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /blijblijblij/blog.blijblijblij.com/pulls" itemprop="url">
       <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M11 11.28c0-1.73 0-6.28 0-6.28-0.03-0.78-0.34-1.47-0.94-2.06s-1.28-0.91-2.06-0.94c0 0-1.02 0-1 0V0L4 3l3 3V4h1c0.27 0.02 0.48 0.11 0.69 0.31s0.3 0.42 0.31 0.69v6.28c-0.59 0.34-1 0.98-1 1.72 0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.73-0.41-1.38-1-1.72z m-1 2.92c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2zM4 3c0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72 0 1.55 0 5.56 0 6.56-0.59 0.34-1 0.98-1 1.72 0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.73-0.41-1.38-1-1.72V4.72c0.59-0.34 1-0.98 1-1.72z m-0.8 10c0 0.66-0.55 1.2-1.2 1.2s-1.2-0.55-1.2-1.2 0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2z m-1.2-8.8c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
       <span itemprop="name">Pull requests</span>
       <span class="counter">0</span>
       <meta itemprop="position" content="3">
 </a>  </span>
 
-    <a href="/blijblijblij/blijblijblij.github.io/wiki" class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /blijblijblij/blijblijblij.github.io/wiki">
+    <a href="/blijblijblij/blog.blijblijblij.com/wiki" class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /blijblijblij/blog.blijblijblij.com/wiki">
       <svg aria-hidden="true" class="octicon octicon-book" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M2 5h4v1H2v-1z m0 3h4v-1H2v1z m0 2h4v-1H2v1z m11-5H9v1h4v-1z m0 2H9v1h4v-1z m0 2H9v1h4v-1z m2-6v9c0 0.55-0.45 1-1 1H8.5l-1 1-1-1H1c-0.55 0-1-0.45-1-1V3c0-0.55 0.45-1 1-1h5.5l1 1 1-1h5.5c0.55 0 1 0.45 1 1z m-8 0.5l-0.5-0.5H1v9h6V3.5z m7-0.5H8.5l-0.5 0.5v8.5h6V3z"></path></svg>
       Wiki
 </a>
 
-  <a href="/blijblijblij/blijblijblij.github.io/pulse" class="js-selected-navigation-item reponav-item" data-selected-links="pulse /blijblijblij/blijblijblij.github.io/pulse">
+  <a href="/blijblijblij/blog.blijblijblij.com/pulse" class="js-selected-navigation-item reponav-item" data-selected-links="pulse /blijblijblij/blog.blijblijblij.com/pulse">
     <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0V10h3.6L4.5 8.2l0.9 5.4L9 8.5l1.6 1.5H14V8H11.5z"></path></svg>
     Pulse
 </a>
-  <a href="/blijblijblij/blijblijblij.github.io/graphs" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors /blijblijblij/blijblijblij.github.io/graphs">
+  <a href="/blijblijblij/blog.blijblijblij.com/graphs" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors /blijblijblij/blog.blijblijblij.com/graphs">
     <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M16 14v1H0V0h1v14h15z m-11-1H3V8h2v5z m4 0H7V3h2v10z m4 0H11V6h2v7z"></path></svg>
     Graphs
 </a>
-    <a href="/blijblijblij/blijblijblij.github.io/settings" class="js-selected-navigation-item reponav-item" data-selected-links="repo_settings repo_branch_settings hooks /blijblijblij/blijblijblij.github.io/settings">
+    <a href="/blijblijblij/blog.blijblijblij.com/settings" class="js-selected-navigation-item reponav-item" data-selected-links="repo_settings repo_branch_settings hooks /blijblijblij/blog.blijblijblij.com/settings">
       <svg aria-hidden="true" class="octicon octicon-gear" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 8.77V7.17l-1.94-0.64-0.45-1.09 0.88-1.84-1.13-1.13-1.81 0.91-1.09-0.45-0.69-1.92H6.17l-0.63 1.94-1.11 0.45-1.84-0.88-1.13 1.13 0.91 1.81-0.45 1.09L0 7.23v1.59l1.94 0.64 0.45 1.09-0.88 1.84 1.13 1.13 1.81-0.91 1.09 0.45 0.69 1.92h1.59l0.63-1.94 1.11-0.45 1.84 0.88 1.13-1.13-0.92-1.81 0.47-1.09 1.92-0.69zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg>
       Settings
 </a>
@@ -464,7 +464,7 @@
 
     
 
-<a href="/blijblijblij/blijblijblij.github.io/blob/c372a42a77b21dcfa41023b6f1646ef65e43c403/pdf/20160513_JavaScript%20in%20PDI.pdf" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+<a href="/blijblijblij/blog.blijblijblij.com/blob/c372a42a77b21dcfa41023b6f1646ef65e43c403/pdf/20160513_JavaScript%20in%20PDI.pdf" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
 
 <!-- blob contrib key: blob_contributors:v21:bfc4d446290b1097626c86d146fb6868 -->
 
@@ -508,7 +508,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/blijblijblij/blijblijblij.github.io/blob/develop/pdf/20160513_JavaScript%20in%20PDI.pdf"
+               href="/blijblijblij/blog.blijblijblij.com/blob/develop/pdf/20160513_JavaScript%20in%20PDI.pdf"
                data-name="develop"
                data-skip-pjax="true"
                rel="nofollow">
@@ -518,7 +518,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/blijblijblij/blijblijblij.github.io/blob/master/pdf/20160513_JavaScript%20in%20PDI.pdf"
+               href="/blijblijblij/blog.blijblijblij.com/blob/master/pdf/20160513_JavaScript%20in%20PDI.pdf"
                data-name="master"
                data-skip-pjax="true"
                rel="nofollow">
@@ -529,7 +529,7 @@
             </a>
         </div>
 
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blijblijblij.github.io/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="kQq8ppELCki6DQ1YZjTa8RqICZEs2Lm6320EIqTNRlB90yHQf2jVswLNmA9qLRP0QcAerWISqmAe7A178cSUmQ==" /></div>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blog.blijblijblij.com/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="kQq8ppELCki6DQ1YZjTa8RqICZEs2Lm6320EIqTNRlB90yHQf2jVswLNmA9qLRP0QcAerWISqmAe7A178cSUmQ==" /></div>
           <svg aria-hidden="true" class="octicon octicon-git-branch select-menu-item-icon" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-0.89-2-2-2s-2 0.89-2 2c0 0.73 0.41 1.38 1 1.72v0.3c-0.02 0.52-0.23 0.98-0.63 1.38s-0.86 0.61-1.38 0.63c-0.83 0.02-1.48 0.16-2 0.45V4.72c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72v6.56C0.41 11.63 0 12.27 0 13c0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.53-0.2-1-0.53-1.36 0.09-0.06 0.48-0.41 0.59-0.47 0.25-0.11 0.56-0.17 0.94-0.17 1.05-0.05 1.95-0.45 2.75-1.25s1.2-1.98 1.25-3.02h-0.02c0.61-0.36 1.02-1 1.02-1.73zM2 1.8c0.66 0 1.2 0.55 1.2 1.2s-0.55 1.2-1.2 1.2-1.2-0.55-1.2-1.2 0.55-1.2 1.2-1.2z m0 12.41c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m6-8c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
             <div class="select-menu-item-text">
               <span class="select-menu-item-heading">Create branch: <span class="js-new-item-name"></span></span>
@@ -546,7 +546,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/blijblijblij/blijblijblij.github.io/tree/version-1/pdf/20160513_JavaScript%20in%20PDI.pdf"
+              href="/blijblijblij/blog.blijblijblij.com/tree/version-1/pdf/20160513_JavaScript%20in%20PDI.pdf"
               data-name="version-1"
               data-skip-pjax="true"
               rel="nofollow">
@@ -565,7 +565,7 @@
 </div>
 
   <div class="btn-group right">
-    <a href="/blijblijblij/blijblijblij.github.io/find/master"
+    <a href="/blijblijblij/blog.blijblijblij.com/find/master"
           class="js-pjax-capture-input btn btn-sm"
           data-pjax
           data-hotkey="t">
@@ -574,14 +574,14 @@
     <button aria-label="Copy file path to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button">Copy path</button>
   </div>
   <div class="breadcrumb js-zeroclipboard-target">
-    <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/blijblijblij/blijblijblij.github.io"><span>blijblijblij.github.io</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a href="/blijblijblij/blijblijblij.github.io/tree/master/pdf"><span>pdf</span></a></span><span class="separator">/</span><strong class="final-path">20160513_JavaScript in PDI.pdf</strong>
+    <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/blijblijblij/blog.blijblijblij.com"><span>blog.blijblijblij.com</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a href="/blijblijblij/blog.blijblijblij.com/tree/master/pdf"><span>pdf</span></a></span><span class="separator">/</span><strong class="final-path">20160513_JavaScript in PDI.pdf</strong>
   </div>
 </div>
 
 
   <div class="commit-tease">
       <span class="right">
-        <a class="commit-tease-sha" href="/blijblijblij/blijblijblij.github.io/commit/ec4b0c58dc375a93c8a44333139be1139e915088" data-pjax>
+        <a class="commit-tease-sha" href="/blijblijblij/blog.blijblijblij.com/commit/ec4b0c58dc375a93c8a44333139be1139e915088" data-pjax>
           ec4b0c5
         </a>
         <relative-time datetime="2016-05-13T09:41:29Z">May 13, 2016</relative-time>
@@ -589,7 +589,7 @@
       <div>
         <img alt="@blijblijblij" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/1648248?v=3&amp;s=40" width="20" />
         <a href="/blijblijblij" class="user-mention" rel="author">blijblijblij</a>
-          <a href="/blijblijblij/blijblijblij.github.io/commit/ec4b0c58dc375a93c8a44333139be1139e915088" class="message" data-pjax="true" title="Add files via upload">Add files via upload</a>
+          <a href="/blijblijblij/blog.blijblijblij.com/commit/ec4b0c58dc375a93c8a44333139be1139e915088" class="message" data-pjax="true" title="Add files via upload">Add files via upload</a>
       </div>
 
     <div class="commit-tease-contributors">
@@ -616,12 +616,12 @@
   <div class="file-actions">
 
     <div class="btn-group">
-      <a href="/blijblijblij/blijblijblij.github.io/raw/master/pdf/20160513_JavaScript%20in%20PDI.pdf" class="btn btn-sm " id="raw-url">Raw</a>
-      <a href="/blijblijblij/blijblijblij.github.io/commits/master/pdf/20160513_JavaScript%20in%20PDI.pdf" class="btn btn-sm " rel="nofollow">History</a>
+      <a href="/blijblijblij/blog.blijblijblij.com/raw/master/pdf/20160513_JavaScript%20in%20PDI.pdf" class="btn btn-sm " id="raw-url">Raw</a>
+      <a href="/blijblijblij/blog.blijblijblij.com/commits/master/pdf/20160513_JavaScript%20in%20PDI.pdf" class="btn btn-sm " rel="nofollow">History</a>
     </div>
 
 
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blijblijblij.github.io/delete/master/pdf/20160513_JavaScript%20in%20PDI.pdf" class="inline-form" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Hy0Hup9GsbHtonqv//Zznap89TkLdMji3seh3vex1X4158hoqU73wdTTzr4nTVG2bBK6SpnBfzj6LuqlwK3A9Q==" /></div>
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/blijblijblij/blog.blijblijblij.com/delete/master/pdf/20160513_JavaScript%20in%20PDI.pdf" class="inline-form" data-form-nonce="ef33417919fcc5bc6571b72b01ba74102aafa286" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Hy0Hup9GsbHtonqv//Zznap89TkLdMji3seh3vex1X4158hoqU73wdTTzr4nTVG2bBK6SpnBfzj6LuqlwK3A9Q==" /></div>
           <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
             aria-label="Delete this file" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M10 2H8c0-0.55-0.45-1-1-1H4c-0.55 0-1 0.45-1 1H1c-0.55 0-1 0.45-1 1v1c0 0.55 0.45 1 1 1v9c0 0.55 0.45 1 1 1h7c0.55 0 1-0.45 1-1V5c0.55 0 1-0.45 1-1v-1c0-0.55-0.45-1-1-1z m-1 12H2V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9z m1-10H1v-1h9v1z"></path></svg>
@@ -643,10 +643,10 @@
       data-host="https://render.githubusercontent.com"
       data-type="pdf">
       <img alt="" class="octospinner" height="64" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" width="64" />
-      <div class="render-viewer-error">Sorry, something went wrong. <a href="https://github.com/blijblijblij/blijblijblij.github.io/blob/master/pdf/20160513_JavaScript%20in%20PDI.pdf">Reload?</a></div>
+      <div class="render-viewer-error">Sorry, something went wrong. <a href="https://github.com/blijblijblij/blog.blijblijblij.com/blob/master/pdf/20160513_JavaScript%20in%20PDI.pdf">Reload?</a></div>
       <div class="render-viewer-fatal">Sorry, we cannot display this file.</div>
       <div class="render-viewer-invalid">Sorry, this file is invalid so it cannot be displayed.</div>
-      <iframe class="render-viewer" src="https://render.githubusercontent.com/view/pdf?commit=c372a42a77b21dcfa41023b6f1646ef65e43c403&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f626c696a626c696a626c696a2f626c696a626c696a626c696a2e6769746875622e696f2f633337326134326137376232316463666134313032336236663136343665663635653433633430332f7064662f32303136303531335f4a617661536372697074253230696e2532305044492e706466&amp;nwo=blijblijblij%2Fblijblijblij.github.io&amp;path=pdf%2F20160513_JavaScript+in+PDI.pdf&amp;repository_id=46254278#b249497e-d023-46d5-81fd-54eac80045c4" sandbox="allow-scripts allow-same-origin allow-top-navigation">Viewer requires iframe.</iframe>
+      <iframe class="render-viewer" src="https://render.githubusercontent.com/view/pdf?commit=c372a42a77b21dcfa41023b6f1646ef65e43c403&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f626c696a626c696a626c696a2f626c696a626c696a626c696a2e6769746875622e696f2f633337326134326137376232316463666134313032336236663136343665663635653433633430332f7064662f32303136303531335f4a617661536372697074253230696e2532305044492e706466&amp;nwo=blijblijblij%2Fblog.blijblijblij.com&amp;path=pdf%2F20160513_JavaScript+in+PDI.pdf&amp;repository_id=46254278#b249497e-d023-46d5-81fd-54eac80045c4" sandbox="allow-scripts allow-same-origin allow-top-navigation">Viewer requires iframe.</iframe>
     </div>
   </div>
 

@@ -2,127 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blijblijblij.github.io/about/</loc>
+    <loc>https://blog.blijblijblij.com/about/</loc>
     <lastmod>2017-03-25T13:45:08+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/2017-03-17-pentahonl-recap/</loc>
+    <loc>https://blog.blijblijblij.com/post/2017-03-17-pentahonl-recap/</loc>
     <lastmod>2017-03-17T11:29:17+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/easy-proxy-for-biserver/</loc>
+    <loc>https://blog.blijblijblij.com/post/easy-proxy-for-biserver/</loc>
     <lastmod>2016-12-10T13:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/slack-update-from-pdi/</loc>
+    <loc>https://blog.blijblijblij.com/post/slack-update-from-pdi/</loc>
     <lastmod>2016-11-19T10:00:04+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/pentaho-and-mesos/</loc>
+    <loc>https://blog.blijblijblij.com/post/pentaho-and-mesos/</loc>
     <lastmod>2016-05-21T11:06:05+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/pentahanl-spring-meetup/</loc>
+    <loc>https://blog.blijblijblij.com/post/pentahanl-spring-meetup/</loc>
     <lastmod>2016-05-11T07:00:32+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/jekyll-to-hugo/</loc>
+    <loc>https://blog.blijblijblij.com/post/jekyll-to-hugo/</loc>
     <lastmod>2016-05-03T16:13:59+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</loc>
+    <loc>https://blog.blijblijblij.com/post/2016-04-26-first-meetup-update/</loc>
     <lastmod>2016-04-26T23:03:34+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</loc>
+    <loc>https://blog.blijblijblij.com/post/2016-01-30-first-meetup/</loc>
     <lastmod>2016-01-30T23:02:54+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/2015-11-16-newblog/</loc>
+    <loc>https://blog.blijblijblij.com/post/2015-11-16-newblog/</loc>
     <lastmod>2015-11-16T23:02:34+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</loc>
+    <loc>https://blog.blijblijblij.com/post/2015-11-10-pentaho-nl/</loc>
     <lastmod>2015-11-10T23:02:04+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/blablabla/</loc>
+    <loc>https://blog.blijblijblij.com/tags/blablabla/</loc>
     <lastmod>2015-11-16T23:02:34+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/docker/</loc>
+    <loc>https://blog.blijblijblij.com/tags/docker/</loc>
     <lastmod>2016-12-10T13:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/meetup/</loc>
+    <loc>https://blog.blijblijblij.com/tags/meetup/</loc>
     <lastmod>2017-03-17T11:29:17+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/mesos/</loc>
+    <loc>https://blog.blijblijblij.com/tags/mesos/</loc>
     <lastmod>2016-05-21T11:06:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/pdi/</loc>
+    <loc>https://blog.blijblijblij.com/tags/pdi/</loc>
     <lastmod>2016-11-19T10:00:04+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/pentaho/</loc>
+    <loc>https://blog.blijblijblij.com/tags/pentaho/</loc>
     <lastmod>2017-03-17T11:29:17+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/post/</loc>
+    <loc>https://blog.blijblijblij.com/post/</loc>
     <lastmod>2017-03-17T11:29:17+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/proxy/</loc>
+    <loc>https://blog.blijblijblij.com/tags/proxy/</loc>
     <lastmod>2016-12-10T13:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/slack/</loc>
+    <loc>https://blog.blijblijblij.com/tags/slack/</loc>
     <lastmod>2016-11-19T10:00:04+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/</loc>
+    <loc>https://blog.blijblijblij.com/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/tags/usergroup/</loc>
+    <loc>https://blog.blijblijblij.com/tags/usergroup/</loc>
     <lastmod>2015-11-10T23:02:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blijblijblij.github.io/</loc>
+    <loc>https://blog.blijblijblij.com/</loc>
     <lastmod>2017-03-25T13:45:08+01:00</lastmod>
     <priority>0</priority>
   </url>

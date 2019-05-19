@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Usergroup on blijblijblij.github.io</title>
-    <link>http://blijblijblij.github.io/tags/usergroup/index.xml</link>
-    <description>Recent content in Usergroup on blijblijblij.github.io</description>
+    <title>Usergroup on blog.blijblijblij.com</title>
+    <link>https://blog.blijblijblij.com/tags/usergroup/index.xml</link>
+    <description>Recent content in Usergroup on blog.blijblijblij.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <atom:link href="http://blijblijblij.github.io/tags/usergroup/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.blijblijblij.com/tags/usergroup/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Pentaho NL Usergroup!</title>
-      <link>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</link>
+      <link>https://blog.blijblijblij.com/post/2015-11-10-pentaho-nl/</link>
       <pubDate>Tue, 10 Nov 2015 23:02:04 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</guid>
+      <guid>https://blog.blijblijblij.com/post/2015-11-10-pentaho-nl/</guid>
       <description>&lt;p&gt;Last weekend the European Pentaho User meetup &lt;a href=&#34;https://github.com/PentahoCommunityMeetup2015/info/blob/master/README.md&#34;&gt;#pcm15&lt;/a&gt; was held in London. Two days of hacking, technical talks and beer was the perfect recipe to make a great meeting.
-  &lt;img src=&#34;http://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/ce7f4ced5f62234f4cf35cb695c86189e587a09e/_site/img/2015-11-16_pcm-2015-logo.jpg&#34; alt=&#34;#pcm15 logo&#34; title=&#34;#pcm15 logo&#34; /&gt;&lt;/p&gt;
+  &lt;img src=&#34;http://raw.githubusercontent.com/blijblijblij/blog.blijblijblij.com/ce7f4ced5f62234f4cf35cb695c86189e587a09e/_site/img/2015-11-16_pcm-2015-logo.jpg&#34; alt=&#34;#pcm15 logo&#34; title=&#34;#pcm15 logo&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We had great talks, and I caught up with some Dutch colleagues and we concluded there should be some local NL followup to this community initiative!&lt;/p&gt;
 

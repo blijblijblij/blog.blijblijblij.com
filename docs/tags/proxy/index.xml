@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Proxy on blijblijblij.github.io</title>
-    <link>http://blijblijblij.github.io/tags/proxy/index.xml</link>
-    <description>Recent content in Proxy on blijblijblij.github.io</description>
+    <title>Proxy on blog.blijblijblij.com</title>
+    <link>https://blog.blijblijblij.com/tags/proxy/index.xml</link>
+    <description>Recent content in Proxy on blog.blijblijblij.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <atom:link href="http://blijblijblij.github.io/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.blijblijblij.com/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Setup an easy reverse proxy to the biserver</title>
-      <link>http://blijblijblij.github.io/post/easy-proxy-for-biserver/</link>
+      <link>https://blog.blijblijblij.com/post/easy-proxy-for-biserver/</link>
       <pubDate>Sat, 10 Dec 2016 13:00:00 +0100</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/easy-proxy-for-biserver/</guid>
+      <guid>https://blog.blijblijblij.com/post/easy-proxy-for-biserver/</guid>
       <description>
 
 &lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
@@ -26,7 +26,7 @@ consumers, or have security implications.&lt;/p&gt;
 
 &lt;p&gt;We need to limit the attack service of a biserver!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/mayday.png&#34; alt=&#34;proxy it&#34; title=&#34;proxy it&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/mayday.png&#34; alt=&#34;proxy it&#34; title=&#34;proxy it&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Traditionally one would spin up a new server, add an apache config to proxy forward
 some requests to the backend. This adds complexity, moving parts, and lowers
@@ -80,14 +80,14 @@ services:
 
 &lt;p&gt;Looking at the dashboard directly.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_biserver direct.png&#34; alt=&#34;unproxied&#34; title=&#34;unproxied&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-12-10_biserver direct.png&#34; alt=&#34;unproxied&#34; title=&#34;unproxied&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, lets view it via the proxy
-&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_biserverproxied.png&#34; alt=&#34;proxied&#34; title=&#34;proxied&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-12-10_biserverproxied.png&#34; alt=&#34;proxied&#34; title=&#34;proxied&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;But oh, the horror of my carefully crafted indenting, it has gone all haywire. And when we inspect the page we see what&amp;rsquo;s going wrong:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_styling_horrors.png&#34; alt=&#34;styling horrors&#34; title=&#34;styling horrors&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-12-10_styling_horrors.png&#34; alt=&#34;styling horrors&#34; title=&#34;styling horrors&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And funny enough, now the &lt;code&gt;canary&lt;/code&gt; container comes to offer the same insight as well:&lt;/p&gt;
 
@@ -117,7 +117,7 @@ canary_1    | 172.18.0.4 - - [10/Dec/2016:20:11:09 +0000] &amp;quot;GET /pentaho
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Et voila, indenting back from the death, but carefully proxied for only that particular resource we wanted to expose to the world &lt;code&gt;:-)&lt;/code&gt;
-&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_epic_dashboard.png&#34; alt=&#34;epic&#34; title=&#34;epic&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-12-10_epic_dashboard.png&#34; alt=&#34;epic&#34; title=&#34;epic&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;So the final composition looks like:&lt;/p&gt;
 

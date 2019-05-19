@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on blijblijblij.github.io</title>
-    <link>http://blijblijblij.github.io/post/index.xml</link>
-    <description>Recent content in Posts on blijblijblij.github.io</description>
+    <title>Posts on blog.blijblijblij.com</title>
+    <link>https://blog.blijblijblij.com/post/index.xml</link>
+    <description>Recent content in Posts on blog.blijblijblij.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
     <lastBuildDate>Fri, 17 Mar 2017 11:29:17 +0100</lastBuildDate>
-    <atom:link href="http://blijblijblij.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.blijblijblij.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>PentahoNL meetup March 2017 recap</title>
-      <link>http://blijblijblij.github.io/post/2017-03-17-pentahonl-recap/</link>
+      <link>https://blog.blijblijblij.com/post/2017-03-17-pentahonl-recap/</link>
       <pubDate>Fri, 17 Mar 2017 11:29:17 +0100</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/2017-03-17-pentahonl-recap/</guid>
+      <guid>https://blog.blijblijblij.com/post/2017-03-17-pentahonl-recap/</guid>
       <description>
 
 &lt;h1 id=&#34;great-vibe-interesting-talks&#34;&gt;Great vibe, interesting talks&lt;/h1&gt;
@@ -58,10 +58,10 @@
     
     <item>
       <title>Setup an easy reverse proxy to the biserver</title>
-      <link>http://blijblijblij.github.io/post/easy-proxy-for-biserver/</link>
+      <link>https://blog.blijblijblij.com/post/easy-proxy-for-biserver/</link>
       <pubDate>Sat, 10 Dec 2016 13:00:00 +0100</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/easy-proxy-for-biserver/</guid>
+      <guid>https://blog.blijblijblij.com/post/easy-proxy-for-biserver/</guid>
       <description>
 
 &lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
@@ -73,7 +73,7 @@ consumers, or have security implications.&lt;/p&gt;
 
 &lt;p&gt;We need to limit the attack service of a biserver!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/mayday.png&#34; alt=&#34;proxy it&#34; title=&#34;proxy it&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/mayday.png&#34; alt=&#34;proxy it&#34; title=&#34;proxy it&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Traditionally one would spin up a new server, add an apache config to proxy forward
 some requests to the backend. This adds complexity, moving parts, and lowers
@@ -127,14 +127,14 @@ services:
 
 &lt;p&gt;Looking at the dashboard directly.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_biserver direct.png&#34; alt=&#34;unproxied&#34; title=&#34;unproxied&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-12-10_biserver direct.png&#34; alt=&#34;unproxied&#34; title=&#34;unproxied&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, lets view it via the proxy
-&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_biserverproxied.png&#34; alt=&#34;proxied&#34; title=&#34;proxied&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-12-10_biserverproxied.png&#34; alt=&#34;proxied&#34; title=&#34;proxied&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;But oh, the horror of my carefully crafted indenting, it has gone all haywire. And when we inspect the page we see what&amp;rsquo;s going wrong:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_styling_horrors.png&#34; alt=&#34;styling horrors&#34; title=&#34;styling horrors&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-12-10_styling_horrors.png&#34; alt=&#34;styling horrors&#34; title=&#34;styling horrors&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And funny enough, now the &lt;code&gt;canary&lt;/code&gt; container comes to offer the same insight as well:&lt;/p&gt;
 
@@ -164,7 +164,7 @@ canary_1    | 172.18.0.4 - - [10/Dec/2016:20:11:09 +0000] &amp;quot;GET /pentaho
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Et voila, indenting back from the death, but carefully proxied for only that particular resource we wanted to expose to the world &lt;code&gt;:-)&lt;/code&gt;
-&lt;img src=&#34;http://blijblijblij.github.io/images/2016-12-10_epic_dashboard.png&#34; alt=&#34;epic&#34; title=&#34;epic&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-12-10_epic_dashboard.png&#34; alt=&#34;epic&#34; title=&#34;epic&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;So the final composition looks like:&lt;/p&gt;
 
@@ -215,10 +215,10 @@ as it can do easy ssl termination as well, just change the proxy to:&lt;/p&gt;
     
     <item>
       <title>Slack update from pdi</title>
-      <link>http://blijblijblij.github.io/post/slack-update-from-pdi/</link>
+      <link>https://blog.blijblijblij.com/post/slack-update-from-pdi/</link>
       <pubDate>Sat, 19 Nov 2016 10:00:04 +0100</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/slack-update-from-pdi/</guid>
+      <guid>https://blog.blijblijblij.com/post/slack-update-from-pdi/</guid>
       <description>
 
 &lt;h1 id=&#34;data-transform-your-slack-channels&#34;&gt;Data-transform your slack channels&lt;/h1&gt;
@@ -261,7 +261,7 @@ https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
 
 &lt;p&gt;A reporting transformation that delivers the very same json, but with some additions:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_tr_report.png&#34; alt=&#34;report to slack&#34; title=&#34;report to slack&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-11-19_tr_report.png&#34; alt=&#34;report to slack&#34; title=&#34;report to slack&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Script the json with javascript:&lt;/p&gt;
 
@@ -282,11 +282,11 @@ https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
 
 &lt;p&gt;Incorperate the slack reporting into a bigger picture:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_jb_main.png&#34; alt=&#34;main job&#34; title=&#34;main job&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-11-19_jb_main.png&#34; alt=&#34;main job&#34; title=&#34;main job&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Et voila, some slack updates:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_slack_updated.png&#34; alt=&#34;on slack&#34; title=&#34;on slack&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-11-19_slack_updated.png&#34; alt=&#34;on slack&#34; title=&#34;on slack&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;thin-foil-hat&#34;&gt;Thin foil hat&lt;/h2&gt;
 
@@ -300,10 +300,10 @@ https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
     
     <item>
       <title>Running pentaho on mesos - part 1</title>
-      <link>http://blijblijblij.github.io/post/pentaho-and-mesos/</link>
+      <link>https://blog.blijblijblij.com/post/pentaho-and-mesos/</link>
       <pubDate>Sat, 21 May 2016 11:06:05 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/pentaho-and-mesos/</guid>
+      <guid>https://blog.blijblijblij.com/post/pentaho-and-mesos/</guid>
       <description>
 
 &lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
@@ -317,7 +317,7 @@ https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
 &lt;h1 id=&#34;define&#34;&gt;Define&lt;/h1&gt;
 
 &lt;p&gt;This is an overview of a mesos cluster in its simplest form.
-&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io-hugo/9dafdf22f19d04c63eb47e2c9681884694887156/static/images/mesos-arch.png&#34; alt=&#34;Mesos architectural overview&#34; /&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blog.blijblijblij.com-hugo/9dafdf22f19d04c63eb47e2c9681884694887156/static/images/mesos-arch.png&#34; alt=&#34;Mesos architectural overview&#34; /&gt;
 &lt;a href=&#34;https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -427,10 +427,10 @@ mesos-s2                     -        virtualbox   Running   tcp://192.168.99.10
     
     <item>
       <title>Pentaho NL spring meetup</title>
-      <link>http://blijblijblij.github.io/post/pentahanl-spring-meetup/</link>
+      <link>https://blog.blijblijblij.com/post/pentahanl-spring-meetup/</link>
       <pubDate>Wed, 11 May 2016 07:00:32 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/pentahanl-spring-meetup/</guid>
+      <guid>https://blog.blijblijblij.com/post/pentahanl-spring-meetup/</guid>
       <description>
 
 &lt;p&gt;Last month we gathered for the second Pentaho NL meetup. &lt;a href=&#34;https://www.twitter.com/incentro&#34;&gt;@Incentro&lt;/a&gt; were sponsoring the location (their office at former Airport Ypenburg) as well as some excellent food and drinks, much appreciated guys!&lt;/p&gt;
@@ -441,11 +441,11 @@ mesos-s2                     -        virtualbox   Running   tcp://192.168.99.10
 
 &lt;p&gt;&lt;em&gt;Edwin Weber&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/c38182b984a7481a01c0b0e84eb3b2e4a926eff7/images/2016-04-19-edwin.jpg&#34; alt=&#34;alt text&#34; title=&#34;Edwin on fire!&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blog.blijblijblij.com/c38182b984a7481a01c0b0e84eb3b2e4a926eff7/images/2016-04-19-edwin.jpg&#34; alt=&#34;alt text&#34; title=&#34;Edwin on fire!&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Edwin challenged the demo-gods, they got the better off him. But Edwin is a master (karate wise, as well as pentaho wise). He reclaimed his mastery and demo-ed Data Virtualization using the thin jdbc driver running sql queries on top of data transformations. Apparently this functionality still needs some hammering to get it to work. But from what I have heared Edwins work has already been relayed to another master, a new &lt;a href=&#34;https://twitter.com/diethardsteiner&#34;&gt;Diethard Steiner&lt;/a&gt; post should be in the makings.&lt;/p&gt;
 
-&lt;p&gt;As for &lt;a href=&#34;https://twitter.com/edwin_weber&#34;&gt;Edwins&lt;/a&gt; talk, here is the &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/0edeaeef6e7778ebac04579505e3418470d3eb91/pdf/20160503_data_virtualization_demo.pdf&#34;&gt;transscript&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As for &lt;a href=&#34;https://twitter.com/edwin_weber&#34;&gt;Edwins&lt;/a&gt; talk, here is the &lt;a href=&#34;https://github.com/blijblijblij/blog.blijblijblij.com/raw/0edeaeef6e7778ebac04579505e3418470d3eb91/pdf/20160503_data_virtualization_demo.pdf&#34;&gt;transscript&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&#34;datastax-cassandra-plugin&#34;&gt;Datastax Cassandra plugin&lt;/h1&gt;
 
@@ -454,7 +454,7 @@ mesos-s2                     -        virtualbox   Running   tcp://192.168.99.10
 
 &lt;p&gt;Rudmer gave a demo about their newly developed Data Cassandra driver taking us through all functionalities.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/master/images/2016-04-13-cassandra-driver.png&#34; alt=&#34;alt text&#34; title=&#34;In the marketplace&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blog.blijblijblij.com/master/images/2016-04-13-cassandra-driver.png&#34; alt=&#34;alt text&#34; title=&#34;In the marketplace&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;It has been released from the marketplace, hooray on that!&lt;/p&gt;
 
@@ -466,7 +466,7 @@ mesos-s2                     -        virtualbox   Running   tcp://192.168.99.10
 
 &lt;p&gt;Julien talk was very interesting, stressing the balance between doing it the Etl / pentaho way versus fixing it in one go in a javascript step. The javascript step is a very powerfull step (dating back to that very beginning of PDI) enabling you to dive deep inside the Pentaho data-integration application and exposing api&amp;rsquo;s unknown to most!&lt;/p&gt;
 
-&lt;p&gt;His talk can be found &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/master/pdf/20160513_JavaScript%20in%20PDI.pdf&#34;&gt;here&lt;/a&gt;, but make sure you dive into the &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/raw/master/pdf/JavaScript%20in%20PDI.zip&#34;&gt;demo samples&lt;/a&gt; as well!!!&lt;/p&gt;
+&lt;p&gt;His talk can be found &lt;a href=&#34;https://github.com/blijblijblij/blog.blijblijblij.com/raw/master/pdf/20160513_JavaScript%20in%20PDI.pdf&#34;&gt;here&lt;/a&gt;, but make sure you dive into the &lt;a href=&#34;https://github.com/blijblijblij/blog.blijblijblij.com/raw/master/pdf/JavaScript%20in%20PDI.zip&#34;&gt;demo samples&lt;/a&gt; as well!!!&lt;/p&gt;
 
 &lt;p&gt;To conclude, another inspriring Pentaho NL meetup!&lt;/p&gt;
 </description>
@@ -474,13 +474,13 @@ mesos-s2                     -        virtualbox   Running   tcp://192.168.99.10
     
     <item>
       <title>Jekyll boooh, hugo yeah!</title>
-      <link>http://blijblijblij.github.io/post/jekyll-to-hugo/</link>
+      <link>https://blog.blijblijblij.com/post/jekyll-to-hugo/</link>
       <pubDate>Tue, 03 May 2016 16:13:59 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/jekyll-to-hugo/</guid>
+      <guid>https://blog.blijblijblij.com/post/jekyll-to-hugo/</guid>
       <description>
 
-&lt;p&gt;Not that long ago I &lt;a href=&#34;http://blijblijblij.github.io/post/2015-11-16-newblog&#34;&gt;migrated my blog to github pages&lt;/a&gt; using  &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;. Jekyll is a &lt;a href=&#34;https://www.staticgen.com/&#34;&gt;static website generator&lt;/a&gt;. You write some intermediate &lt;a href=&#34;https://en.wikipedia.org/wiki/Markdown&#34;&gt;markdown&lt;/a&gt; pages, &lt;a href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34;&gt;cheat some markup&lt;/a&gt; and the generator will build the static website for you, rss feeds, navigation and the whole shebang included.&lt;/p&gt;
+&lt;p&gt;Not that long ago I &lt;a href=&#34;https://blog.blijblijblij.com/post/2015-11-16-newblog&#34;&gt;migrated my blog to github pages&lt;/a&gt; using  &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;. Jekyll is a &lt;a href=&#34;https://www.staticgen.com/&#34;&gt;static website generator&lt;/a&gt;. You write some intermediate &lt;a href=&#34;https://en.wikipedia.org/wiki/Markdown&#34;&gt;markdown&lt;/a&gt; pages, &lt;a href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34;&gt;cheat some markup&lt;/a&gt; and the generator will build the static website for you, rss feeds, navigation and the whole shebang included.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; the sm-meister that wrote Jekyll went through some hard, breaking and annoying changes. Probably very sound changes, but I want something that works, takes little effort to maintain, yet slightly more appealing than&lt;/p&gt;
 
@@ -522,10 +522,10 @@ mesos-s2                     -        virtualbox   Running   tcp://192.168.99.10
     
     <item>
       <title>Update: First pentaho nl meetup!</title>
-      <link>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</link>
+      <link>https://blog.blijblijblij.com/post/2016-04-26-first-meetup-update/</link>
       <pubDate>Tue, 26 Apr 2016 23:03:34 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/2016-04-26-first-meetup-update/</guid>
+      <guid>https://blog.blijblijblij.com/post/2016-04-26-first-meetup-update/</guid>
       <description>
 
 &lt;h1 id=&#34;tools-dashboards-are-awesome&#34;&gt;Tools Dashboards are Awesome!&lt;/h1&gt;
@@ -534,16 +534,16 @@ mesos-s2                     -        virtualbox   Running   tcp://192.168.99.10
 
 &lt;p&gt;Julien also demo-ed a lot, styling a set of components in an instant just by implementing a standard layout, and reusing that in several graphs extending that standard layout!&lt;/p&gt;
 
-&lt;p&gt;Here: &lt;a href=&#34;https://github.com/blijblijblij/blijblijblij.github.io/blob/master/pdf/20160131_CDF_beyond_CDE.pdf&#34;&gt;Juliens talk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here: &lt;a href=&#34;https://github.com/blijblijblij/blog.blijblijblij.com/blob/master/pdf/20160131_CDF_beyond_CDE.pdf&#34;&gt;Juliens talk&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>First pentaho nl meetup!</title>
-      <link>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</link>
+      <link>https://blog.blijblijblij.com/post/2016-01-30-first-meetup/</link>
       <pubDate>Sat, 30 Jan 2016 23:02:54 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/2016-01-30-first-meetup/</guid>
+      <guid>https://blog.blijblijblij.com/post/2016-01-30-first-meetup/</guid>
       <description>
 
 &lt;p&gt;Busy times, so with a slight delay a recap of our very first &lt;a href=&#34;http://www.meetup.com/Pentaho-NL-Meetup/&#34;&gt;pentaho NL meetup&lt;/a&gt;.&lt;/p&gt;
@@ -616,10 +616,10 @@ extensively. The second half of my talk was demo time. When you do Docker with P
     
     <item>
       <title>From blogspot to github.io</title>
-      <link>http://blijblijblij.github.io/post/2015-11-16-newblog/</link>
+      <link>https://blog.blijblijblij.com/post/2015-11-16-newblog/</link>
       <pubDate>Mon, 16 Nov 2015 23:02:34 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/2015-11-16-newblog/</guid>
+      <guid>https://blog.blijblijblij.com/post/2015-11-16-newblog/</guid>
       <description>
 
 &lt;p&gt;My &lt;a href=&#34;https://rogierwessel.blogspot.nl&#34;&gt;blogspot blog&lt;/a&gt; has been dead for years, not good! There wasn&amp;rsquo;t much to &lt;code&gt;blah&lt;/code&gt; about, also writing something technical on blogspot with nice formating like&amp;hellip;&lt;/p&gt;
@@ -666,12 +666,12 @@ extensively. The second half of my talk was demo time. When you do Docker with P
     
     <item>
       <title>Pentaho NL Usergroup!</title>
-      <link>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</link>
+      <link>https://blog.blijblijblij.com/post/2015-11-10-pentaho-nl/</link>
       <pubDate>Tue, 10 Nov 2015 23:02:04 +0200</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/2015-11-10-pentaho-nl/</guid>
+      <guid>https://blog.blijblijblij.com/post/2015-11-10-pentaho-nl/</guid>
       <description>&lt;p&gt;Last weekend the European Pentaho User meetup &lt;a href=&#34;https://github.com/PentahoCommunityMeetup2015/info/blob/master/README.md&#34;&gt;#pcm15&lt;/a&gt; was held in London. Two days of hacking, technical talks and beer was the perfect recipe to make a great meeting.
-  &lt;img src=&#34;http://raw.githubusercontent.com/blijblijblij/blijblijblij.github.io/ce7f4ced5f62234f4cf35cb695c86189e587a09e/_site/img/2015-11-16_pcm-2015-logo.jpg&#34; alt=&#34;#pcm15 logo&#34; title=&#34;#pcm15 logo&#34; /&gt;&lt;/p&gt;
+  &lt;img src=&#34;http://raw.githubusercontent.com/blijblijblij/blog.blijblijblij.com/ce7f4ced5f62234f4cf35cb695c86189e587a09e/_site/img/2015-11-16_pcm-2015-logo.jpg&#34; alt=&#34;#pcm15 logo&#34; title=&#34;#pcm15 logo&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We had great talks, and I caught up with some Dutch colleagues and we concluded there should be some local NL followup to this community initiative!&lt;/p&gt;
 

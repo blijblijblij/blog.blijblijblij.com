@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Slack on blijblijblij.github.io</title>
-    <link>http://blijblijblij.github.io/tags/slack/index.xml</link>
-    <description>Recent content in Slack on blijblijblij.github.io</description>
+    <title>Slack on blog.blijblijblij.com</title>
+    <link>https://blog.blijblijblij.com/tags/slack/index.xml</link>
+    <description>Recent content in Slack on blog.blijblijblij.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <atom:link href="http://blijblijblij.github.io/tags/slack/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.blijblijblij.com/tags/slack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Slack update from pdi</title>
-      <link>http://blijblijblij.github.io/post/slack-update-from-pdi/</link>
+      <link>https://blog.blijblijblij.com/post/slack-update-from-pdi/</link>
       <pubDate>Sat, 19 Nov 2016 10:00:04 +0100</pubDate>
       
-      <guid>http://blijblijblij.github.io/post/slack-update-from-pdi/</guid>
+      <guid>https://blog.blijblijblij.com/post/slack-update-from-pdi/</guid>
       <description>
 
 &lt;h1 id=&#34;data-transform-your-slack-channels&#34;&gt;Data-transform your slack channels&lt;/h1&gt;
@@ -57,7 +57,7 @@ https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
 
 &lt;p&gt;A reporting transformation that delivers the very same json, but with some additions:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_tr_report.png&#34; alt=&#34;report to slack&#34; title=&#34;report to slack&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-11-19_tr_report.png&#34; alt=&#34;report to slack&#34; title=&#34;report to slack&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Script the json with javascript:&lt;/p&gt;
 
@@ -78,11 +78,11 @@ https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
 
 &lt;p&gt;Incorperate the slack reporting into a bigger picture:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_jb_main.png&#34; alt=&#34;main job&#34; title=&#34;main job&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-11-19_jb_main.png&#34; alt=&#34;main job&#34; title=&#34;main job&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Et voila, some slack updates:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blijblijblij.github.io/images/2016-11-19_slack_updated.png&#34; alt=&#34;on slack&#34; title=&#34;on slack&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blijblijblij.com/images/2016-11-19_slack_updated.png&#34; alt=&#34;on slack&#34; title=&#34;on slack&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;thin-foil-hat&#34;&gt;Thin foil hat&lt;/h2&gt;
 
