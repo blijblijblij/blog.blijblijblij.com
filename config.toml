@@ -1,0 +1,37 @@
+BaseUrl= "http://blog.blijblijblij.com/"
+LanguageCode= "en-US"
+Title= "blog.blijblijblij.com"
+paginate = 5
+DisqusShortname = "blijblijblij"
+Copyright = "All rights reserved - 2016"
+canonifyurls = true
+
+[params]
+  description = "... blablabla, linux, pentaho, docker, mesos ..."
+  cover = "images/cover.jpg"
+  author = "Rogier Wessel"
+  authorlocation = "Amersfoort, The Netherlands"
+  authorwebsite = "http://blog.blijblijblij.com"
+  bio= "Opensource Data dude, from linux to docker into the magical world of data and Pentaho. Might have eaten all red pills when it came to docker..."
+  logo = "images/logo.png"
+  googleAnalyticsUserID = "UA-77257717-1"
+  # Optional RSS-Link, if not provided it defaults to the standard index.xml
+  # RSSLink = "http://blog.blijblijblij.com/feed.xml"
+  githubName = "blijblijblij"
+  twitterName = "blijblijblij"
+  # facebookName = ""
+  # linkedinName = ""
+  # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
+  hideHUGOSupport = true
+
+  # [[menu.main]]
+  #   name = "My Blog"
+  #   weight = -120
+  #   identifier = "blog"
+  #   url = "/"
+  #
+  [[menu.main]]
+    name = "About me"
+    weight = -110
+    identifier = "about"
+    url = "/about"
