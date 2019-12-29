@@ -4,10 +4,11 @@ draft = false
 date = "2017-03-25T13:45:08+01:00"
 author = "Rogier Wessel"
 post = "/:year/:month/:day/:slug.html"
-image = "images/cover.jpg"
-comments = false
-share = false
-
+menu = "main"
+categories = [
+    "Development",
+    "golang",
+]
 +++
 
 Opensource data dude, pentaho, linux, docker, mesos, lately with some Ruby magic. 

@@ -1,139 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mesos on blog.blijblijblij.com</title>
-    <link>https://blog.blijblijblij.com/tags/mesos/index.xml</link>
-    <description>Recent content in Mesos on blog.blijblijblij.com</description>
+    <title>mesos on blog.blijblijblij.com</title>
+    <link>https://blog.blijblijblij.com/tags/mesos/</link>
+    <description>Recent content in mesos on blog.blijblijblij.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>All rights reserved - 2016</copyright>
-    <atom:link href="https://blog.blijblijblij.com/tags/mesos/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/blijblijblij&#34;&gt;Rogier Wessel&lt;/a&gt; 2020</copyright>
+    <lastBuildDate>Sat, 21 May 2016 11:06:05 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.blijblijblij.com/tags/mesos/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Running pentaho on mesos - part 1</title>
-      <link>https://blog.blijblijblij.com/post/pentaho-and-mesos/</link>
+      <link>https://blog.blijblijblij.com/posts/pentaho-and-mesos/</link>
       <pubDate>Sat, 21 May 2016 11:06:05 +0200</pubDate>
       
-      <guid>https://blog.blijblijblij.com/post/pentaho-and-mesos/</guid>
-      <description>
-
-&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-
-&lt;p&gt;I have been amazed by the ease of getting software through the software development cycle once you start doing it the &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; way. I picked it up soon after &lt;a href=&#34;http://www.wired.com/2013/09/docker/&#34;&gt;it came to light&lt;/a&gt;, and hammered it hard. At that point I got all developers aligned to use Docker as well.&lt;/p&gt;
-
-&lt;p&gt;As we started using Docker more extensively, combining different Frontends services and Backends services through Docker compositions, running multiple hosts, intranet, things started to get a bit more complicated.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/adrianmouat&#34;&gt;Adrian Mouat&lt;/a&gt; acknowledged my next step in a piece he wrote for Oreilly &lt;a href=&#34;https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos&#34;&gt;Swarm v. Fleet v. Kubernetes v. Mesos Comparing different orchestration tools&lt;/a&gt; my prefered orchestration framework for our containers would be Mesos.&lt;/p&gt;
-
-&lt;h1 id=&#34;define&#34;&gt;Define&lt;/h1&gt;
-
-&lt;p&gt;This is an overview of a mesos cluster in its simplest form.
-&lt;img src=&#34;https://raw.githubusercontent.com/blijblijblij/blog.blijblijblij.com-hugo/9dafdf22f19d04c63eb47e2c9681884694887156/static/images/mesos-arch.png&#34; alt=&#34;Mesos architectural overview&#34; /&gt;
-&lt;a href=&#34;https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;The mesos-master&lt;/strong&gt; is the central part of the cluster, it controls all jobs on the cluster. Usually multiple masters are running on a cluster, thereby given it HA capabilities, especially when running the masters in different &lt;a href=&#34;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones&#34;&gt;availability zones&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The marathon scheduler&lt;/strong&gt; is the scheduler for long running processes, a webserver, a carte server, a baserver, &amp;hellip; The functionality of Marathon on the cluster is often compared to what &lt;code&gt;init.d&lt;/code&gt; leverages on a linux system. To run services, keep them running, scale them etc.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The chronos scheduler&lt;/strong&gt; is a scheduler batch task, and as such often compared to &lt;code&gt;cron&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The mesos slaves aka agents&lt;/strong&gt; run the actual jobs as directed by the mesos master(s)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Zookeeper&lt;/strong&gt; is used for master elections, coordination and to persist configuration throughout the cluster.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There is so much more to be told about mesos, but I suggest you just &lt;code&gt;Run, Forrest, Run!&lt;/code&gt; to &lt;a href=&#34;http://ssearch.oreilly.com/?q=mesos&amp;amp;x=0&amp;amp;y=0&#34;&gt;Oreilly&lt;/a&gt;, &lt;a href=&#34;https://www.manning.com/books/mesos-in-action&#34;&gt;Manning&lt;/a&gt; or some other it-drug delivery service and read up on this topic.&lt;/p&gt;
-
-&lt;h1 id=&#34;create&#34;&gt;Create&lt;/h1&gt;
-
-&lt;p&gt;I am going to assume a working &lt;a href=&#34;https://docs.docker.com/engine/installation/&#34;&gt;docker&lt;/a&gt; / &lt;a href=&#34;https://docs.docker.com/compose/install/&#34;&gt;docker-compose&lt;/a&gt; / &lt;a href=&#34;https://docs.docker.com/machine/install-machine/&#34;&gt;docker-machine&lt;/a&gt; setup, some recent hardware.&lt;/p&gt;
-
-&lt;p&gt;For now I will focus on a virtualbox based cluster running locally. I have created a crude but usefull bash-script to get you up and running, it cleans, creates masters, slave and a loadbalancer by utilising docker-machine. I have 4cpu, 16G of RAM at my disposal, just tinker with &lt;code&gt;virtualbox-cpu-count&lt;/code&gt;, &lt;code&gt;virtualbox-memory&lt;/code&gt; and &lt;code&gt;virtualbox-disk-size&lt;/code&gt; to make this baby fit your needs.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/sh
-clear
-
-echo &amp;quot;creating my epic local cluster&amp;quot;
-
-clean() {
-  echo &amp;quot;---&amp;gt; rm old machines, no mercy baby!&amp;quot;
-  docker-machine rm -f mesos-lb1 mesos-m1 mesos-m2 mesos-m3 mesos-s1 mesos-s2 &amp;gt; /dev/null
-}
-
-create_masters() {
-  echo &amp;quot;---&amp;gt; create masters&amp;quot;
-  echo &amp;quot;---&amp;gt; create mesos-m1&amp;quot;
-  docker-machine create -d virtualbox \
-    --virtualbox-cpu-count &amp;quot;1&amp;quot; \
-    --virtualbox-memory &amp;quot;1024&amp;quot; \
-    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
-    mesos-m1
-
-  echo &amp;quot;---&amp;gt; create mesos-m2&amp;quot;
-  docker-machine create -d virtualbox \
-    --virtualbox-cpu-count &amp;quot;1&amp;quot; \
-    --virtualbox-memory &amp;quot;1024&amp;quot; \
-    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
-    mesos-m2
-
-  echo &amp;quot;---&amp;gt; create mesos-m3&amp;quot;
-  docker-machine create -d virtualbox \
-    --virtualbox-cpu-count &amp;quot;1&amp;quot; \
-    --virtualbox-memory &amp;quot;1024&amp;quot; \
-    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
-    mesos-m3
-}
-
-create_slaves() {
-  echo &amp;quot;---&amp;gt; create slaves&amp;quot;
-  echo &amp;quot;---&amp;gt; create mesos-s1&amp;quot;
-  docker-machine create -d virtualbox \
-    --virtualbox-cpu-count &amp;quot;2&amp;quot; \
-    --virtualbox-memory &amp;quot;4092&amp;quot; \
-    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
-    mesos-s1
-
-  echo &amp;quot;---&amp;gt; create mesos-s2&amp;quot;
-  docker-machine create -d virtualbox \
-      --virtualbox-cpu-count &amp;quot;2&amp;quot; \
-      --virtualbox-memory &amp;quot;4092&amp;quot; \
-      --virtualbox-disk-size &amp;quot;50000&amp;quot; \
-      mesos-s2
-}
-
-create_loadbalancer() {
-  echo &amp;quot;---&amp;gt; create loadbalancer&amp;quot;
-  echo &amp;quot;---&amp;gt; create mesos-lb1&amp;quot;
-  docker-machine create -d virtualbox \
-    --virtualbox-cpu-count &amp;quot;1&amp;quot; \
-    --virtualbox-memory &amp;quot;1024&amp;quot; \
-    --virtualbox-disk-size &amp;quot;50000&amp;quot; \
-    mesos-lb1
-}
-main() {
-  clean
-  create_masters
-  create_slaves
-  create_loadbalancer
-  echo &amp;quot;done&amp;quot;
-}
-
-main
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;After running this script, check the results:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker-machine ls | grep virtualbox
-mesos-lb1                    -        virtualbox   Running   tcp://192.168.99.105:2376           v1.11.1   
-mesos-m1                     -        virtualbox   Running   tcp://192.168.99.100:2376           v1.11.1   
-mesos-m2                     -        virtualbox   Running   tcp://192.168.99.101:2376           v1.11.1   
-mesos-m3                     -        virtualbox   Running   tcp://192.168.99.102:2376           v1.11.1   
-mesos-s1                     -        virtualbox   Running   tcp://192.168.99.103:2376           v1.11.1   
-mesos-s2                     -        virtualbox   Running   tcp://192.168.99.104:2376           v1.11.1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That was easy!&lt;/p&gt;
-
-&lt;h1 id=&#34;run&#34;&gt;Run&lt;/h1&gt;
-</description>
+      <guid>https://blog.blijblijblij.com/posts/pentaho-and-mesos/</guid>
+      <description>Introduction I have been amazed by the ease of getting software through the software development cycle once you start doing it the Docker way. I picked it up soon after it came to light, and hammered it hard. At that point I got all developers aligned to use Docker as well.
+As we started using Docker more extensively, combining different Frontends services and Backends services through Docker compositions, running multiple hosts, intranet, things started to get a bit more complicated.</description>
     </item>
     
   </channel>

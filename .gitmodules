@@ -1,0 +1,9 @@
+[submodule "themes/hyde-hyde"]
+	path = themes/hyde-hyde
+	url = https://github.com/htr3n/hyde-hyde.git
+[submodule "themes/chunky-poster"]
+	path = themes/chunky-poster
+	url = https://gitlab.com/virtualcursor/chunky-poster.git
+[submodule "themes/ananke"]
+	path = themes/ananke
+	url = https://github.com/budparr/gohugo-theme-ananke.git

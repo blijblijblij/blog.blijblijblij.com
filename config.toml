@@ -1,37 +1,39 @@
-BaseUrl= "http://blog.blijblijblij.com/"
-LanguageCode= "en-US"
-Title= "blog.blijblijblij.com"
-paginate = 5
-DisqusShortname = "blijblijblij"
-Copyright = "All rights reserved - 2016"
-canonifyurls = true
+baseURL = "https://blog.blijblijblij.com/"
+languageCode = "en-us"
+title = "blog.blijblijblij.com"
+# theme = "hyde-hyde"
+# theme = "chunky-poster"
+# theme = "ananke"
+theme = "kiss"
+copyright = "&copy; <a href=\"https://github.com/blijblijblij\">Rogier Wessel</a> 2020"
+disqusShortname = "blijblijblij"
+Paginate = 5 # Number of posts per page
+enableRobotsTXT = true
 
-[params]
-  description = "... blablabla, linux, pentaho, docker, mesos ..."
-  cover = "images/cover.jpg"
-  author = "Rogier Wessel"
-  authorlocation = "Amersfoort, The Netherlands"
-  authorwebsite = "http://blog.blijblijblij.com"
-  bio= "Opensource Data dude, from linux to docker into the magical world of data and Pentaho. Might have eaten all red pills when it came to docker..."
-  logo = "images/logo.png"
-  googleAnalyticsUserID = "UA-77257717-1"
-  # Optional RSS-Link, if not provided it defaults to the standard index.xml
-  # RSSLink = "http://blog.blijblijblij.com/feed.xml"
-  githubName = "blijblijblij"
-  twitterName = "blijblijblij"
-  # facebookName = ""
-  # linkedinName = ""
-  # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
-  hideHUGOSupport = true
+[params.social]
+	twitter = "blijblijblij"
+	github = "blijblijblij"
+  linkedin = "blijblijblij"
+  email = "rogier@blijblijblij.com"
+  instagram = "blijblijblij"
+  codepen = ""
+  rss = "index.xml" # Add this to show RSS button in social.
 
-  # [[menu.main]]
-  #   name = "My Blog"
-  #   weight = -120
-  #   identifier = "blog"
-  #   url = "/"
-  #
-  [[menu.main]]
-    name = "About me"
-    weight = -110
-    identifier = "about"
-    url = "/about"
+[params.info]
+  adsense = "" # Adsense ID (ID only, without ca-pub-)
+  enableSocial = true # Adds OpenGraph and Twitter cards
+  homeTitle = "blog.blijblijbl.com" # Title for home page
+  poweredby = false # Adds powered by hugo and kiss below Copyright
+  related = true # Includes related articles at the bottom of the article
+  codeCopy = true # Add copy button above code blocks
+
+[params.rss] # Adding this tag enables RSS feed
+  includeContent = true # Includes whole content in rss
+  authorName = "Rogier Wessel" # Author full name
+  authorEmail = "rogier@blijblijblij.com" # Author email
+
+[params.social.config]
+  platforms = ["github","twitter","instagram","email","linkedin"]
+
+[taxonomies]
+  tag ="tags"
