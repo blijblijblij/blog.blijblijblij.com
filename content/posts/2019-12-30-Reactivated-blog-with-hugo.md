@@ -43,6 +43,10 @@ jobs:
     - name: Build
       run: hugo --minify
 
+    - name: Set CNAME
+      run: |
+        echo blog.blijblijblij.com > ./public/CNAME
+
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
       env:
