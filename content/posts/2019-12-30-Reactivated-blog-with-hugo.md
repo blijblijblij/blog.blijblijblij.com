@@ -1,6 +1,8 @@
 ---
 title: "Reactivated Blog With Hugo"
 date: 2019-12-30T20:08:15+01:00
+author: "Rogier Wessel"
+tags: ["blog", "hugo"]
 draft: false
 ---
 Somehow over time bitrot appeared in my [Hugo](https://gohugo.io/) setup. Files where ok 
