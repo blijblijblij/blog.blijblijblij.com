@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Ssl termination with pentaho &middot;  blog.blijblijblij.com" />
+  	<meta property="og:site_name" content="blog.blijblijblij.com" />
+  	<meta property="og:url" content="https://blog.blijblijblij.com/post/ssl-termination-with-pentaho/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2017-02-28T07:06:38&#43;01:00" />
+
+    
+    <meta property="og:article:tag" content="docker" />
+    
+    <meta property="og:article:tag" content="pentaho" />
+    
+    <meta property="og:article:tag" content="proxy" />
+    
+    
+
+  <title>
+     Ssl termination with pentaho &middot;  blog.blijblijblij.com
+  </title>
+
+    <meta name="description" content="... blablabla, linux, pentaho, docker, mesos ..." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://blog.blijblijblij.com/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://blog.blijblijblij.com/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://blog.blijblijblij.com/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://blog.blijblijblij.com/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://blog.blijblijblij.com/index.xml" rel="alternate" type="application/rss+xml" title="blog.blijblijblij.com" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.19" />
+
+    <link rel="canonical" href="https://blog.blijblijblij.com/post/ssl-termination-with-pentaho/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77257717-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://blog.blijblijblij.com/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head" style="background-image: url(https://blog.blijblijblij.com/images/cover.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://blog.blijblijblij.com/"><img src="https://blog.blijblijblij.com/images/logo.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button icon-feed" href="https://blog.blijblijblij.com/index.xml">&nbsp;&nbsp;Subscribe</a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Ssl termination with pentaho</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-02-28T07:06:38&#43;01:00">
+            Feb 28, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://blog.blijblijblij.com/tags/docker/">#docker</a></span>
+         
+          <span class="post-tag small"><a href="https://blog.blijblijblij.com/tags/pentaho/">#pentaho</a></span>
+         
+          <span class="post-tag small"><a href="https://blog.blijblijblij.com/tags/proxy/">#proxy</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>This post builds on top off a previous post <a href="https://blog.blijblijblij.com/post/easy-proxy-for-biserver/">Setup an easy reverse proxy to the biserver</a></p>
+
+<h1 id="problem">Problem</h1>
+
+<p>Its 2017!</p>
+
+<p>They just gave <code>the big red do not push button</code> to the monkey, we are all fooked!</p>
+
+<p><iframe src="//giphy.com/embed/HUkOv6BNWc1HO" width="480" height="362" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/mrw-show-remote-HUkOv6BNWc1HO"></a></p></p>
+
+<p>&hellip; unless &hellip;</p>
+
+<h1 id="solution">Solution</h1>
+
+<p>We include ssl in our pentaho setup using <a href="https://en.wikipedia.org/wiki/TLS_termination_proxy">ssl termination</a></p>
+
+<p><iframe src="//giphy.com/embed/13tCsW5QkpRMXe" width="480" height="380" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/pinky-and-the-brain-13tCsW5QkpRMXe"></a></p></p>
+
+<h2 id="ingredients">Ingredients</h2>
+
+<ul>
+<li>a <a href="https://hub.docker.com/r/interaction/letsencrypt/">letsencrypt container</a></li>
+<li>a <a href="https://hub.docker.com/r/interaction/haproxy/">modified haproxy</a> based on the previously used <a href="https://github.com/docker/dockercloud-haproxy">dockercloud haproxy container</a></li>
+<li>a randomly picked <a href="https://hub.docker.com/r/serasoft/docker-pentaho/">biserver</a></li>
+<li>a docker-composition to glue these together:</li>
+</ul>
+
+<pre><code>biserver:
+  image: serasoft/docker-pentaho
+  environment:
+    - FORCE_SSL=yes
+    - VIRTUAL_HOST=*,https://*
+  expose:
+    - &quot;8080&quot;
+  ports:
+    - &quot;8080&quot;
+
+proxy:
+  image: interaction/haproxy:master
+  links:
+    - letsencrypt
+    - biserver
+  ports:
+    - &quot;80:80&quot;
+    - &quot;443:443&quot;
+  # roles:
+  #   - global
+  volumes_from:
+    - letsencrypt
+
+letsencrypt:
+  image: interaction/letsencrypt:master
+  environment:
+    - DOMAINS=mypublicdomain.com
+    - EMAIL=noreply@mypublicdomain.com
+    # - OPTIONS=--staging
+  expose:
+    - &quot;80&quot;
+</code></pre>
+
+<p>Start this composition with <a href="https://docs.docker.com/compose/">docker-compose</a></p>
+
+<p><code>docker-compose up -d &amp;&amp; docker-compose logs -f</code></p>
+
+<p>The logs on <code>letsencrypt</code> are looking good:</p>
+
+<pre><code>Attaching to tmp_letsencrypt_1
+letsencrypt_1 | WARNING: Tini has been relocated to /sbin/tini.
+letsencrypt_1 | Please update your scripts to use /sbin/tini going forward.
+letsencrypt_1 | /usr/bin/tini has been preserved for backwards compatibility in Alpine 3.4,
+letsencrypt_1 | but WILL BE REMOVED in Alpine 3.5.
+letsencrypt_1 |
+letsencrypt_1 | Serving HTTP on 0.0.0.0 port 80 ...
+letsencrypt_1 | Saving debug log to /var/log/letsencrypt/letsencrypt.log
+letsencrypt_1 | Starting new HTTPS connection (1): acme-v01.api.letsencrypt.org
+letsencrypt_1 | Obtaining a new certificate
+letsencrypt_1 | Performing the following challenges:
+letsencrypt_1 | http-01 challenge for bloeb.blijblijblij.com
+letsencrypt_1 | Using the webroot path /opt/www for all unmatched domains.
+letsencrypt_1 | Waiting for verification...
+letsencrypt_1 | 172.17.0.4 - - [28/Feb/2017 16:01:34] &quot;GET /.well-known/acme-challenge/-iblc1PlXivPEr1Gm6K4lhLS6FdTbwcdHbK2ejBew4A HTTP/1.1&quot; 200 -
+letsencrypt_1 | Cleaning up challenges
+letsencrypt_1 | Generating key (2048 bits): /etc/letsencrypt/keys/0000_key-certbot.pem
+letsencrypt_1 | Creating CSR: /etc/letsencrypt/csr/0000_csr-certbot.pem
+letsencrypt_1 | IMPORTANT NOTES:
+letsencrypt_1 |  - Congratulations! Your certificate and chain have been saved at
+letsencrypt_1 |    /etc/letsencrypt/live/bloeb.blijblijblij.com/fullchain.pem. Your
+letsencrypt_1 |    cert will expire on 2017-05-29. To obtain a new or tweaked version
+letsencrypt_1 |    of this certificate in the future, simply run certbot again. To
+letsencrypt_1 |    non-interactively renew *all* of your certificates, run &quot;certbot
+letsencrypt_1 |    renew&quot;
+letsencrypt_1 |  - If you lose your account credentials, you can recover through
+letsencrypt_1 |    e-mails sent to rhwessel@xs4all.nl.
+letsencrypt_1 |  - Your account credentials have been saved in your Certbot
+letsencrypt_1 |    configuration directory at /etc/letsencrypt. You should make a
+letsencrypt_1 |    secure backup of this folder now. This configuration directory will
+letsencrypt_1 |    also contain certificates and private keys obtained by Certbot so
+letsencrypt_1 |    making regular backups of this folder is ideal.
+letsencrypt_1 |  - If you like Certbot, please consider supporting our work by:
+letsencrypt_1 |
+letsencrypt_1 |    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+letsencrypt_1 |    Donating to EFF:                    https://eff.org/donate-le
+letsencrypt_1 |
+</code></pre>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="https://blog.blijblijblij.com/" style="background-image: url(https://blog.blijblijblij.com/images/logo.png)"><span class="hidden">Rogier Wessel's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="https://blog.blijblijblij.com/">Rogier Wessel</a></h4>
+  
+  <p>Opensource Data dude, from linux to docker into the magical world of data and Pentaho. Might have eaten all red pills when it came to docker...</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Amersfoort, The Netherlands</span>
+    <span class="author-link icon-link"><a href="https://blog.blijblijblij.com">https://blog.blijblijblij.com</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Ssl%20termination%20with%20pentaho&amp;url=http%3a%2f%2fblog.blijblijblij.com%2fpost%2fssl-termination-with-pentaho%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.blijblijblij.com%2fpost%2fssl-termination-with-pentaho%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fblog.blijblijblij.com%2fpost%2fssl-termination-with-pentaho%2f&amp;description=Ssl%20termination%20with%20pentaho"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fblog.blijblijblij.com%2fpost%2fssl-termination-with-pentaho%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">blog.blijblijblij.com</a> All rights reserved - 2016</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://blog.blijblijblij.com/js/jquery.js"></script>
+    <script type="text/javascript" src="https://blog.blijblijblij.com/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://blog.blijblijblij.com/js/index.js"></script>
+    
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog.blijblijblij.com</title>
+    <link>https://blog.blijblijblij.com/</link>
+    <description>Recent content on blog.blijblijblij.com</description>
+    <generator>Hugo - gohugo.io</generator>
+    <language>en</language>
+    <contact>rogier@blijblijblij.com</contact>
+    <copyright>&copy; <a href="https://github.com/blijblijblij">Rogier Wessel</a> 2020</copyright>
+    
+        <atom:link href="https://blog.blijblijblij.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About me</title>
+      <link>https://blog.blijblijblij.com/about/</link>
+      <pubDate>Sat, 25 Mar 2017 13:45:08 +0100</pubDate>
+      <author>Rogier Wessel</author>
+      <guid>https://blog.blijblijblij.com/about/</guid>
+      <description></description>
+      
+      <content>&lt;p&gt;Opensource data dude, pentaho, linux, docker, mesos, lately with some Ruby magic.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Anybody who tells me I can&#39;t use a program because it&#39;s not open source, go suck on rms. I&#39;m not interested. 99% of that I run tends to be open source, but that&#39;s &lt;em&gt;my&lt;/em&gt; choice, dammit.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;-Linus Torvalds&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As we live in the golden age of Opensource software we shall not only take, but also give back if we can. Kicked off the &lt;a href=&#34;https://www.meetup.com/Pentaho-NL-Meetup&#34;&gt;Pentaho NL meetup&lt;/a&gt;, try to &lt;a href=&#34;http://blog.blijblijblij.com&#34;&gt;blog&lt;/a&gt; &lt;a href=&#34;https://github.com/blijblijblij/presentations&#34;&gt;talk&lt;/a&gt; &lt;a href=&#34;https://www.twitter.com/blijblijblij&#34;&gt;tweet&lt;/a&gt; about usefull new stuff as I continue my quest through DataLand&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Currently employed by Data centric startup &lt;a href=&#34;https://www.reelmetrics.com&#34;&gt;ReelMetrics&lt;/a&gt;, doing the DataDance, also build a Docker based, Mesos orchestrated, AWS supported infra to accelarate Pentaho based data products and Ruby on Rails frontends.&lt;/p&gt;
+</content>
+      
+    </item>
+    
+    <item>
+      <title>Posts</title>
+      <link>https://blog.blijblijblij.com/posts/</link>
+      <pubDate>Fri, 17 Mar 2017 11:29:17 +0100</pubDate>
+      <author>Rogier Wessel</author>
+      <guid>https://blog.blijblijblij.com/posts/</guid>
+      <description></description>
+      
+      <content></content>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Setup an easy reverse proxy to the biserver &middot;  blog.blijblijblij.com" />
+  	<meta property="og:site_name" content="blog.blijblijblij.com" />
+  	<meta property="og:url" content="https://blog.blijblijblij.com/post/easy-proxy-for-biserver/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-12-10T13:00:00&#43;01:00" />
+
+    
+    <meta property="og:article:tag" content="docker" />
+    
+    <meta property="og:article:tag" content="pentaho" />
+    
+    <meta property="og:article:tag" content="proxy" />
+    
+    
+
+  <title>
+     Setup an easy reverse proxy to the biserver &middot;  blog.blijblijblij.com
+  </title>
+
+    <meta name="description" content="... blablabla, linux, pentaho, docker, mesos ..." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://blog.blijblijblij.com/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://blog.blijblijblij.com/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://blog.blijblijblij.com/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://blog.blijblijblij.com/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://blog.blijblijblij.com/index.xml" rel="alternate" type="application/rss+xml" title="blog.blijblijblij.com" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.19" />
+
+    <link rel="canonical" href="https://blog.blijblijblij.com/post/easy-proxy-for-biserver/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77257717-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://blog.blijblijblij.com/about">About me</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://blog.blijblijblij.com/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head" style="background-image: url(https://blog.blijblijblij.com/images/cover.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://blog.blijblijblij.com/"><img src="https://blog.blijblijblij.com/images/logo.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Setup an easy reverse proxy to the biserver</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-12-10T13:00:00&#43;01:00">
+            Dec 10, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://blog.blijblijblij.com/tags/docker/">#docker</a></span>
+         
+          <span class="post-tag small"><a href="https://blog.blijblijblij.com/tags/pentaho/">#pentaho</a></span>
+         
+          <span class="post-tag small"><a href="https://blog.blijblijblij.com/tags/proxy/">#proxy</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<h1 id="problem">Problem</h1>
+
+<p>You have a biserver serving up information either directly or embedded into
+some website. You need to open up the biserver to the rest of the world but want
+to prevent access to certain endpoints. These endpoints might serve only internal
+consumers, or have security implications.</p>
+
+<p>We need to limit the attack service of a biserver!</p>
+
+<p><img src="https://blog.blijblijblij.com/images/mayday.png" alt="proxy it" title="proxy it" /></p>
+
+<p>Traditionally one would spin up a new server, add an apache config to proxy forward
+some requests to the backend. This adds complexity, moving parts, and lowers
+agility.</p>
+
+<p>In this post I&rsquo;ll suggest a simplification of the same approach, just in a
+slightly more flexible way, obviously we&rsquo;ll containerize it.</p>
+
+<h1 id="solution">Solution</h1>
+
+<h2 id="ingredients">Ingredients</h2>
+
+<ul>
+<li>a <a href="https://github.com/docker/dockercloud-haproxy">haproxy container</a> with a pretty impressive featureset</li>
+<li>a biserver 6.1 container with a wildly impressive <code>HelloWorld</code> cde dashboard <code>/pentaho/api/repos/%3Apublic%3AHelloWorld.wcdf/generatedContent</code></li>
+<li>a canary container that will informs us about missing resources</li>
+<li>a docker-composition to glue these together:</li>
+</ul>
+
+<pre><code class="language-shell">version: '2'
+services:
+  biserver:
+    image: pentaho/biserver:6.1
+    ports:
+      - 8080:8080
+    environment:
+      - VIRTUAL_HOST=...
+      - VIRTUAL_HOST_WEIGHT=2
+  canary:
+    image: httpd:latest
+    environment:
+      - VIRTUAL_HOST=http://*
+      - VIRTUAL_HOST_WEIGHT=1
+  proxy:
+    image: dockercloud/haproxy
+    links:
+      - biserver
+      - canary
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+</code></pre>
+
+<h2 id="round-1">Round 1</h2>
+
+<p>We utilise the <code>VIRTUAL_HOST</code> <a href="https://github.com/docker/dockercloud-haproxy#global-and-default-settings-of-haproxy">options</a> of the proxy to whitelist our epic HelloWorld dashboard. By giving the proxy a higher <code>VIRTUAL_HOST_WEIGHT</code> we force traffic to first route via this <code>VIRTUAL_HOST</code> everything else falls through onto the canary container.</p>
+
+<pre><code class="language-shell">VIRTUAL_HOST=http://*/pentaho/api/repos/%3Apublic%3AHelloWorld.wcdf/generatedContent
+</code></pre>
+
+<p>Looking at the dashboard directly.</p>
+
+<p><img src="https://blog.blijblijblij.com/images/2016-12-10_biserver direct.png" alt="unproxied" title="unproxied" /></p>
+
+<p>Now, lets view it via the proxy
+<img src="https://blog.blijblijblij.com/images/2016-12-10_biserverproxied.png" alt="proxied" title="proxied" /></p>
+
+<p>But oh, the horror of my carefully crafted indenting, it has gone all haywire. And when we inspect the page we see what&rsquo;s going wrong:</p>
+
+<p><img src="https://blog.blijblijblij.com/images/2016-12-10_styling_horrors.png" alt="styling horrors" title="styling horrors" /></p>
+
+<p>And funny enough, now the <code>canary</code> container comes to offer the same insight as well:</p>
+
+<pre><code class="language-shell">canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:49 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf/js/cdf-bootstrap-script-includes.js?v=decdbcb3b01341682f2ef9799798313c HTTP/1.1&quot; 404 263
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:49 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf/css/cdf-bootstrap-style-includes.css?v=7bc42bb099ded22348e9c9b992045d67 HTTP/1.1&quot; 404 264
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:49 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf-dd/js/CDF.js?v=7591bba3804971aeae31ca943022aba2 HTTP/1.1&quot; 404 240
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:49 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf-dd/css/CDF-CSS.css?v=9dd48fd0265f0d8bcc30ac6afec3f0ff HTTP/1.1&quot; 404 246
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:52 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf/js/cdf-bootstrap-script-includes.js?v=decdbcb3b01341682f2ef9799798313c HTTP/1.1&quot; 404 263
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:52 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf/css/cdf-bootstrap-style-includes.css?v=7bc42bb099ded22348e9c9b992045d67 HTTP/1.1&quot; 404 264
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:52 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf-dd/js/CDF.js?v=7591bba3804971aeae31ca943022aba2 HTTP/1.1&quot; 404 240
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:09:52 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf-dd/css/CDF-CSS.css?v=9dd48fd0265f0d8bcc30ac6afec3f0ff HTTP/1.1&quot; 404 246
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:11:09 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf/js/cdf-bootstrap-script-includes.js?v=decdbcb3b01341682f2ef9799798313c HTTP/1.1&quot; 404 263
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:11:09 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf/css/cdf-bootstrap-style-includes.css?v=7bc42bb099ded22348e9c9b992045d67 HTTP/1.1&quot; 404 264
+canary_1    | 172.18.0.4 - - [10/Dec/2016:20:11:09 +0000] &quot;GET /pentaho/api/repos/pentaho-cdf-dd/js/CDF.js?v=7591bba3804971aeae31ca943022aba2 HTTP/1.1&quot; 404 240
+</code></pre>
+
+<h2 id="round-2">Round 2</h2>
+
+<p>So we whitelist two more paths:</p>
+
+<ul>
+<li><code>/pentaho/api/repos/pentaho-cdf/js/*</code></li>
+<li><code>/pentaho/api/repos/pentaho-cdf/css/*</code></li>
+</ul>
+
+<pre><code class="language-shell">VIRTUAL_HOST=http://*/pentaho/api/repos/%3Apublic%3AHelloWorld.wcdf/generatedContent,http://*/pentaho/api/repos/pentaho-cdf/css/*,http://*/pentaho/api/repos/pentaho-cdf/js/*
+</code></pre>
+
+<p>Et voila, indenting back from the death, but carefully proxied for only that particular resource we wanted to expose to the world <code>:-)</code>
+<img src="https://blog.blijblijblij.com/images/2016-12-10_epic_dashboard.png" alt="epic" title="epic" /></p>
+
+<p>So the final composition looks like:</p>
+
+<pre><code class="language-shell">version: '2'
+services:
+  biserver:
+    image: pentaho/biserver:6.1
+    ports:
+      - 8080
+    environment:
+      - VIRTUAL_HOST=http://*/pentaho/api/repos/%3Apublic%3AHelloWorld.wcdf/generatedContent,http://*/pentaho/api/repos/pentaho-cdf/css/*,http://*/pentaho/api/repos/pentaho-cdf/js/*
+      - VIRTUAL_HOST_WEIGHT=2
+      - GZIP_COMPRESSION_TYPE=text/html text/plain text/css text/javascript application/json
+  canary:
+    image: httpd:latest
+    environment:
+      - VIRTUAL_HOST=http://*
+      - VIRTUAL_HOST_WEIGHT=1
+      - GZIP_COMPRESSION_TYPE=text/html text/plain text/css text/javascript application/json
+  proxy:
+    image: dockercloud/haproxy
+    links:
+      - biserver
+      - canary
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+</code></pre>
+
+<p>We have locked up the biserver completely, and we can dive deeper into the <a href="https://github.com/docker/dockercloud-haproxy#global-and-default-settings-of-haproxy">magic of the haproxy container</a>,
+as it can do easy ssl termination as well, just change the proxy to:</p>
+
+<pre><code class="language-shell">proxy:
+  image: dockercloud/haproxy
+  environment:
+    - DEFAULT_SSL_CERT=-----&gt; my cert goes here
+  links:
+    - biserver
+    - canary
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  ports:
+    - 443:443
+</code></pre>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="https://blog.blijblijblij.com/" style="background-image: url(https://blog.blijblijblij.com/images/logo.png)"><span class="hidden">Rogier Wessel's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="https://blog.blijblijblij.com/">Rogier Wessel</a></h4>
+  
+  <p>Opensource Data dude, from linux to docker into the magical world of data and Pentaho. Might have eaten all red pills when it came to docker...</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Amersfoort, The Netherlands</span>
+    <span class="author-link icon-link"><a href="https://blog.blijblijblij.com">https://blog.blijblijblij.com</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Setup%20an%20easy%20reverse%20proxy%20to%20the%20biserver&amp;url=http%3a%2f%2fblog.blijblijblij.com%2fpost%2feasy-proxy-for-biserver%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.blijblijblij.com%2fpost%2feasy-proxy-for-biserver%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fblog.blijblijblij.com%2fpost%2feasy-proxy-for-biserver%2f&amp;description=Setup%20an%20easy%20reverse%20proxy%20to%20the%20biserver"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fblog.blijblijblij.com%2fpost%2feasy-proxy-for-biserver%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'blijblijblij';
+  var disqus_url = 'http:\/\/blog.blijblijblij.com\/post\/easy-proxy-for-biserver\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">blog.blijblijblij.com</a> All rights reserved - 2016</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://blog.blijblijblij.com/js/jquery.js"></script>
+    <script type="text/javascript" src="https://blog.blijblijblij.com/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://blog.blijblijblij.com/js/index.js"></script>
+    
+</body>
+</html>
+
