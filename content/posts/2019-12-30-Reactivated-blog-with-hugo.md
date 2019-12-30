@@ -17,6 +17,8 @@ supporting the hosting of static websites, ssl included, also
 [custom domain names are supported](https://help.github.com/en/github/working-with-github-pages/about-custom-domains-and-github-pages) allowing me to host via Github
 Pages but on my own domain [https://blog.blijblijblij.com](https://blog.blijblijblij.com).
 
+![Git settings](/images/2019-12-30-git-settings.png "Git settings")
+
 This config (as described by
 [peaceiris/actions-hugo
 ](https://github.com/peaceiris/actions-hugo)) should get you going:
