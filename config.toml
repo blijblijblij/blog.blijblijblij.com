@@ -1,12 +1,9 @@
 baseURL = "https://blog.blijblijblij.com/"
 languageCode = "en-us"
 title = "blog.blijblijblij.com"
-# theme = "hyde-hyde"
-# theme = "chunky-poster"
-# theme = "ananke"
 theme = "kiss"
-copyright = "&copy; <a href=\"https://github.com/blijblijblij\">Rogier Wessel</a> 2020"
-disqusShortname = "blijblijblij"
+copyright = "Copyright <a href=\"https://github.com/blijblijblij\">Rogier Wessel</a> 2020"
+# disqusShortname = "blijblijblij"
 Paginate = 5 # Number of posts per page
 enableRobotsTXT = true
 
