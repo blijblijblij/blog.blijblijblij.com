@@ -1,3 +1,0 @@
-User-agent: *
-
-Sitemap: https://blog.blijblijblij.com//sitemap.xml
