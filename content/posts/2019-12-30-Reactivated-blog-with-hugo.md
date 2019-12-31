@@ -42,14 +42,10 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.59.1'
+        hugo-version: 'latest'
 
     - name: Build
       run: hugo --minify
-
-    - name: Set CNAME
-      run: |
-        echo blog.blijblijblij.com > ./public/CNAME
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
@@ -57,7 +53,6 @@ jobs:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
-        CNAME: blog.blijblijblij.com
 ```
 
 But more information can be found on this [peaceiris/actions-hugo
