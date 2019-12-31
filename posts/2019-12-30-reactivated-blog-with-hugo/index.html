@@ -26,14 +26,10 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: <span style=color:#e6db74>&#39;0.59.1&#39;</span>
+        hugo-version: <span style=color:#e6db74>&#39;latest&#39;</span>
 
     - name: Build
       run: hugo --minify
-
-    - name: Set CNAME
-      run: <span style=color:#e6db74>|
-</span><span style=color:#e6db74>       </span><span style=color:#e6db74> </span><span style=color:#e6db74>echo blog.blijblijblij.com &gt; ./public/CNAME</span>
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
@@ -41,5 +37,4 @@ jobs:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
-        CNAME: blog.blijblijblij.com
 </code></pre></div><p>But more information can be found on this <a href=https://github.com/peaceiris/actions-hugo>peaceiris/actions-hugo</a> page.</p><div class=related></div></div></div></section><script src=/js/copycode.js></script><section class=section><div class="container has-text-centered"><p>Copyright <a href=https://github.com/blijblijblij>Rogier Wessel</a> 2020</p></div></section></body></html>
