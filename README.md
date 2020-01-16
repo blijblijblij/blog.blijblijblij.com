@@ -1,3 +1,3 @@
 # blog.blijblijblij.com
 
-My personal blog, some old content, prepping it for jekkyl
+My personal blog, created with hugo, hosted on github pages
